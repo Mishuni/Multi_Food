@@ -2,7 +2,7 @@
 
 ### 1. DB 구조
 
-<center><img src="images/db.png" width="300" height="300"></center>
+<img src="images/db.png" width="300" height="300">
 
 
 
