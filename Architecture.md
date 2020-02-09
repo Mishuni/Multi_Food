@@ -2,7 +2,7 @@
 
 ### 1. DB 구조
 
-<img src="images/db.png" alt="database_schema" style="zoom:35%;"/>
+<img src="images/db.png" alt="database_schema" style="zoom:20%;"/>
 
 * db 연동
 
