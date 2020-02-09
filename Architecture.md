@@ -2,7 +2,7 @@
 
 ### 1. DB 구조
 
-<img src="images/db.png" width="300" height="300">
+<img src="images/db.png" width="400" height="400">
 
 
 
@@ -13,6 +13,8 @@
   2. WEB-INF 파일에 lib 폴더 만들고 ojdbc6.jar 파일 추가 
 
 ### 2. MVC 구조
+
+* Project 이름 : Project , 기본 패키지 이름 : com.pjt.edu
 
 * com.pjt.edu.board 패키지 : board관련 java 파일 저장 공간
 
@@ -67,7 +69,7 @@
 
 * views 폴더 : jsp 파일(페이지) 저장 공간
 
-  * 통합 템플릿
+  * 통합 템플릿 (jsp template 에 추가)
 
     ```jsp
     <%@ page language="java" contentType="text/html; charset=UTF-8"
