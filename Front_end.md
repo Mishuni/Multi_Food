@@ -8,7 +8,7 @@
 
 
 
-# MyPage
+## MyPage
 
 <img src="images/마이페이지.png" width="1000" height="400">
 
