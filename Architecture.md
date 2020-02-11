@@ -138,14 +138,30 @@
   * mybatis 사용 시
 
     ```xml
-    <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-    <dependency>
-    	<groupId>org.mybatis</groupId>
-    	<artifactId>mybatis</artifactId>
-    	<version>3.4.6</version>
-    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+    		<dependency>
+    			<groupId>org.springframework</groupId>
+    			<artifactId>spring-jdbc</artifactId>
+    			<version>4.3.18.RELEASE</version>
+    		</dependency>
+    
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+    		<dependency>
+    			<groupId>org.mybatis</groupId>
+    			<artifactId>mybatis-spring</artifactId>
+    			<version>1.3.2</version>
+    		</dependency>
+    
+    
+    		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+    		<dependency>
+    			<groupId>org.mybatis</groupId>
+    			<artifactId>mybatis</artifactId>
+    			<version>3.4.6</version>
+    		</dependency>
+    
     ```
-
+    
     
 
 
