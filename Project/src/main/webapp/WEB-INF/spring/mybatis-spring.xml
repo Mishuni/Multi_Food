@@ -21,7 +21,9 @@
 		<property name="configLocation"
 			value="classpath:com/pjt/edu/common/mybatis-config.xml" />
 		<property name="mapperLocations"
-			value="classpath:com/pjt/edu/common/user-mapping.xml" />
+			value="classpath:com/pjt/edu/common/*-mapping.xml" />
+	<!-- 	<property name="mapperLocations"
+			value="classpath:com/pjt/edu/common/user-mapping.xml" /> -->
 		<!-- <property name="configLocation"
 			value="classpath:/mybatis/mybatis-spring-config.xml" />
 		<property name="mapperLocations"
