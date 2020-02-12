@@ -9,6 +9,7 @@
 		<typeAlias type="com.pjt.edu.board.BoardVO" alias="vo"/>
 		<typeAlias type="com.pjt.edu.board.mcreview.MCREVBoardVO" alias="mcboard"/>
 	</typeAliases>
+	
 	<environments default="mydb">
 		<environment id="mydb">
 			<transactionManager type="JDBC" />
@@ -21,8 +22,4 @@
 		</environment>
 	</environments>
 
-	<mappers>
-		<mapper resource="com.pjt.edu.common/user-mapping.xml" />
-		<mapper resource="com.pjt.edu.common/mcrevboard-mapping.xml" />
-	</mappers>
 </configuration>

@@ -24,7 +24,7 @@ public class UserController {
 	@Autowired
 	ClassDAO cdao;
 
-	@RequestMapping(value="/" )
+	@RequestMapping(value="/main" )
 	public String getMain() {
 		ModelAndView mav = new ModelAndView();
 		return "main";
