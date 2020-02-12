@@ -1,6 +1,6 @@
-package com.pjt.edu.board;
+package com.pjt.edu.board.sug;
 
-public class BoardVO {
+public class SUGBoardVO {
 int seq, viewcount;
 String title, contents, writer, regdate;
 public int getSeq() {

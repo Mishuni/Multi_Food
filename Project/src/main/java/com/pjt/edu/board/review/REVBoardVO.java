@@ -1,6 +1,6 @@
-package com.pjt.edu.board;
+package com.pjt.edu.board.review;
 
-public class BoardVO {
+public class REVBoardVO {
 int seq, viewcount;
 String title, contents, writer, regdate;
 public int getSeq() {

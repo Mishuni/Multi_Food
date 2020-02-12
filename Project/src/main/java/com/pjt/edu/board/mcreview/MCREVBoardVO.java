@@ -1,6 +1,6 @@
-package com.pjt.edu.board;
+package com.pjt.edu.board.mcreview;
 
-public class BoardVO {
+public class MCREVBoardVO {
 int seq, viewcount;
 String title, contents, writer, regdate;
 public int getSeq() {
