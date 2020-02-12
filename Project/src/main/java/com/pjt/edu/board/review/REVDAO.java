@@ -2,16 +2,42 @@ package com.pjt.edu.board.review;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
 
-public interface REVDAO {
+import com.pjt.edu.board.BoardVO;
+import com.pjt.edu.board.DAO;
 
-	public int insertBoard(REVBoardVO vo);
+@Repository("revdao")
+public class REVDAO implements DAO {
 
-	public int deleteBoard(REVBoardVO vo);
+	@Override
+	public int insertBoard(BoardVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
-	public int updateBoard(REVBoardVO vo);
+	@Override
+	public int deleteBoard(BoardVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
-	public REVBoardVO getBoard(REVBoardVO vo);
+	@Override
+	public int updateBoard(BoardVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
-	public List<REVBoardVO> getBoardList(REVBoardVO vo);
+	@Override
+	public BoardVO getBoard(BoardVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BoardVO> getBoardList(BoardVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

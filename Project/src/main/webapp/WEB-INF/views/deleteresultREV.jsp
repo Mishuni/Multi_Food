@@ -5,8 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>멀티캠퍼스 식당 후기 게시판</title>
+<title>글쓰기 페이지</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
+
+
 
 </head>
 <body>
@@ -21,26 +23,15 @@
 	</ul>
 	</nav>
 	<br>
+	<hr>
+	<!-- 소스코드 -->
 	
+	<h1>성공적으로 삭제하였습니다</h1>
+	
+	<input type="button" value="목록으로" onClick="location.href='./listREV'">
 
-<hr>	
-
- <h1>멀티캠퍼스 식당 후기 게시판</h1>
- <h3>여러분의 소중한 의견을 들려주세요 </h3>
-
-<form ID = "insertform" action="./insertformREV" method="post">
- 
- 제목<input type=text name="title" maxlength="20"><br>
- 내용<textarea name="contents" rows=10 cols="50"> </textarea> <br>
-  작성자<input type=text name="writer" ><br>
-  암호 <input type="password" name="password" ><br>
-  <input type=submit value="글쓰기완료" >
-  
-  </form>
-  
-
-
-<hr>
+	
+	<hr>
 
 
 	<nav id="topMenu" class="menu">
@@ -52,7 +43,7 @@
 	</nav>
 	<br>
 	
-	
+	<!-- 소스코드 -->
 	
 	<footer id="bottom" class="menu">
 		<p>Posted by: 이효진, 정혜진, 최혜근, 유미선</p>
