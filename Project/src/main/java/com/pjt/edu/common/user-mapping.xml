@@ -8,11 +8,17 @@
 	<select id="oneUser" resultType="user" parameterType="String">
 		select * from users where id = #{id}
 	</select>
+	<select id="getboardlist" resultType="vo">
+		select * from sugboard
+	</select>
+	
 	
 <!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->
 </mapper>
 
-
+<!-- <select id="getboardlist" resultType="vo">
+		select * from sugboard
+	</select> -->
 
 
 

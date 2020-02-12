@@ -15,7 +15,7 @@
 	<ul>
 		<li><a class="menuLink" href="#">오늘의 메뉴</a></li>
 		<li><a class="menuLink" href="#">식단 후기</a></li>
-		<li><a class="menuLink" href="#">식단 건의사항</a></li>
+		<li><a class="menuLink" href="./listsug">식단 건의사항</a></li>
 		<li><a class="menuLink" href="#">수업 후기</a></li>
 	</ul>
 	</nav><br>

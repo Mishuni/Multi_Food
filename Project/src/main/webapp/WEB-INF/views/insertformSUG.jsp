@@ -22,7 +22,15 @@
 	</nav>
 	<br>
 	
-	<h1>관리자님 환영합니다!</h1>
+	<form action="./detailSUG" method="post">
+		<table>
+			<tr><td>제목</td><td><input type="text" name="title"></td></tr>
+			<tr><td>내용</td><td><textarea rows="10" cols="10" name="contents"></textarea></td></tr>
+			<tr><td><input type="submit" value="작성"></td></tr>
+	
+		</table>
+		
+	</form>
 	
 
 
