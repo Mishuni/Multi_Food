@@ -54,4 +54,23 @@
 
 7. 각 조원들 프로젝트 **통합**
 8. 발표시연
+   
    - 프로젝트 산출물: 스프링프로젝트+ppt
+
+
+
+## URL
+
+* 기본주소  :  ~~/multifood
+
+* 게시판 : /multifood/(((review))
+  `/boardlist`
+
+  `/boardinsert`
+
+  `/boarddetail`
+
+  `/boardupdate`
+
+  `/boarddelete`
+

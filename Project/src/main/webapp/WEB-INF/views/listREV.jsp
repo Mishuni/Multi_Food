@@ -6,12 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>관리자 페이지</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/resources/style.css" />
 
 </head>
 <body>
-	<img id="logo" alt="" src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png">
-	
+	<img id="logo" alt=""
+		src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png">
+
 	<nav id="topMenu" class="menu">
 	<ul>
 		<li><a class="menuLink" href="#">오늘의 메뉴</a></li>
@@ -21,9 +23,14 @@
 	</ul>
 	</nav>
 	<br>
+
+	<hr>
+	보드리스트입니다
+
+	<hr>
 	
-	<h1>관리자님 환영합니다!</h1>
-	
+
+
 
 
 	<nav id="topMenu" class="menu">
@@ -34,17 +41,16 @@
 	</ul>
 	</nav>
 	<br>
-	
-	
-	
+
+
 	<footer id="bottom" class="menu">
-		<p>Posted by: 이효진, 정혜진, 최혜근, 유미선</p>
-		<p>
-			Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.
-		</p>
+	<p>Posted by: 이효진, 정혜진, 최혜근, 유미선</p>
+	<p>
+		Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.
+	</p>
 	</footer>
-	
-	
-	
+
+
+
 </body>
 </html>

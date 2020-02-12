@@ -22,10 +22,18 @@
 	</nav>
 	<br>
 	
-	<h1>관리자님 환영합니다!</h1>
+	<!-- 구현부 -->
 	
+	<hr>
+		상세보기 메뉴입니다
+	
+	<input type="button" value="삭제" onClick="location.href='./updateresultREV'">
+	<input type="button" value="수정" onClick="location.href='./listREV'">
 
 
+<hr>
+	<!-- 구현 끝 -->
+	
 	<nav id="topMenu" class="menu">
 	<ul>
 		<li><a class="menuLink" href="#">식권사용</a></li>

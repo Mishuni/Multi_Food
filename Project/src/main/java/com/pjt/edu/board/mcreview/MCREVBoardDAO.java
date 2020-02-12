@@ -1,4 +1,4 @@
-package com.pjt.edu.board.review;
+package com.pjt.edu.board.mcreview;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 import com.pjt.edu.board.BoardVO;
 import com.pjt.edu.board.DAO;
 
-@Repository("revdao")
-public class REVDAO implements DAO {
+@Repository("mcrevdao")
+public class MCREVBoardDAO implements DAO {
 
 	@Override
 	public int insertBoard(BoardVO vo) {

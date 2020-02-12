@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	
+	<insert id="newpost" parameterType="board" >
+	insert into mcreviewboard 
+	</insert>
+	
+	<select id="">
+	</select>
+	
+	<update id="">
+	</update>
+	
+	<delete id="">
+	</delete>
+	
+	
+	<select id="oneUser" resultType="user" parameterType="String">
+		select * from users where id = #{id}
+	</select>
+	
+<!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->
+</mapper>
+
+
+
+
+
+
+
+
