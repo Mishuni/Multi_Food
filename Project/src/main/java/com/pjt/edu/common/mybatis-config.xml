@@ -20,5 +20,6 @@
 	</environments>
 	<mappers>
 		<mapper resource="com.pjt.edu.common/user-mapping.xml" />
+		<mapper resource="com.pjt.edu.common/mcrevboard-mapping.xml" />
 	</mappers>
 </configuration>

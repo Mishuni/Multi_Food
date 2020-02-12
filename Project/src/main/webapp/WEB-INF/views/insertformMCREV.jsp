@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>관리자 페이지</title>
+<title>외부식당 리뷰 글 작성</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
 
 </head>
@@ -22,8 +22,19 @@
 	</nav>
 	<br>
 	
-	<h1>관리자님 환영합니다!</h1>
-	
+	<h1>역삼역 멀티캠퍼스 외부의 식당들을 리뷰합니다. </h1>
+	<form id="insertform" action="http://localhost:8080/mvc/insert" method="post">
+	제목<input type="text" name="title" maxlength="10"><br>
+	내용<textarea name="contents" rows=10 cols="50"></textarea><br>
+	작성자<input type="text" name="writer"><br>
+	암호<input type="password" name="password"><br>
+	<input type="submit" value="글쓰기 완료"> 
+	</form>
+
+
+
+
+
 
 
 	<nav id="topMenu" class="menu">
