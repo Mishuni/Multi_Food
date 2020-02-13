@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sugboard">
+	
+	<!-- crud -->
+	
+	<select id="getboardlist" resultType="sugboard">
+		select * from sugboard
+	</select>
+	
+	<select id="getoneboard" resultType="sugboard" parameterType="sugboard">
+		select * from sugboard where seq = #{seq}
+	</select>
+	
+	<update id="updateboard" parameterType="sugboard" >
+		update sugboard set contents = #{contents}, regdate = sysdate where seq = #{seq}
+	</update>
+	<delete id="deleteboard" parameterType="sugboard">
+		delete from sugboard where seq = #{seq}
+	</delete>
+	<update id="upviewcount" parameterType="sugboard">
+		update sugboard set viewcount = viewcount+1 where seq = #{seq}
+	</update>
+</mapper>
+
+
+
+
+
+
+
