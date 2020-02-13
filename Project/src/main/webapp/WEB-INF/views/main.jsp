@@ -67,7 +67,7 @@
 	</form>
 	
 	<footer id="bottom" class="menu">
-  <p>Posted by: 이효진, 정혜진, 최혜근, 유미선</p>
+	<p>Posted by: 유미선, 최혜근, 정헤진, 이효진</p>
   <p>Contact information: <a href="mailto:someone@example.com">
   someone@example.com</a>.</p>
 </footer>

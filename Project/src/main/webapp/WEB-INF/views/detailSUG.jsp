@@ -4,58 +4,28 @@
 					"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>detail</title>
+<title>타이틀입력</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
 
 </head>
 <body>
-	<img id="logo" alt="" src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png">
+	<a id = "logo" href="./main">
+	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" >
+	</a>
 	
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="#">오늘의 메뉴</a></li>
-		<li><a class="menuLink" href="#">식단 후기</a></li>
-		<li><a class="menuLink" href="#">식단 건의사항</a></li>
-		<li><a class="menuLink" href="#">수업 후기</a></li>
+		<li><a class="menuLink" href="./todaymenu">오늘의 메뉴</a></li>
+		<li><a class="menuLink" href="./listREV">식단 후기</a></li>
+		<li><a class="menuLink" href="./listSUG">식단 건의사항</a></li>
+		<li><a class="menuLink" href="./listMCREV">외부식당 후기</a></li>
 	</ul>
 	</nav>
 	<br>
-	<%-- form action = "http://localhost:8081/mvc/boardupdate" method = "post">
-번호 : <input type="text" name = "seq" value = '${detail.seq}' readonly><br>
-제목 : <input type="text" name = "title" value = '${detail.title}'> <br>
-내용 : <input type="text" name = "contents" value = '${detail.contents}'><br>
-작성자 : <input type="text" name = "writer" value = '${detail.writer}'><br>
-작성시간 : <input type="text" name = "time" value = '${detail.time}'readonly><br>
-조회수 : <input type="text" name = "viewcount" value = '${detail.viewcount}' readonly><br>
-
-<input type = submit value = "수정">
-</form>
-
-
-<form action = "http://localhost:8081/mvc/boarddelete">
-<input type="hidden" name = "seq" value = '${detail.seq}' readonly>
-<input type = submit value = "삭제">
-</form> --%>
 	
-
-	
-	<%-- <div align="center">
-		<table border="1">
-			<thead>
-				<tr>
-					<td>${detail.seq}</td>
-					<td >${detail.title}</td>
-					<td>${detail.viewcount}</td> 
-				</tr>
-			</thead>
-			<tbody>
-				<tr><td colspan="3">${detail.contents}</td></tr>
-				<tr><td colspan="3"><a href="./listSUG">목록으로</a></td></tr>
-			</tbody>
-		</table>
-	</div> --%>
+	<hr>
+	<!-- 코드작성 -->
 	<div align="center">
 		  <table cellpadding="0" cellspacing= "0"border="0"width="540">
 		    <tr>
@@ -103,12 +73,14 @@
 		    </tr>
 		  </table>
 </div>
+	<hr>
 	
+
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="#">식권사용</a></li>
-		<li><a class="menuLink" href="#">식권구매</a></li>
+		<li><a class="menuLink" href="./useticket">식권사용</a></li>
+		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
 		<li><a class="menuLink" href="#">포인트충전</a></li>
 	</ul>
 	</nav>
@@ -117,7 +89,7 @@
 	
 	
 	<footer id="bottom" class="menu">
-		<p>Posted by: 이효진, 정혜진, 최혜근, 유미선</p>
+		<p>Posted by: 유미선, 최혜근, 정헤진, 이효진</p>
 		<p>
 			Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.
 		</p>
