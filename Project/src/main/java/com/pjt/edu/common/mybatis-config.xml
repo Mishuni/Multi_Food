@@ -10,6 +10,7 @@
 		<typeAlias type="com.pjt.edu.board.mcreview.MCREVBoardVO" alias="mcboard"/>
 	</typeAliases>
 	
+<!--JDBC라서 주석 	
 	<environments default="mydb">
 		<environment id="mydb">
 			<transactionManager type="JDBC" />
@@ -20,6 +21,6 @@
 				<property name="password" value="1234" />
 			</dataSource>
 		</environment>
-	</environments>
+	</environments> -->
 
 </configuration>

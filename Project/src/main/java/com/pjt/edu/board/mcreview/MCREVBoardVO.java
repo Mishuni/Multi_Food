@@ -1,6 +1,8 @@
 package com.pjt.edu.board.mcreview;
 
-public class MCREVBoardVO {
+import com.pjt.edu.board.BoardVO;
+
+public class MCREVBoardVO extends BoardVO{
 int seq, viewcount;
 String title, contents, writer, regdate;
 public int getSeq() {

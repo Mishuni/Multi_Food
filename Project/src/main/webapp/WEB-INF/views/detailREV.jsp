@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>외부식당 리뷰 글 작성</title>
+<title>관리자 페이지</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
 
 </head>
@@ -22,16 +22,18 @@
 	</nav>
 	<br>
 	
-	<h3>역삼역 멀티캠퍼스 외부의 식당들을 리뷰해주세요. </h3>
-	<form id="insertform" action="./listMCREV" method="post">
-	<table id="insertformMCR">
-	<tr><th>제목</th><td><input type="text" name="title" maxlength="100"></td></tr>
-	<tr><th>작성자</th><td><input type="text" name="writer"></td></tr>
-	<tr><th>내용</th><td><textarea name="contents" rows=10 cols="50"></textarea></td></tr>
-	</table>
-	<input type="submit" value="글쓰기 완료"> 
-	</form>
+	<!-- 구현부 -->
+	
+	<hr>
+		상세보기 메뉴입니다
+	
+	<input type="button" value="삭제" onClick="location.href='./updateresultREV'">
+	<input type="button" value="수정" onClick="location.href='./listREV'">
 
+
+<hr>
+	<!-- 구현 끝 -->
+	
 	<nav id="topMenu" class="menu">
 	<ul>
 		<li><a class="menuLink" href="#">식권사용</a></li>
@@ -40,6 +42,8 @@
 	</ul>
 	</nav>
 	<br>
+	
+	
 	
 	<footer id="bottom" class="menu">
 		<p>Posted by: 이효진, 정혜진, 최혜근, 유미선</p>
