@@ -39,7 +39,6 @@ public class SUGDAO implements DAO {
 	public BoardVO getBoard(BoardVO vo) {
 		return session.selectOne("getoneboard", vo);
 	}
-
 	@Override
 	public List<BoardVO> getBoardList(BoardVO vo) {
 		return session.selectList("getboardlist");

@@ -37,8 +37,7 @@ public class REVDAO implements DAO {
 
 	@Override
 	public BoardVO getBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne("getonerev", vo);
 	}
 
 	@Override

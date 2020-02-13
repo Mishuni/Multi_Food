@@ -33,7 +33,6 @@ public class SUGcontroller {
 		ModelAndView mv = new ModelAndView();
 //		dao.upViewCount(vo);	
 		vo = (SUGBoardVO)dao.getBoard(vo);
-		
 		mv.addObject("detail", vo);
 		return mv;
 	}

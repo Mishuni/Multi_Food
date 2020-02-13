@@ -30,7 +30,7 @@
 		  <table cellpadding="0" cellspacing= "0"border="0"width="540">
 		    <tr>
 		      <td bgcolor="white"valign="top"style="padding:2px;"width="400">
-		        <a href="./listSUG">[ 리스트로 ]</a></td>
+		        <a href="./listREV">[ 리스트로 ]</a></td>
 		      <td bgcolor="white" valign="top" align="right" width="140">조회수 : ${detail.viewcount}</td>
 		    </tr>
 		    <tr>

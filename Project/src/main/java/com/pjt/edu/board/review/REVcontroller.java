@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pjt.edu.board.BoardVO;
+import com.pjt.edu.board.sug.SUGBoardVO;
 
 @Controller
 public class REVcontroller {
@@ -56,8 +57,13 @@ public class REVcontroller {
 	 */
 
 	// 상세보기
-	@RequestMapping("/detailREV")
-	public void getBoardDetail() {
+	@RequestMapping(value="/detailREV" ,method=RequestMethod.GET )
+	public ModelAndView getBoardDetail(REVBoardVO vo) {
+		ModelAndView mv = new ModelAndView();
+		vo = (REVBoardVO)dao.getBoard(vo);
+		mv.addObject("detail", vo);
+		mv.setViewName("detailREV");
+		return mv;
 	}
 
 	// 수정
