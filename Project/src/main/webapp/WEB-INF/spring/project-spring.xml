@@ -15,8 +15,8 @@
 <!-- 2.mapper,mybatis 설정파일 정보알려주자 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		 <property name="dataSource" ref="dataSource"/> <!-- 데이터베이스 연결을 데이터소스로 쓰겠다. -->
-		 <property name="configLocation" value="classpath:/com/pjt/edu/mybatis-config.xml"/> 
-		 <property name="mapperLocations" value="classpath:/com/pjt/edu/user-mapping.xml"/>
+		 <property name="configLocation" value="classpath:/com/pjt/edu/common/mybatis-config.xml"/> 
+		 <property name="mapperLocations" value="classpath:/com/pjt/edu/common/user-mapping.xml"/>
 	</bean>
 	
 <!-- 3.SqlSessopnTemplate(spring api) 생성 = mybatis의 SqlSession과 동일의미-->

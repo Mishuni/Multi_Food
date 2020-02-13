@@ -1,6 +1,8 @@
 package com.pjt.edu.board.sug;
 
-public class SUGBoardVO {
+import com.pjt.edu.board.BoardVO;
+
+public class SUGBoardVO extends BoardVO{
 int seq, viewcount;
 String title, contents, writer, regdate;
 public int getSeq() {
@@ -38,6 +40,11 @@ public String getRegdate() {
 }
 public void setRegdate(String regdate) {
 	this.regdate = regdate;
+}
+@Override
+public String toString() {
+	return "SUGBoardVO [seq=" + seq + ", viewcount=" + viewcount + ", title=" + title + ", contents=" + contents
+			+ ", writer=" + writer + ", regdate=" + regdate + "]";
 }
 
 

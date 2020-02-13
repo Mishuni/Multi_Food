@@ -4,12 +4,8 @@
 <mapper namespace="user">
 	
 	<!-- crud -->
-	
 	<select id="oneUser" resultType="user" parameterType="String">
 		select * from users where id = #{id}
-	</select>
-	<select id="getboardlist" resultType="vo">
-		select * from sugboard
 	</select>
 	
 	

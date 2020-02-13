@@ -22,10 +22,6 @@
 			value="classpath:com/pjt/edu/common/mybatis-config.xml" />
 		<property name="mapperLocations"
 			value="classpath:com/pjt/edu/common/*-mapping.xml" />
-	<!-- <property name="configLocation"
-			value="classpath:/mybatis/mybatis-spring-config.xml"/> -->
-	<!-- 	<property name="mapperLocations"
-			value="classpath:/mybatis/*-mapping.xml" /> --> 
 	</bean>
 
 	<!-- 3.SqlSessionTemplate api : sqlSessionFactory 객체 생성자에 전달 -->

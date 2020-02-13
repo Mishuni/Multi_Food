@@ -2,7 +2,6 @@
 
 body{
 font-family: "고딕체", "Trebuchet MS", Dotum, Arial;
-	text-align: center;
 }
 
 .menu{
@@ -95,29 +94,29 @@ background-color: white;
 	position: relative;
 	left: 15%;
 }
+ table.table2{
+                border-collapse: separate;
+                border-spacing: 1px;
+                text-align: left;
+                line-height: 1.5;
+                border-top: 1px solid #ccc;
+                margin : 20px 30px;
+        }
+        table.table2 tr {
+                 width: 50px;
+                 padding: 10px;
+                font-weight: bold;
+                vertical-align: top;
+                border-bottom: 1px solid #ccc;
+        }
+        table.table2 td {
+                 width: 100px;
+                 padding: 10px;
+                 vertical-align: top;
+                 border-bottom: 1px solid #ccc;
+                 white-space: nowrap;
 
-#insertformMCR {
-    border-collapse: collapse;
-    text-align: left;
-    line-height: 1.5;
-    border: 1px solid #ccc;
-    margin: 20px 10px;
-}
+                 
+        }
 
-#insertformMCR th {
-    width: 150px;
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: top;
-    border-top: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    background: #fcf1f4;
-}
-#insertformMCR td {
-    width: 350px;
-    padding: 10px;
-    vertical-align: top;
-     border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-} 
+

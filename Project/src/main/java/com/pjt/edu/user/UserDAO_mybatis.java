@@ -12,7 +12,7 @@ import com.pjt.edu.common.JDBCUtil;
 
 @Repository
 public class UserDAO_mybatis implements DAO {
-	//@Autowired
+	@Autowired
 	private SqlSession session;
 	public void setSession(SqlSession session) {
 		this.session = session;

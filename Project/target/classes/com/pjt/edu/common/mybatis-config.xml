@@ -8,10 +8,10 @@
 		<typeAlias type="com.pjt.edu.user.UserVO" alias="user"/>
 		<typeAlias type="com.pjt.edu.board.BoardVO" alias="vo"/>
 		<typeAlias type="com.pjt.edu.board.mcreview.MCREVBoardVO" alias="mcboard"/>
+		<typeAlias type="com.pjt.edu.board.sug.SUGBoardVO" alias="sugboard"/>
 	</typeAliases>
 	
-<!--JDBC라서 주석 	
-	<environments default="mydb">
+	<!-- <environments default="mydb">
 		<environment id="mydb">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">

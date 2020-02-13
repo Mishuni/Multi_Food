@@ -1,6 +1,8 @@
 package com.pjt.edu.board.review;
 
-public class REVBoardVO {
+import com.pjt.edu.board.BoardVO;
+
+public class REVBoardVO extends BoardVO{
 int seq, viewcount;
 String title, contents, writer, regdate;
 public int getSeq() {

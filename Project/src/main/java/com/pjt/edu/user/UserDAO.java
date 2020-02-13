@@ -15,7 +15,7 @@ public class UserDAO implements DAO {
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;
 	
-	// SQL 명령어
+	// SQL 紐낅졊�뼱
 	private final String USERS_INSERT = "insert into USERS(id,pw,role,name,classno,money,tickets,total) "
 			+ "values(?,?,user,?,?,0,0,0)";
 	//private final String USERS_UPDATE = "update USERS set title=?,content=? where seq=?";
@@ -79,7 +79,6 @@ public class UserDAO implements DAO {
 				user.setName(rs.getString("NAME"));
 				user.setRole(rs.getString("ROLE"));
 				user.setClassNo(rs.getInt("CLASSNO"));
-				user.setPoint(rs.getInt("POINT"));
 				user.setTickets(rs.getInt("TICKETS"));
 				user.setTotal(rs.getInt("TOTAL"));
 			}
