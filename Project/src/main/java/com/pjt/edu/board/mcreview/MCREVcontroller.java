@@ -16,7 +16,7 @@ public class MCREVcontroller {
 	@Autowired
 	MCREVBoardDAO dao;
 	
-	
+//create	
 //글쓰기 폼화면
 	@RequestMapping(value="/insertformMCREV", method = RequestMethod.GET)
 	public String inertBoardForm() {
@@ -31,8 +31,7 @@ public class MCREVcontroller {
 	}
 	
 	  
-	
-	
+//read	
 //글목록
 	@RequestMapping("/listMCREV")
 	public ModelAndView getAllBoard() {
@@ -53,6 +52,10 @@ public class MCREVcontroller {
 		mv.addObject("detail",vo);
 		mv.setViewName("detailMCREV");
 		return mv;
+
 		
+//update
+	
+//delete
 	}
 }

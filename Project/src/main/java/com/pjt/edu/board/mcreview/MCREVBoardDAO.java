@@ -24,11 +24,13 @@ public class MCREVBoardDAO implements DAO {
 
 	@Override
 	public int deleteBoard(BoardVO vo) {
+		session.update("boardUpdate",vo);
 		return 0;
 	}
 
 	@Override
 	public int updateBoard(BoardVO vo) {
+		session.delete("boardDelete",vo);
 		return 0;
 	}
 

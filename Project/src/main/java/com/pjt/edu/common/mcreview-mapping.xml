@@ -16,9 +16,23 @@
 	select * from mcreviewboard where seq=#{seq}
 	</select>
 	
+	<update id="boardUpdate" >
+	update mcreviewboard set title=#{title}, contents=#{contents} where seq={seq}
+	</update>
 	
+	<delete id="boardDelete" parameterType="mcboard">
+	delete from mcreviewboard where seq=#{seq}
+	</delete>
 	
-<!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->
+	<select id= "pagingboard" resultType="mcboard" parameterType="int[]">
+	select *
+	from (select seq,title,writer,contents,regdate
+			from 
+			(select * from mcreviewboard order by seq desc)
+		)
+	where r between #{array[0]} and #{array[1]}
+</select>
+	
 </mapper>
 
 

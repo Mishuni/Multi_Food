@@ -67,10 +67,13 @@ public class UserController {
 	
 	@RequestMapping(value="/useticket" )
 	public String useticket() {
-		
 		return "/useticket";
 	}
 	
+	@RequestMapping(value="/todaymenu")
+	public String todaymenu() {
+		return "/todaymenu";
+	}
 	
 //	@RequestMapping(value="/mypage")
 //	public ModelAndView getMypage(@ModelAttribute("user")UserVO vo) {
