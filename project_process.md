@@ -20,7 +20,7 @@
 
 3. 프로젝트 기능에 따른 DB설계
 
-   ![image-20200212094607251](C:\Users\student\AppData\Roaming\Typora\typora-user-images\image-20200212094607251.png)
+   ![db](images\db.png)
 
    * class,  mcreviewboard, reviewboard, sugboard, users
    * 추가예정
