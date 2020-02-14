@@ -21,28 +21,33 @@ public class SUGDAO implements DAO {
 
 	@Override
 	public int insertBoard(BoardVO vo) {
-		return 0;
+		session.insert("newsugboard", vo);
+
+		return 1;
 	}
 
 	@Override
 	public int deleteBoard(BoardVO vo) {
-		return 0;
+		return session.delete("deleteboard",vo);
 	}
 
 	@Override
 	public int updateBoard(BoardVO vo) {
-		
+
 		return 0;
 	}
 
 	@Override
 	public BoardVO getBoard(BoardVO vo) {
+		System.out.println(session.selectOne("getoneboard", vo));
 		return session.selectOne("getoneboard", vo);
 	}
+
 	@Override
 	public List<BoardVO> getBoardList(BoardVO vo) {
 		return session.selectList("getboardlist");
 	}
+
 	public void upViewCount(BoardVO vo) {
 		session.update("upviewcount", vo);
 	}

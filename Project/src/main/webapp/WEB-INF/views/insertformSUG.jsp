@@ -1,3 +1,4 @@
+<%@page import="com.pjt.edu.user.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -26,43 +27,50 @@
 	
 	<hr>
 	<!-- 코드작성 -->
-		<form ID="insertform" action="./insertformSUG" method="post">
-      <table style="padding-top: 50px" align=center width=700 border=0
-         cellpadding=2>
-         <tr>
-            <td height=30 align=center bgcolor= DodgerBlue><font color=white>
-                  글쓰기</font></td>
-         </tr>
-         <tr>
-            <td bgcolor=white>
-               <table class="table2">
-                  <tr>
-                     <td>제목</td>
-                     <td><input type=text name = title size=30 value="asdf"></td>
-                  </tr>
-                  <tr>
-                     <td>작성자</td>
-                     <td><input type=text name = writer size=60></td>
-                  </tr>
-                  <tr>
-                     <td>내용</td>
-                     <td><textarea name=contents cols=85 rows=15></textarea></td>
-                  </tr>
-               </table>
-               <center>
-                  <input type="submit" value="작성">
-               </center>
-            </td>
-         </tr>
-      </table>
-   </form>
-	<hr>
-	
+	<div id=menuname>
+		<h3>식단 후기 게시판</h3>
+		<hr>
 
+	</div>
+
+	<form ID="insertform" action="./insertformSUG" method="post">
+		<table id = "insert">
+			<tr>
+				<td><h3 id = "skyblue"">여러분의 의견을 들려주세요</h3></td>
+			</tr>
+			<tr>
+				<td bgcolor=white>
+					<table class="table2">
+						<tr>
+							<td>제목</td>
+							<td><input type=text name=title size=70></td>
+						</tr>
+
+						<tr>
+							<td>작성자</td>
+							<td><input type=text name=writer size=10 value='<%=((UserVO)session.getAttribute("member")).getId() %>' ></td>
+						</tr>
+
+						<tr>
+							<td>내용</td>
+							<td><textarea name=contents cols=70 rows=20></textarea></td>
+						</tr>
+					</table>
+
+				</td>
+			</tr>
+		</table>
+		<input id="button" type="submit" value="작성">
+			
+	</form>
+	<br>
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="./useticket">식권사용</a></li>
+		<!-- <li><a class="menuLink" href="./useticket">식권사용</a></li> -->
+<li><a href='./useticket'
+			onclick= popup()
+			target="_blank">식권사용</a></li>
 		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
 		<li><a class="menuLink" href="#">포인트충전</a></li>
 	</ul>

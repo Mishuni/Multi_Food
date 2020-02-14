@@ -18,19 +18,17 @@ public class MCREVBoardDAO implements DAO {
 	@Override
 	//자바를 모르니까ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ
 	public int insertBoard(BoardVO vo) {
-		session.insert ("newpost",vo);
+		session.insert ("newboard",vo);
 		return 1;
 	}
 
 	@Override
 	public int deleteBoard(BoardVO vo) {
-		session.update("boardUpdate",vo);
-		return 0;
+		return session.delete("deletemcboard",vo);	
 	}
 
 	@Override
 	public int updateBoard(BoardVO vo) {
-		session.delete("boardDelete",vo);
 		return 0;
 	}
 

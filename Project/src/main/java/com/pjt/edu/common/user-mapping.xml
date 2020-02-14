@@ -8,14 +8,6 @@
 		select * from users where id = #{id}
 	</select>
 	
-	<update id="useticket" parameterType="String">
-		update users 
-		set tickets = tickets-1, total = total+1
-		
-		where id =#{id}
-	</update>
-	
-	
 	
 <!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->
 </mapper>

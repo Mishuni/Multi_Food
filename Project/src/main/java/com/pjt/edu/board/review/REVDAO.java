@@ -25,14 +25,13 @@ public class REVDAO implements DAO {
 
 	@Override
 	public int deleteBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.delete("deleterevboard",vo);
 	}
 
 	@Override
 	public int updateBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return session.update("updaterevboard", vo);
 	}
 
 	@Override
@@ -45,6 +44,6 @@ public class REVDAO implements DAO {
 		return session.selectList("allrev");
 	}
 	
-
+	
 
 }

@@ -1,3 +1,4 @@
+<%@page import="com.pjt.edu.user.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -7,7 +8,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>타이틀입력</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
-
+<script>
+        function popup(){
+            var url = "./useticket";
+            var name = "popup test";
+            var option = "width = 500, height = 500, top = 100, left = 200, location = no"
+            window.open(url, name, option);
+        }
+    </script>
 </head>
 <body>
 	<a id = "logo" href="./main">
@@ -26,16 +34,43 @@
 	
 	<hr>
 	<!-- 코드작성 -->
-	<h3>역삼역 멀티캠퍼스 외부의 식당들을 리뷰해주세요. </h3>
-	<form id="insertform" action="./listMCREV" method="post">
-	<table id="insertformMCR">
-	<tr><th>제목</th><td><input type="text" name="title" maxlength="100"></td></tr>
-	<tr><th>작성자</th><td><input type="text" name="writer"></td></tr>
-	<tr><th>내용</th><td><textarea name="contents" rows=10 cols="50"></textarea></td></tr>
-	</table>
-	<input type="submit" value="글쓰기 완료"> 
+	<div id=menuname>
+		<h3>역삼역 멀티캠퍼스 외부의 식당들을 리뷰해주세요. </h3>
+		<hr>
+
+	</div>
+
+	<form ID="insertform" action="./insertformMCREV" method="post">
+		<table id = "insert">
+			<tr>
+				<td><h3 id = "skyblue">여러분의 의견을 들려주세요</h3></td>
+			</tr>
+			<tr>
+				<td bgcolor=white>
+					<table class="table2">
+						<tr>
+							<td>제목</td>
+							<td><input type=text name=title size=70></td>
+						</tr>
+
+						<tr>
+							<td>작성자</td>
+							<td><input type=text name=writer size=10 value='<%=((UserVO)session.getAttribute("member")).getId() %>' ></td>
+						</tr>
+
+						<tr>
+							<td>내용</td>
+							<td><textarea name=contents cols=70 rows=20></textarea></td>
+						</tr>
+					</table>
+
+				</td>
+			</tr>
+		</table>
+		<input id="button" type="submit" value="작성">
+			
 	</form>
-	<hr>
+	<br>
 	
 
 

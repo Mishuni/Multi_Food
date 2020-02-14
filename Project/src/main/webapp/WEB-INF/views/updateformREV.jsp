@@ -1,15 +1,22 @@
+<%@page import="com.pjt.edu.user.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 					"http://www.w3.org/TR/html4/loose.dtd">
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>타이틀입력</title>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/style.css" />
-
+ <script>
+        function popup(){
+            var url = "./useticket";
+            var name = "popup test";
+            var option = "width = 500, height = 500, top = 100, left = 200, location = no"
+            window.open(url, name, option);
+        }
+    </script>
 </head>
 <body>
 	<a id="logo" href="./main"> <img
@@ -26,7 +33,7 @@
 	</nav>
 	<br>
 
-
+	<hr>
 	<!-- 코드작성 -->
 	<div id=menuname>
 		<h3>식단 후기 게시판</h3>
@@ -34,47 +41,49 @@
 
 	</div>
 
-	<table class=table2>
-		<tr>
-
-			<td>번호</td>
-			<td>제목</td>
-			<td>작성자</td>
-			<td>작성날짜</td>
-			<td>조회수</td>
-		</tr>
-		<c:forEach items="${list}" var="vo">
-
-
+	<form ID="insertform" action="./updateREV" method="post">
+		<table id = "insert">
 			<tr>
-				<td>${vo.seq}</td>
-				<td><a class="menuLink" href="./detailREV?seq=${vo.seq}">${vo.title}</a></td>
-				<td>${vo.writer}</td>
-				<td>${vo.regdate}</td>
-				<td>${vo.viewcount}</td>
-
+				<td><h3 id = "skyblue">여러분의 의견을 들려주세요</h3></td>
 			</tr>
+			<tr>
+				<td bgcolor=white>
+					<table class="table2">
+						<tr>
+							<td>제목</td>
+							<td><input type=text name=title size=70 value='${update.title}'></td>
+						</tr>
 
-		</c:forEach>
-	</table>
+						<tr>
+							<td>작성자</td>
+							<td><input type=text name=writer size=10 value='<%=((UserVO)session.getAttribute("member")).getId() %>' ></td>
+						</tr>
 
+						<tr>
+							<td>내용</td>
+							<td><textarea name=contents cols=70 rows=20 >${update.contents}</textarea></td>
+						</tr>
+					</table>
 
-	<input id="button" type="button" value="글쓰기"
-		onClick="location.href='./insertformREV'">
-
+				</td>
+			</tr>
+		</table>
+		<input id="button" type="submit" value="작성">
+			
+	</form>
 	<br>
-
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="./useticket">식권사용</a></li>
+		<!-- <li><a class="menuLink" href="./useticket">식권사용</a></li> -->
+<li><a href='./useticket'
+			onclick= popup()
+			target="_blank">식권사용</a></li>
 		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
 		<li><a class="menuLink" href="#">포인트충전</a></li>
 	</ul>
 	</nav>
 	<br>
-
-
 
 	<footer id="bottom" class="menu">
 	<p>Posted by: 유미선, 최혜근, 정헤진, 이효진</p>
@@ -82,8 +91,6 @@
 		Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.
 	</p>
 	</footer>
-
-
 
 </body>
 </html>

@@ -8,7 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>타이틀입력</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
-
 </head>
 <body>
 	<a id = "logo" href="./main">
@@ -25,31 +24,42 @@
 	</nav>
 	<br>
 	
-	<hr>
-	<!-- 코드작성 -->
-	<div align="center">
-		<h1>SUGBoard!!</h1>
-		<table border="1">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>제목</th>
-					<th>등록자</th>
-					<th>조회수</th>
-				</tr>
-			</thead>
+	<div id=menuname>
+		<h3>건의사항 게시판</h3>
+		<hr>
 
-			<c:forEach items="${list}" var="vo">
-				<tr>
-					<td>${vo.seq}</td>
-					<td><a href="detailSUG?seq=${vo.seq}">${vo.title}</a></td>
-					<td>${vo.writer}</td>
-					<td>${vo.viewcount}</td>
-				</tr>
-			</c:forEach>
-		</table>
 	</div>
-	<hr>
+
+	<table class=table2>
+		<tr>
+
+			<td>번호</td>
+			<td>제목</td>
+			<td>작성자</td>
+			<td>작성날짜</td>
+			<td>조회수</td>
+		</tr>
+		<c:forEach items="${list}" var="vo">
+
+
+			<tr>
+				<td>${vo.seq}</td>
+				<td><a class="menuLink" href="./detailSUG?seq=${vo.seq}" >${vo.title}</a></td>
+				<td>${vo.writer}</td>
+				<td>${vo.regdate}</td>
+				<td>${vo.viewcount}</td>
+
+			</tr>
+
+		</c:forEach>
+	</table>
+
+
+	<input id="button" type="button" value="글쓰기"
+		onClick="location.href='./insertformSUG'">
+
+	<br>
+	
 	
 
 

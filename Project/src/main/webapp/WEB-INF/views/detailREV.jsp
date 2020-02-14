@@ -1,3 +1,4 @@
+<%@page import="com.pjt.edu.user.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -61,12 +62,12 @@
 		      <td style="padding-top:2px;" align="right" colspan="2">
 		        <table cellpadding="0" cellspacing="0" border="0" width="340">
 		          <tr>
-		            <td align="right" width= "200"style="padding=0">
-		              비밀번호 <input type="password" name="pwd" size="10" class="pwd"></td>
+		          	<td align="right" width= "200"style="padding=0">
+		           </td>
 		            <td align="right" width= "100"style="padding=0">
-		              <a href="#"${detail.seq}>[수정하기]</a></td>
+		               <input id="button" type="button" value="수정하기" onclick="location.href='./updateREV?seq=${detail.seq}&writer=<%=((UserVO)session.getAttribute("member")).getId() %>'"></td>
 		            <td align="right" width= "100"style="padding=0">
-		              <a href="#">[삭제하기]</a></td>
+		              <input id="button" type="button" value="삭제하기" onclick="location.href='./deleteREV?seq=${detail.seq}&writer=<%=((UserVO)session.getAttribute("member")).getId() %>'"></td>
 		          </tr>
 		        </table>
 		      </td>

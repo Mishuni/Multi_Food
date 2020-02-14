@@ -44,7 +44,7 @@
 	<form ID="insertform" action="./insertformREV" method="post">
 		<table id = "insert">
 			<tr>
-				<td><h3 id = "skyblue"">여러분의 의견을 들려주세요</h3></td>
+				<td><h3 id = "skyblue">여러분의 의견을 들려주세요</h3></td>
 			</tr>
 			<tr>
 				<td bgcolor=white>
@@ -61,7 +61,7 @@
 
 						<tr>
 							<td>내용</td>
-							<td><textarea name=contents cols=70 rows=20></textarea></td>
+							<td><textarea name=contents cols=70 rows=20 ></textarea></td>
 						</tr>
 					</table>
 

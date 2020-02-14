@@ -25,41 +25,43 @@
 	</nav>
 	<br>
 	
-	<hr>
 	<!-- 코드작성 -->
-	<h1> 멀티캠퍼스 역삼/ 외부의 맛집을 소개합니다 </h1>
     
-    <table border="1" >
-        <thead>
-            <tr>
-                <th scope="col">글번호</th>
-                <th scope="col">제목</th>
-                <th scope="col">작성자</th>
-                <th scope="col">등록일</th>
-                <th scope="col">조회수</th>
-            </tr>
-        </thead>
-        <tbody>
-		
+    <div id=menuname>
+		<h3>멀티캠퍼스 역삼/ 외부의 맛집을 소개합니다 </h3>
+		<hr>
 
-		<c:forEach items="${list}" var="vo">
+	</div>
+
+	<table class=table2>
 		<tr>
-			<td>${vo.seq}</td> 
-			<td><a href="detailMCREV?seq=${vo.seq}">${vo.title}</a></td> 
-			<td>${vo.writer}</td> 
-			<td>${vo.regdate}</td> 
-			<td>${vo.viewcount}</td> 
+
+			<td>번호</td>
+			<td>제목</td>
+			<td>작성자</td>
+			<td>작성날짜</td>
+			<td>조회수</td>
 		</tr>
+		<c:forEach items="${list}" var="vo">
+
+
+			<tr>
+				<td>${vo.seq}</td>
+				<td><a class="menuLink" href="./detailMCREV?seq=${vo.seq}">${vo.title}</a></td>
+				<td>${vo.writer}</td>
+				<td>${vo.regdate}</td>
+				<td>${vo.viewcount}</td>
+
+			</tr>
+
 		</c:forEach>
-		
-        </tbody>
-     <!--    <div>
-        페이징처리
-        </div> -->
-    </table>
-    <br>
-	<input type="button" value="글 작성하기" onClick="location.href='./insertformMCREV'"/>
-	<hr>
+	</table>
+
+
+	<input id="button" type="button" value="글쓰기"
+		onClick="location.href='./insertformMCREV'">
+
+	<br>
 
 	<nav id="topMenu" class="menu">
 	<ul>

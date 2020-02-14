@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pjt.edu.board.BoardVO;
+import com.pjt.edu.board.review.REVBoardVO;
+import com.pjt.edu.board.sug.SUGBoardVO;
 
 
 @Controller
@@ -16,7 +18,7 @@ public class MCREVcontroller {
 	@Autowired
 	MCREVBoardDAO dao;
 	
-//create	
+	
 //글쓰기 폼화면
 	@RequestMapping(value="/insertformMCREV", method = RequestMethod.GET)
 	public String inertBoardForm() {
@@ -31,7 +33,8 @@ public class MCREVcontroller {
 	}
 	
 	  
-//read	
+	
+	
 //글목록
 	@RequestMapping("/listMCREV")
 	public ModelAndView getAllBoard() {
@@ -52,10 +55,27 @@ public class MCREVcontroller {
 		mv.addObject("detail",vo);
 		mv.setViewName("detailMCREV");
 		return mv;
-
 		
-//update
-	
-//delete
 	}
+	//게시물 삭제
+	@RequestMapping(value="/deleteMCREV", method=RequestMethod.GET)
+	public String deleteBoardResult(MCREVBoardVO vo) {
+		System.out.println(vo);
+		MCREVBoardVO loginVO = (MCREVBoardVO)dao.getBoard(vo);
+		
+//		UserVO uvo= new UserVO();
+//		uvo.setId(vo.getWriter());
+//		
+//		uvo=udao.getUser(uvo);
+		if(loginVO.getWriter().equals(vo.getWriter())) {
+		dao.deleteBoard(vo);
+			return "redirect:/listMCREV";
+		}else if(vo.getWriter().equals("admin")) {
+			dao.deleteBoard(vo);
+			return "redirect:listMCREV";
+		}
+		else {
+			return "cannotDelete";
+		}
+	} 
 }

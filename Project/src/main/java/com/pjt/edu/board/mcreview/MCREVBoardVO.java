@@ -41,6 +41,11 @@ public String getRegdate() {
 public void setRegdate(String regdate) {
 	this.regdate = regdate;
 }
+@Override
+public String toString() {
+	return "MCREVBoardVO [seq=" + seq + ", viewcount=" + viewcount + ", title=" + title + ", contents=" + contents
+			+ ", writer=" + writer + ", regdate=" + regdate + "]";
+}
 
 
 }

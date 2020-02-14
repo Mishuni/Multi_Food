@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pjt.edu.board.BoardVO;
+import com.pjt.edu.board.mcreview.MCREVBoardVO;
+import com.pjt.edu.board.review.REVBoardVO;
 
 @Controller
 public class SUGcontroller {
@@ -37,20 +39,55 @@ public class SUGcontroller {
 		return mv;
 	}
 	
-	@RequestMapping(value="/insertFormSUG", method=RequestMethod.GET)
-	public ModelAndView updateform(SUGBoardVO vo) {
-		ModelAndView mv = new ModelAndView();
-		
-		vo=(SUGBoardVO)dao.getBoard(vo);
-		mv.addObject("update",vo);
-		return mv;
+//	@RequestMapping(value="/insertFormSUG", method=RequestMethod.GET)
+//	public ModelAndView updateform(SUGBoardVO vo) {
+//		ModelAndView mv = new ModelAndView();
+//		
+//		vo=(SUGBoardVO)dao.getBoard(vo);
+//		mv.addObject("update",vo);
+//		return mv;
+//	}
+//	@RequestMapping(value="/insertFormSUG", method=RequestMethod.POST)
+//	public String updateboard(SUGBoardVO vo) {
+//		
+//		
+//		
+//		return "redirect:detailSUG";
+//		
+//	}
+	//get insert form
+	@RequestMapping(value = "/insertformSUG", method = RequestMethod.GET)
+	public void insertBordForm() {
+
 	}
-	@RequestMapping(value="/insertFormSUG", method=RequestMethod.POST)
-	public String updateboard(SUGBoardVO vo) {
-		
-		
-		
-		return "redirect:detailSUG";
-		
+
+	// 삽입2
+	@RequestMapping(value = "/insertformSUG", method = RequestMethod.POST)
+	public String insertBoareResult(SUGBoardVO vo) {
+
+		dao.insertBoard(vo);
+		return "redirect:/listSUG";
 	}
+	
+	@RequestMapping(value="/deleteSUG", method=RequestMethod.GET)
+	public String deleteBoardResult(SUGBoardVO vo) {
+		System.out.println(vo);
+		SUGBoardVO loginVO = (SUGBoardVO)dao.getBoard(vo);
+		
+//		UserVO uvo= new UserVO();
+//		uvo.setId(vo.getWriter());
+//		
+//		uvo=udao.getUser(uvo);
+		if(loginVO.getWriter().equals(vo.getWriter())) {
+		dao.deleteBoard(vo);
+			return "redirect:/listSUG";
+		}else if(vo.getWriter().equals("admin")) {
+			dao.deleteBoard(vo);
+			return "redirect:listSUG";
+		}
+		else {
+			return "cannotDelete";
+		}
+	} 
+	
 }
