@@ -13,27 +13,26 @@ import org.springframework.web.servlet.ModelAndView;
 import com.pjt.edu.classes.ClassDAO;
 import com.pjt.edu.classes.ClassVO;
 
-
 @Controller
 public class UserController {
-	@Autowired 
-	//1.<beans:bean id="dao" class="xxx.BoardDAO" 
-	//2. @Repository("dao") class BoardDAO
+	@Autowired
+	// 1.<beans:bean id="dao" class="xxx.BoardDAO"
+	// 2. @Repository("dao") class BoardDAO
 	UserDAO dao;
-	
+	@Autowired
+	UserDAO_mybatis mdao;
+
 	@Autowired
 	ClassDAO cdao;
 
-	@RequestMapping(value="/main" )
+	@RequestMapping(value = "/main")
 	public String getMain() {
 		ModelAndView mav = new ModelAndView();
 		return "main";
 	}
-	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public ModelAndView login(HttpServletRequest request,
-			@RequestParam("id")String id, 
-			String pw) {
+
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public ModelAndView login(HttpServletRequest request, @RequestParam("id") String id, String pw) {
 		/*
 		 * if(vo.getId()==null || vo.getId().equals("")) { throw new
 		 * IllegalArgumentException("아이디는 반드시 입력해야 합니다."); }
@@ -44,37 +43,50 @@ public class UserController {
 		vo.setPw(pw);
 		user = dao.getUser(vo);
 		ModelAndView mav = new ModelAndView();
-		
 
-		if(user!=null) {
-			mav.addObject("user",user);
-			if(user.getRole().equals("admin")) {
+		if (user != null) {
+			mav.addObject("user", user);
+			if (user.getRole().equals("admin")) {
 				mav.setViewName("adminpage");
 				return mav;
 			}
 			ClassVO cvo = new ClassVO();
 			cvo.setClassNo(user.getClassNo());
 			ClassVO lecture = cdao.getClass(cvo);
-			mav.addObject("lecture",lecture);
+			mav.addObject("lecture", lecture);
 			mav.setViewName("mypage");
 			HttpSession session = request.getSession();
 			session.setAttribute("member", user);
-		}
-		else 
+		} else
 			mav.setViewName("redirect:/");
 		return mav;
 	}
 	
-	@RequestMapping(value="/useticket" )
-	public String useticket() {
+	/* 티켓창 띄우기 */
+
+	@RequestMapping(value = "/useticket")
+	public String useticket(UserVO vo) {
+
 		return "/useticket";
 	}
 	
-	@RequestMapping(value="/todaymenu")
-	public String todaymenu() {
-		return "/todaymenu";
+	
+	/* 티켓사용 */
+	@RequestMapping(value = "/useticketClick")
+	public String useticketClick(UserVO vo, HttpSession session) {
+		
+		String sessionId = ((UserVO)session.getAttribute("member")).getId();
+		
+		mdao.useticket(sessionId);
+
+		return "/useticketresult";
 	}
 	
+	   @RequestMapping(value="/todaymenu")
+	   public String todaymenu() {
+	      return "/todaymenu";
+	   }
+
 //	@RequestMapping(value="/mypage")
 //	public ModelAndView getMypage(@ModelAttribute("user")UserVO vo) {
 //		ModelAndView mav = new ModelAndView();

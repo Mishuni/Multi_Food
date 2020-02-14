@@ -34,6 +34,10 @@ public class UserDAO_mybatis implements DAO {
 		return user;
 	}
 	
+	public void useticket(String name) {
+		session.update("useticket",name);
+	}
+	
 	
 
 }

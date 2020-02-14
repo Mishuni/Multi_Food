@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- 1.DataSource 생성 : 데이터소스 연결정보-->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+<!-- 		<property name="username" value="hr"/>
+		<property name="password" value="hr"/> -->
+		<property name="username" value="multi"/>
+		<property name="password" value="1234"/>
+	</bean>
+
+<!-- 2.mapper,mybatis 설정파일 정보알려주자 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		 <property name="dataSource" ref="dataSource"/> <!-- 데이터베이스 연결을 데이터소스로 쓰겠다. -->
+		 <property name="configLocation" value="classpath:/com/pjt/edu/common/mybatis-config.xml"/> 
+		 <property name="mapperLocations" value="classpath:/com/pjt/edu/common/*-mapping.xml"/>
+	</bean>
+	
+<!-- 3.SqlSessopnTemplate(spring api) 생성 = mybatis의 SqlSession과 동일의미-->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+</beans>
