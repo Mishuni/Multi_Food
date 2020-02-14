@@ -29,7 +29,7 @@ public class MCREVBoardDAO implements DAO {
 
 	@Override
 	public int updateBoard(BoardVO vo) {
-		return 0;
+		return session.update("updatemcrevboard", vo);
 	}
 
 	@Override

@@ -2,26 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mcboard">
-	
+
 	<insert id="newboard" parameterType="mcboard">
-	insert into mcreviewboard(seq,title,writer,contents,regdate) 
-	values ((SELECT MAX(SEQ)+1 FROM mcreviewboard), #{title},#{writer},#{contents},sysdate)
+		insert into mcreviewboard(seq,title,writer,contents,regdate)
+		values ((SELECT MAX(SEQ)+1 FROM mcreviewboard),
+		#{title},#{writer},#{contents},sysdate)
 	</insert>
-		
+
 	<select id="boardList" resultType="mcboard">
-	select * from mcreviewboard order by seq desc
+		select * from mcreviewboard order by seq desc
+	</select>
+
+	<select id="boardDetail" resultType="mcboard"
+		parameterType="mcboard">
+		select * from mcreviewboard where seq=#{seq} 
 	</select>
 	
-	<select id="boardDetail" resultType="mcboard" parameterType="mcboard">
-	select * from mcreviewboard where seq=#{seq}
-	</select>
 	<delete id="deletemcboard" parameterType="mcboard">
-		delete from mcreviewboard where seq = #{seq}
+		delete from
+		mcreviewboard where seq = #{seq}
 	</delete>
 	
-	
-	
-<!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->
+	<update id="updatemcrevboard" parameterType="mcboard">
+		update
+		mcreviewboard set title=#{title} ,contents = #{contents}, regdate =
+		sysdate where seq = #{seq}
+	</update>
+
+
+	<!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->
 </mapper>
 
 

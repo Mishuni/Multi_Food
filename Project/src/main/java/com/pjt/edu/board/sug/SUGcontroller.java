@@ -2,22 +2,41 @@ package com.pjt.edu.board.sug;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pjt.edu.board.BoardVO;
-import com.pjt.edu.board.mcreview.MCREVBoardVO;
-import com.pjt.edu.board.review.REVBoardVO;
+import com.pjt.edu.user.UserDAO_mybatis;
+import com.pjt.edu.user.UserVO;
 
 @Controller
 public class SUGcontroller {
 
 	@Autowired
 	SUGDAO dao;
+	@Autowired
+	UserDAO_mybatis udao;
+	//삽입
+	@RequestMapping(value = "/insertformSUG", method = RequestMethod.GET)
+	public void insertBordForm() {
+		
+	}
 	
+	// 삽입2
+	@RequestMapping(value = "/insertformSUG", method = RequestMethod.POST)
+	public String insertBoareResult(SUGBoardVO vo) {
+		
+		dao.insertBoard(vo);
+		return "redirect:/listSUG";
+	}
+	
+	//조회
 	@RequestMapping("/listSUG")
 	public ModelAndView sugboardlist() {
 		
@@ -28,9 +47,11 @@ public class SUGcontroller {
 		mv.addObject("list", list);
 		return mv;
 	}
-	
+	//상세보기
 	@RequestMapping(value="/detailSUG", method=RequestMethod.GET )
 	public ModelAndView sugboardone(SUGBoardVO vo) {
+		
+		
 		
 		ModelAndView mv = new ModelAndView();
 //		dao.upViewCount(vo);	
@@ -55,19 +76,37 @@ public class SUGcontroller {
 //		return "redirect:detailSUG";
 //		
 //	}
-	//get insert form
-	@RequestMapping(value = "/insertformSUG", method = RequestMethod.GET)
-	public void insertBordForm() {
+	// 글쓴이만 수정 가능
+		@RequestMapping(value = "/updateSUG", method = RequestMethod.GET)
+		public ModelAndView updateBoard(@ModelAttribute("update") SUGBoardVO vo, HttpSession session) {
+			ModelAndView mv = new ModelAndView();
+			System.out.println(vo);
+			SUGBoardVO loginVO = (SUGBoardVO) dao.getBoard(vo);
+			String roll = ((UserVO)session.getAttribute("member")).getRole();
+			System.out.println(roll);
+			
+			if (loginVO.getWriter().equals(vo.getWriter())) {
+				vo = (SUGBoardVO) dao.getBoard(vo);
+				System.out.println(vo);
+				mv.addObject("update", vo);
+				mv.setViewName("updateformSUG");
+				return mv;
+			} else if (roll.equals("admin")) {
+				dao.deleteBoard(vo);
+				return mv;
+			} else {
+				mv.setViewName("cannotDelete");
+				return mv;
+			}
 
-	}
+		}
 
-	// 삽입2
-	@RequestMapping(value = "/insertformSUG", method = RequestMethod.POST)
-	public String insertBoareResult(SUGBoardVO vo) {
-
-		dao.insertBoard(vo);
-		return "redirect:/listSUG";
-	}
+		// 수정한 글 업데이트.
+		@RequestMapping(value = "/updateSUG", method = RequestMethod.POST)
+		public String updateformBoard(@ModelAttribute("update") SUGBoardVO vo) {
+			dao.updateBoard(vo);
+			return "redirect:./listSUG";
+		}
 	
 	@RequestMapping(value="/deleteSUG", method=RequestMethod.GET)
 	public String deleteBoardResult(SUGBoardVO vo) {

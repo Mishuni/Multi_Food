@@ -38,6 +38,10 @@ public class UserDAO_mybatis implements DAO {
 		session.update("useticket",name);
 	}
 	
+	public int userRoll(UserVO vo) {
+		return session.selectOne("userroll");
+	}
+	
 	
 
 }

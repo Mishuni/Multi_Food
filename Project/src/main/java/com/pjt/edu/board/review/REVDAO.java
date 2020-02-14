@@ -30,7 +30,7 @@ public class REVDAO implements DAO {
 
 	@Override
 	public int updateBoard(BoardVO vo) {
-		
+		System.out.println(vo);
 		return session.update("updaterevboard", vo);
 	}
 

@@ -4,13 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pjt.edu.board.BoardVO;
-import com.pjt.edu.user.UserDAO_mybatis;
-import com.pjt.edu.user.UserVO;
 
 @Controller
 public class REVcontroller {
@@ -68,13 +68,15 @@ public class REVcontroller {
 	}
 
 	// 글쓴이만 수정 가능
-	@RequestMapping(value="/updateREV", method=RequestMethod.GET)
-	public ModelAndView updateBoard(REVBoardVO vo) {
+	@RequestMapping(value = "/updateREV", method = RequestMethod.GET)
+	public ModelAndView updateBoard(@ModelAttribute("update") REVBoardVO vo) {
 		ModelAndView mv = new ModelAndView();
+		System.out.println(vo);
 		REVBoardVO loginVO = (REVBoardVO) dao.getBoard(vo);
-		
+
 		if (loginVO.getWriter().equals(vo.getWriter())) {
-			vo = (REVBoardVO)dao.getBoard(vo);
+			vo = (REVBoardVO) dao.getBoard(vo);
+			System.out.println(vo);
 			mv.addObject("update", vo);
 			mv.setViewName("updateformREV");
 			return mv;
@@ -85,13 +87,12 @@ public class REVcontroller {
 			mv.setViewName("cannotDelete");
 			return mv;
 		}
-		
-		
+
 	}
-	//수정한 글 업데이트.
-	@RequestMapping(value="/updateREV",method=RequestMethod.POST)
-	public String updateformBoard(REVBoardVO vo) {
-		
+
+	// 수정한 글 업데이트.
+	@RequestMapping(value = "/updateREV", method = RequestMethod.POST)
+	public String updateformBoard(@ModelAttribute("update") REVBoardVO vo) {
 		dao.updateBoard(vo);
 		return "redirect:./listREV";
 	}
@@ -116,7 +117,5 @@ public class REVcontroller {
 			return "cannotDelete";
 		}
 	}
-	
-	
 
 }

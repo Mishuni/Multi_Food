@@ -28,18 +28,17 @@ public class SUGDAO implements DAO {
 
 	@Override
 	public int deleteBoard(BoardVO vo) {
-		return session.delete("deleteboard",vo);
+		return session.delete("deletesugboard",vo);
 	}
 
 	@Override
 	public int updateBoard(BoardVO vo) {
 
-		return 0;
+		return session.update("updatesugboard", vo);
 	}
 
 	@Override
 	public BoardVO getBoard(BoardVO vo) {
-		System.out.println(session.selectOne("getoneboard", vo));
 		return session.selectOne("getoneboard", vo);
 	}
 
@@ -51,5 +50,6 @@ public class SUGDAO implements DAO {
 	public void upViewCount(BoardVO vo) {
 		session.update("upviewcount", vo);
 	}
+	
 
 }

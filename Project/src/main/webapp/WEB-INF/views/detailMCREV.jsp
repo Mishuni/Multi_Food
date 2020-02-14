@@ -63,7 +63,7 @@
 		        <table cellpadding="0" cellspacing="0" border="0" width="340">
 		          <tr>
 		          	<td align="right" width= "200"style="padding=0">
-		           </td>s
+		           </td>
 		            <td align="right" width= "100"style="padding=0">
 		              <input id="button" type="button" value="수정하기" onclick="location.href='./updateMCREV?seq=${detail.seq}&writer=<%=((UserVO)session.getAttribute("member")).getId() %>'"></td>
 		            <td align="right" width= "100"style="padding=0">

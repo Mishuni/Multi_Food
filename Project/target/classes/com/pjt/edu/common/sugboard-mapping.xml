@@ -17,7 +17,7 @@
 		update sugboard set contents = #{contents}, regdate = sysdate where seq = #{seq}
 	</update>
 		
-	<delete id="deleteboard" parameterType="sugboard">
+	<delete id="deletesugboard" parameterType="sugboard">
 		delete from sugboard where seq = #{seq}
 	</delete>
 		
@@ -32,6 +32,10 @@
 		values
 		((SELECT MAX(SEQ)+1 FROM sugboard), #{title},#{writer},#{contents},sysdate)
 	</insert>
+	
+	<update id="updatesugboard" parameterType="sugboard" >
+		update sugboard set title=#{title} ,contents = #{contents}, regdate = sysdate where seq = #{seq}
+	</update>
 		
 </mapper>
 

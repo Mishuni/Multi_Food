@@ -41,7 +41,7 @@
 
 	</div>
 
-	<form ID="insertform" action="./updateREV" method="post">
+	<form ID="insertform" action="./updateMCREV" method="post">
 		<table id = "insert">
 			<tr>
 				<td><h3 id = "skyblue">여러분의 의견을 들려주세요</h3></td>

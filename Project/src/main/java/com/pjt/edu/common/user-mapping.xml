@@ -15,6 +15,9 @@
 		where id =#{id}
 	</update>
 	
+	<select id="userroll" resultType="int" parameterType="user">
+		select role from users where id=#{id}
+	</select>
 	
 	
 <!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->
