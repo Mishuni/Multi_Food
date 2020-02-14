@@ -1,10 +1,10 @@
 package com.pjt.edu.user;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,7 +31,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public ModelAndView login(
+	public ModelAndView login(HttpServletRequest request,
 			@RequestParam("id")String id, 
 			String pw) {
 		/*
@@ -45,6 +45,7 @@ public class UserController {
 		user = dao.getUser(vo);
 		ModelAndView mav = new ModelAndView();
 		
+
 		if(user!=null) {
 			mav.addObject("user",user);
 			if(user.getRole().equals("admin")) {
@@ -56,11 +57,20 @@ public class UserController {
 			ClassVO lecture = cdao.getClass(cvo);
 			mav.addObject("lecture",lecture);
 			mav.setViewName("mypage");
+			HttpSession session = request.getSession();
+			session.setAttribute("member", user);
 		}
 		else 
 			mav.setViewName("redirect:/");
 		return mav;
 	}
+	
+	@RequestMapping(value="/useticket" )
+	public String useticket() {
+		
+		return "/useticket";
+	}
+	
 	
 //	@RequestMapping(value="/mypage")
 //	public ModelAndView getMypage(@ModelAttribute("user")UserVO vo) {

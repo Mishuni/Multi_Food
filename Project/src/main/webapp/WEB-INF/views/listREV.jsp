@@ -2,19 +2,20 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 					"http://www.w3.org/TR/html4/loose.dtd">
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>타이틀입력</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/resources/style.css" />
 
 </head>
 <body>
-	<a id = "logo" href="./main">
-	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" >
+	<a id="logo" href="./main"> <img
+		src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png">
 	</a>
-	
+
 	<nav id="topMenu" class="menu">
 	<ul>
 		<li><a class="menuLink" href="./todaymenu">오늘의 메뉴</a></li>
@@ -24,12 +25,18 @@
 	</ul>
 	</nav>
 	<br>
-	
-	<hr>
+
+
 	<!-- 코드작성 -->
-	<h1>멀티캠퍼스 식단 후기입니다</h1>
-	<table>
+	<div id=menuname>
+		<h3>식단 후기 게시판</h3>
+		<hr>
+
+	</div>
+
+	<table class=table2>
 		<tr>
+
 			<td>번호</td>
 			<td>제목</td>
 			<td>작성자</td>
@@ -51,10 +58,11 @@
 		</c:forEach>
 	</table>
 
-	<input type="button" value="글쓰기"
+
+	<input id="button" type="button" value="글쓰기"
 		onClick="location.href='./insertformREV'">
-	<hr>
-	
+
+	<br>
 
 
 	<nav id="topMenu" class="menu">
@@ -65,17 +73,17 @@
 	</ul>
 	</nav>
 	<br>
-	
-	
-	
+
+
+
 	<footer id="bottom" class="menu">
-		<p>Posted by: 유미선, 최혜근, 정헤진, 이효진</p>
-		<p>
-			Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.
-		</p>
+	<p>Posted by: 유미선, 최혜근, 정헤진, 이효진</p>
+	<p>
+		Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.
+	</p>
 	</footer>
-	
-	
-	
+
+
+
 </body>
 </html>

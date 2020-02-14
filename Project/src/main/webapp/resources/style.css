@@ -94,13 +94,45 @@ background-color: white;
 	position: relative;
 	left: 15%;
 }
- table.table2{
+#menuname{
+
+    padding-left : 15%;
+   /* padding-bottom: 10px; */
+	
+	
+}
+
+#button{
+	
+	float : right;
+	width: 70px;
+	height:30px; 
+	 margin-right:15%;
+}
+#insert{
+	/* padding-top: 10px;  */
+	width : 700; 
+	border : 0;
+	cellpadding : 2;
+	padding-left : 15%
+	
+}
+#skyblue{
+	color : grey;
+
+	padding-left : 15%
+	
+}
+
+
+ table.table2{	
                 border-collapse: separate;
                 border-spacing: 1px;
                 text-align: left;
                 line-height: 1.5;
                 border-top: 1px solid #ccc;
                 margin : 20px 30px;
+                padding-left : 15%
         }
         table.table2 tr {
                  width: 50px;
@@ -118,5 +150,7 @@ background-color: white;
 
                  
         }
+        
+        
 
 
