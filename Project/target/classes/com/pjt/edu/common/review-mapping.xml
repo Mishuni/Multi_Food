@@ -10,21 +10,27 @@
 		
 		values
 		((SELECT MAX(SEQ)+1 FROM reviewboard), #{title},#{writer},#{contents},sysdate)
-		
-	
 	</insert>
 
 	<!-- <select id=""> </select> <update id=""> </update> <delete id=""> </delete> -->
 
 	<select id="allrev" resultType="revboard">
-
-		select * from reviewboard
-
+		select * from reviewboard order by seq desc
 	</select>
+	
 	<select id="getonerev" parameterType="revboard" resultType="revboard">
 		select * from reviewboard where seq = #{seq}
 	</select>
-
+	
+	<delete id="deleterevboard" parameterType="revboard">
+		delete from reviewboard where seq = #{seq}
+	</delete>
+	
+	<update id="updaterevboard" parameterType="revboard" >
+		update reviewboard set title=#{title} ,contents = #{contents}, regdate = sysdate where seq = #{seq}
+	</update>
+	
+	
 
 
 
