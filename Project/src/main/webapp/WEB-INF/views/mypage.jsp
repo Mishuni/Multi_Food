@@ -9,6 +9,7 @@
 <title>마이페이지</title>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/style.css" />
+	<script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
 
 </head>
 <body>
@@ -23,7 +24,8 @@
 	</ul>
 	</nav>
 	<br>
-테스트 : 	<%=((UserVO)session.getAttribute("member")).getId() %>
+	
+	<div id="myclass">고객정보 :<%=((UserVO)session.getAttribute("member")).getId() %></div>
 
 	<h1 id="welcome">${user.id }님안녕하세요!</h1>
 
@@ -51,8 +53,8 @@
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="#">식권사용</a></li>
-		<li><a class="menuLink" href="#">식권구매</a></li>
+		<li><a class="menuLink" href="./useticket"  onclick= popup()	target="_blank">식권사용</a></li>
+		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
 		<li><a class="menuLink" href="#">포인트충전</a></li>
 	</ul>
 	</nav>

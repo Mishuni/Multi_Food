@@ -51,7 +51,7 @@ public class SUGcontroller {
 	@RequestMapping(value="/detailSUG", method=RequestMethod.GET )
 	public ModelAndView sugboardone(SUGBoardVO vo) {
 		
-		
+		System.out.println(vo);
 		
 		ModelAndView mv = new ModelAndView();
 //		dao.upViewCount(vo);	
@@ -76,14 +76,14 @@ public class SUGcontroller {
 //		return "redirect:detailSUG";
 //		
 //	}
-	// 글쓴이만 수정 가능
+	//수정할 글 title,contents를 updateform 으로 가져오기. 글쓴이, admin만 수정가능.
 		@RequestMapping(value = "/updateSUG", method = RequestMethod.GET)
-		public ModelAndView updateBoard(@ModelAttribute("update") SUGBoardVO vo, HttpSession session) {
+	public ModelAndView updateBoard(/* @ModelAttribute("update") */ SUGBoardVO vo, HttpSession session) {
 			ModelAndView mv = new ModelAndView();
 			System.out.println(vo);
 			SUGBoardVO loginVO = (SUGBoardVO) dao.getBoard(vo);
 			String roll = ((UserVO)session.getAttribute("member")).getRole();
-			System.out.println(roll);
+			
 			
 			if (loginVO.getWriter().equals(vo.getWriter())) {
 				vo = (SUGBoardVO) dao.getBoard(vo);
@@ -92,7 +92,10 @@ public class SUGcontroller {
 				mv.setViewName("updateformSUG");
 				return mv;
 			} else if (roll.equals("admin")) {
-				dao.deleteBoard(vo);
+				vo = (SUGBoardVO) dao.getBoard(vo);
+				System.out.println(vo);
+				mv.addObject("update", vo);
+				mv.setViewName("updateformSUG");
 				return mv;
 			} else {
 				mv.setViewName("cannotDelete");
@@ -103,15 +106,16 @@ public class SUGcontroller {
 
 		// 수정한 글 업데이트.
 		@RequestMapping(value = "/updateSUG", method = RequestMethod.POST)
-		public String updateformBoard(@ModelAttribute("update") SUGBoardVO vo) {
+	public String updateformBoard(/* @ModelAttribute("update") */ SUGBoardVO vo) {
 			dao.updateBoard(vo);
 			return "redirect:./listSUG";
 		}
 	
 	@RequestMapping(value="/deleteSUG", method=RequestMethod.GET)
-	public String deleteBoardResult(SUGBoardVO vo) {
+	public String deleteBoardResult(SUGBoardVO vo, HttpSession session) {
 		System.out.println(vo);
 		SUGBoardVO loginVO = (SUGBoardVO)dao.getBoard(vo);
+		String roll = ((UserVO)session.getAttribute("member")).getRole();
 		
 //		UserVO uvo= new UserVO();
 //		uvo.setId(vo.getWriter());
@@ -120,7 +124,7 @@ public class SUGcontroller {
 		if(loginVO.getWriter().equals(vo.getWriter())) {
 		dao.deleteBoard(vo);
 			return "redirect:/listSUG";
-		}else if(vo.getWriter().equals("admin")) {
+		}else if(roll.equals("admin")) {
 			dao.deleteBoard(vo);
 			return "redirect:listSUG";
 		}

@@ -9,6 +9,7 @@
 <title>타이틀입력</title>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/style.css" />
+	<script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
  <script>
         function popup(){
             var url = "./useticket";
@@ -60,7 +61,7 @@
 
 						<tr>
 							<td>작성자</td>
-							<td><%=((UserVO)session.getAttribute("member")).getId() %></td>
+							<td><input type=text name=seq size=70 value='${update.writer}' readonly="readonly"></td>
 						</tr>
 
 						<tr>

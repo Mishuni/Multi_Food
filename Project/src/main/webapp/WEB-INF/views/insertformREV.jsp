@@ -9,14 +9,8 @@
 <title>타이틀입력</title>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/style.css" />
- <script>
-        function popup(){
-            var url = "./useticket";
-            var name = "popup test";
-            var option = "width = 500, height = 500, top = 100, left = 200, location = no"
-            window.open(url, name, option);
-        }
-    </script>
+ <script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
+       
 </head>
 <body>
 	<a id="logo" href="./main"> <img

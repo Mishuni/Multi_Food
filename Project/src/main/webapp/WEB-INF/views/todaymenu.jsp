@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>오늘의 식단</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
-
+<script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
 </head>
 <body>
 	<a id = "logo" href="./main">
@@ -46,7 +46,7 @@
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="./useticket">식권사용</a></li>
+		<li><a class="menuLink" href="./useticket"  onclick= popup()	target="_blank">식권사용</a></li>
 		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
 		<li><a class="menuLink" href="#">포인트충전</a></li>
 	</ul>

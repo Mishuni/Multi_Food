@@ -34,7 +34,7 @@
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="./useticket">식권사용</a></li>
+		<li><a class="menuLink" href="./useticket"  onclick= popup()	target="_blank">식권사용</a></li>
 		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
 		<li><a class="menuLink" href="#">포인트충전</a></li>
 	</ul>

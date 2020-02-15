@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
-body{
-font-family: "고딕체", "Trebuchet MS", Dotum, Arial;
+body {
+	font-family: "고딕체", "Trebuchet MS", Dotum, Arial;
 }
 
-.menu{
+.menu {
 	background-color: DodgerBlue;
 	text-align: center;
 	position: relative;
@@ -13,28 +13,38 @@ font-family: "고딕체", "Trebuchet MS", Dotum, Arial;
 	color: white;
 }
 
-#myclass{
-	text-align :center;
+#loginuser {
+	text-align: center;
 	position: relative;
 	left: 15%;
 	width: 70%;
 	margin: 30px 30px 30px 0px;
-	border : 1px dotted lightblue;
+	border: 1px dotted lightblue;
+	padding-bottom: 15px;
+	
+}
+
+#myclass {
+	text-align: center;
+	position: relative;
+	left: 15%;
+	width: 70%;
+	margin: 30px 30px 30px 0px;
+	border: 1px dotted lightblue;
 	padding-bottom: 15px;
 }
+
 #topMenu {
 	position: relative;
 	left: 15%;
 	height: 30px;
 	width: 70%;
-	
 	margin-top: 30px;
 }
 
 #topMenu ul li {
 	width: 25%;
 	list-style: none;
-	
 	float: left;
 	line-height: 30px;
 	vertical-align: middle;
@@ -57,20 +67,19 @@ font-family: "고딕체", "Trebuchet MS", Dotum, Arial;
 }
 
 #welcome {
-	 text-align: center;
+	text-align: center;
 }
 
-#loginform{
-border: 6px solid DodgerBlue; 
-width: 50%; 
-height: 400px; 
-font-size: xx-large; 
-position: relative; 
-margin-left: 25%
-
+#loginform {
+	border: 6px solid DodgerBlue;
+	width: 50%;
+	height: 400px;
+	font-size: xx-large;
+	position: relative;
+	margin-left: 25%
 }
 
-#profile{
+#profile {
 	width: 20%;
 	position: relative;
 	left: 40%;
@@ -80,84 +89,72 @@ margin-left: 25%
 	border: 1px solid black;
 	text-align: center;
 }
-#profile tr td{
+
+#profile tr td {
 	border: 1px solid black;
 }
 
-#bottom{
-background-color: white;
+#bottom {
+	background-color: white;
 	color: grey;
 }
 
-#logo{
-
+#logo {
 	position: relative;
 	left: 15%;
 }
-#menuname{
 
-    padding-left : 15%;
-   /* padding-bottom: 10px; */
-	
-	
+#menuname {
+	padding-left: 15%;
+	/* padding-bottom: 10px; */
 }
 
-#button{
-	
-	float : right;
+#button {
+	float: right;
 	width: 70px;
-	height:30px; 
+	height: 30px;
 }
 
-#button2{
-	
-	
+#button2 {
 	width: 70px;
-	height:30px; 
+	height: 30px;
 }
 
-#insert{
+#insert {
 	/* padding-top: 10px;  */
-	width : 700; 
-	border : 0;
-	cellpadding : 2;
-	padding-left : 15%
-	
+	width: 700;
+	border: 0;
+	cellpadding: 2;
+	padding-left: 15%
 }
-#barcode{
 
-	width : 200; 
+#barcode {
+	width: 200;
 	position: relative;
 }
-	
 
+table.table2 {
+	border-collapse: separate;
+	border-spacing: 1px;
+	text-align: left;
+	line-height: 1.5;
+	border-top: 1px solid #ccc;
+	margin: 20px 30px;
+	padding-left: 15%
+}
 
- table.table2{	
-                border-collapse: separate;
-                border-spacing: 1px;
-                text-align: left;
-                line-height: 1.5;
-                border-top: 1px solid #ccc;
-                margin : 20px 30px;
-                padding-left : 15%
-        }
-        table.table2 tr {
-                 width: 50px;
-                 padding: 10px;
-                font-weight: bold;
-                vertical-align: top;
-                border-bottom: 1px solid #ccc;
-        }
-        table.table2 td {
-                 width: 100px;
-                 padding: 10px;
-                 vertical-align: top;
-                 border-bottom: 1px solid #ccc;
-                 white-space: nowrap;
+table.table2 tr {
+	width: 50px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+}
 
-                 
-        }
-        
-        
-
-
+table.table2 td {
+	width: 100px;
+	padding: 10px;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+	white-space: nowrap;
+}

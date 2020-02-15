@@ -30,7 +30,8 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		return "main";
 	}
-
+	
+	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView login(HttpServletRequest request, @RequestParam("id") String id, String pw) {
 		/*
@@ -46,10 +47,10 @@ public class UserController {
 
 		if (user != null) {
 			mav.addObject("user", user);
-			if (user.getRole().equals("admin")) {
-				mav.setViewName("adminpage");
-				return mav;
-			}
+//			if (user.getRole().equals("admin")) {
+//				mav.setViewName("mypage");
+//				return mav;
+//			}
 			ClassVO cvo = new ClassVO();
 			cvo.setClassNo(user.getClassNo());
 			ClassVO lecture = cdao.getClass(cvo);
