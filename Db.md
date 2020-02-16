@@ -1,16 +1,15 @@
 ```sql
 -- 계정 생성 
-create user MULTI identified by 1234
-default TABLESPACE mc;
+--create user MULTI identified by 1234
+--default TABLESPACE mc;
 -- 권한 부여
-grant connect,resource,dba to MULTI;
+--grant connect,resource,dba to MULTI;
 
-DROP TABLE USERS;
-DROP TABLE CLASS;
 DROP TABLE SUGBOARD;
 DROP TABLE REVIEWBOARD;
-DROP TABLE SUGBOARD;
-
+DROP TABLE MCREVIEWBOARD;
+DROP TABLE USERS;
+DROP TABLE CLASS;
 
 CREATE TABLE CLASS (
 	CLASSNO NUMBER(5) PRIMARY KEY,
@@ -81,5 +80,8 @@ CREATE TABLE MCREVIEWBOARD (
 INSERT INTO MCREVIEWBOARD VALUES(1,'게시판 공지사항입니다.','이런 양식을 지켜 주세요!','admin',sysdate, 0);
 INSERT INTO MCREVIEWBOARD VALUES(2,'빅데이터를 활용한 IOT B반 후기','좋아요','test',sysdate, 0);
 
+
+
+commit;
 ```
 

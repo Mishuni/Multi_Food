@@ -32,11 +32,18 @@
 			<th>B코스</th>
 		</tr> 
 		<tr>
-			<td><img id="1" alt="A코스" src="<%=request.getContextPath()%>/resources/images/aCourse.jpg"></td>
-			<td><img id="1"  alt="B코스" src="<%=request.getContextPath()%>/resources/images/bCourse.jpg"></td>
+			<td style="">
+			<img class="menuimg" alt="A코스"  
+			src="<%=request.getContextPath()%>/resources/images/aCourse.jpg"></td>
+			<td>
+			<img class="menuimg"  alt="B코스"
+			src="<%=request.getContextPath()%>/resources/images/bCourse.jpg"></td>
 		</tr>
 		<tr>
-			<td colspan="2"><img id="2" alt="식단표"  src="<%=request.getContextPath()%>/resources/images/Feb2menu.jpg""></td>
+			<td colspan="2">
+			<img id="menulist" 
+			alt="식단표"  src="<%=request.getContextPath()%>/resources/images/Feb2menu.jpg"">
+			</td>
 		</tr>
 	</table>
 	

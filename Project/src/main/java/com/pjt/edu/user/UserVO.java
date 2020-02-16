@@ -59,6 +59,11 @@ public class UserVO {
 	public void setTotal(int total) {
 		this.total = total;
 	}
+	@Override
+	public String toString() {
+		return "UserVO [id=" + id + ", pw=" + pw + ", role=" + role + ", name=" + name + ", classNo=" + classNo
+				+ ", point=" + point + ", tickets=" + tickets + ", total=" + total + "]";
+	}
 
 	
 }

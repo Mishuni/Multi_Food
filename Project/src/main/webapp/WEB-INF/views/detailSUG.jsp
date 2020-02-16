@@ -72,9 +72,9 @@
 		           </td>
 		             
 		            <td align="right" width= "100"style="padding=0">
-		              <input id="button" type="button" value="수정하기" onclick="location.href='./updateSUG?seq=${detail.seq}&writer=<%=((UserVO)session.getAttribute("member")).getId() %>'"></td>
+		              <input id="button" type="button" value="수정하기" onclick="location.href='./updateSUG?seq=${detail.seq}&writer=${detail.writer}'"></td>
 		            <td align="right" width= "100"style="padding=0">
-		              <input id="button" type="button" value="삭제하기" onclick="location.href='./deleteREV?seq=${detail.seq}&writer=<%=((UserVO)session.getAttribute("member")).getId() %>'"></td>
+		              <input id="button" type="button" value="삭제하기" onclick="location.href='./deleteREV?seq=${detail.seq}&writer=${detail.writer}'"></td>
 		          </tr>
 		        </table>
 		      </td>

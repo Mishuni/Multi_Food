@@ -10,7 +10,20 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/style.css" />
 	<script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
-
+ <script>
+        function popup(tickets){
+        	
+        	if(tickets>0){
+            	var url = "./useticket";
+           		var name = "popup test";
+            	var option = "width = 500, height = 500, top = 100, left = 200, location = no"
+            	window.open(url, "_blank", option);
+            }
+        	else{
+        		alert("사용가능한 식권이 없습니다. 식권을 구매해 주세요.");
+        	}
+        }
+    </script>
 </head>
 <body>
 	
@@ -21,14 +34,14 @@
 		<li><a class="menuLink" href="./todaymenu">오늘의 메뉴</a></li>
 		<li><a class="menuLink" href="./listREV">식단 후기</a></li>
 		<li><a class="menuLink" href="./listSUG">식단 건의사항</a></li>
-		<li><a class="menuLink" href="./listMCREV">수업 후기</a></li>
+		<li><a class="menuLink" href="./listMCREV">외부식당 후기</a></li>
 	</ul>
 	</nav>
 	<br>
 	
-	<div id="myclass">고객정보 :<%=((UserVO)session.getAttribute("user")).getId() %></div>
+	<div id="myclass">고객정보 :<%=((UserVO)session.getAttribute("member")).getId() %></div>
 
-	<h1 id="welcome">${user.id }님안녕하세요!</h1>
+	<h1 id="welcome">${member.id }님안녕하세요!</h1>
 
 	<div id="myclass">
 		<h2>수강 클래스 정보</h2>
@@ -40,21 +53,21 @@
 	<table id="profile">
 		<tr>
 			<td>식권</td>
-			<td>${user.tickets}장</td>
+			<td>${member.tickets}장</td>
 		</tr>
 		<tr>
 			<td>멀티 포인트</td>
-			<td>${user.point}p</td>
+			<td>${member.point}p</td>
 		</tr>
 		<tr>
-			<td colspan="2">현재까지 식권 ${user.total }장을 사용하셨습니다.</td>
+			<td colspan="2">현재까지 식권 ${member.total }장을 사용하셨습니다.</td>
 		</tr>
 	</table>
 
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="./useticket"  onclick= popup()	target="_blank">식권사용</a></li>
+		<li><a class="menuLink" onclick= popup(${member.tickets})	>식권사용</a></li>
 		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
 		<li><a class="menuLink" href="#">포인트충전</a></li>
 	</ul>

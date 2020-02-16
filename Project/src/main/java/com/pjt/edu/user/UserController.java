@@ -28,18 +28,17 @@ public class UserController {
 	@RequestMapping(value = "/main")
 	public String getMain() {
 		ModelAndView mav = new ModelAndView();
-	
+
 		return "main";
 	}
-	
-	@RequestMapping(value="/mypage")
+
+	@RequestMapping(value = "/mypage")
 	public String UserMain(HttpSession session) {
 
 		return "mypage";
-		
+
 	}
-	
-	
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(HttpServletRequest request, @RequestParam("id") String id, String pw) {
 		/*
@@ -53,7 +52,7 @@ public class UserController {
 		user = dao.getUser(vo);
 		ModelAndView mav = new ModelAndView();
 		System.out.println(user.getTickets());
-		
+
 		if (user != null) {
 			mav.addObject("user", user);
 //			if (user.getRole().equals("admin")) {
@@ -64,15 +63,14 @@ public class UserController {
 			cvo.setClassNo(user.getClassNo());
 			ClassVO lecture = cdao.getClass(cvo);
 			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
+			session.setAttribute("member", user);
 			session.setAttribute("lecture", lecture);
 			return "mypage";
-		} 
-		else
+		} else
 			return "main";
-	
+
 	}
-	
+
 	/* 티켓창 띄우기 */
 
 	@RequestMapping(value = "/useticket")
@@ -80,23 +78,28 @@ public class UserController {
 
 		return "/useticket";
 	}
-	
-	
+
 	/* 티켓사용 */
 	@RequestMapping(value = "/useticketClick")
-	public String useticketClick(UserVO vo, HttpSession session) {
+	public String useticketClick(HttpSession session) {
 		
-		String sessionId = ((UserVO)session.getAttribute("member")).getId();
+		UserVO user = (UserVO) session.getAttribute("member");
+		if(user!=null&&user.getTickets()>0) {
+			String sessionId = user.getId();
+			mdao.useticket(sessionId);
+			return "/useticketresult";}
+		else if(user==null) {
+			return "login";
+		}
+		// 식권이 없으면 경고창 띄우기
 		
-		mdao.useticket(sessionId);
-
-		return "/useticketresult";
+		return "mypage";
 	}
-	
-	   @RequestMapping(value="/todaymenu")
-	   public String todaymenu() {
-	      return "/todaymenu";
-	   }
+
+	@RequestMapping(value = "/todaymenu")
+	public String todaymenu() {
+		return "/todaymenu";
+	}
 
 //	@RequestMapping(value="/mypage")
 //	public ModelAndView getMypage(@ModelAttribute("user")UserVO vo) {

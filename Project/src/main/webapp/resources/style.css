@@ -133,6 +133,30 @@ body {
 	position: relative;
 }
 
+
+.menutable{	
+	
+position: relative;
+	left: 20%;
+	width: 60%;
+}
+
+.menutable tr td{
+	text-align:center;
+	width: 50%;
+}
+
+.menuimg {
+	
+	width : 80%;
+ 	height : 250px
+}
+
+#menulist{
+	width : 70%;
+	
+}
+
 table.table2 {
 	border-collapse: separate;
 	border-spacing: 1px;
