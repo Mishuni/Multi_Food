@@ -7,7 +7,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>타이틀입력</title>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+			$(document).ready(function(){
+				$("[name=buypoint]").change(function(){
+					var num =  $('#buypoint').val();
+					var result = num * 60;
+					$("[name=money]").text("총 "+result + "p 입니다.") ;
+				});
+			});
+	</script>
 </head>
 <body>
 	<a id="logo" href="./mypage"> <img
@@ -27,7 +36,7 @@
 		구매 희망 갯수 (개당 60p): 
 		<input type="number" id="buypoint" name="buypoint" /> <br>
 		총 결제 포인트 : 
-		<p id="money"></p> 
+		<p id="money" name="money"></p> 
 		<input type="submit" value="구매"/>
 	</form>
 	
