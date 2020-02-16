@@ -84,14 +84,7 @@
     <link rel="stylesheet" type="text/css"
     	href="<%=request.getContextPath()%>/resources/style.css" />
     	<script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
-    	<script>
-            function popup(){
-                var url = "./useticket";
-                var name = "popup test";
-                var option = "width = 500, height = 500, top = 100, left = 200, location = no"
-                window.open(url, name, option);
-            }
-    	</script>
+    	<script src="<%=request.getContextPath()%>/resources/js/popup.js?ver=2"> </script>
     </head>
     <body>
     	
@@ -114,7 +107,7 @@
     	<ul>
     		<li><a class="menuLink" href="./useticket"  onclick= popup() target="_blank">식권사용</a></li>
     		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
-    		<li><a class="menuLink" href="#">포인트충전</a></li>
+    		<li><a class="menuLink" href="./buypoint">포인트충전</a></li>
     	</ul>
     	</nav>
     	<br>
