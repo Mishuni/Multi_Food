@@ -9,21 +9,7 @@
 <title>마이페이지</title>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/style.css" />
-	<script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
- <script>
-        function popup(tickets){
-        	
-        	if(tickets>0){
-            	var url = "./useticket";
-           		var name = "popup test";
-            	var option = "width = 500, height = 500, top = 100, left = 200, location = no"
-            	window.open(url, "_blank", option);
-            }
-        	else{
-        		alert("사용가능한 식권이 없습니다. 식권을 구매해 주세요.");
-        	}
-        }
-    </script>
+<script src="<%=request.getContextPath()%>/resources/js/popup.js?ver=2"> </script>
 </head>
 <body>
 	
@@ -45,8 +31,10 @@
 
 	<div id="myclass">
 		<h2>수강 클래스 정보</h2>
-		클래스 번호 : ${lecture.classNo }<br> 클래스 이름 : <b>${lecture.className }</b><br>
-		클래스 기간 : ${lecture.startDay } ~ ${lecture.endDay }<br> 학생 수 :
+		클래스 번호 : ${lecture.classNo }<br> 
+		클래스 이름 : <b>${lecture.className }</b><br>
+		클래스 기간 : ${lecture.startDay } ~ ${lecture.endDay }<br> 
+		학생 수 :
 		${lecture.studentCnt }
 	</div>
 
@@ -67,9 +55,9 @@
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" onclick= popup(${member.tickets})	>식권사용</a></li>
+		<li><a class="menuLink" href="#" onclick= popup(${member.tickets }) >식권사용</a></li>
 		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
-		<li><a class="menuLink" href="#">포인트충전</a></li>
+		<li><a class="menuLink" href="./buypoint">포인트충전</a></li>
 	</ul>
 	</nav>
 	<br>
