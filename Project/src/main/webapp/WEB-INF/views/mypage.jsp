@@ -56,7 +56,7 @@
 	<nav id="topMenu" class="menu">
 	<ul>
 		<li><a class="menuLink" href="#" onclick= popup(${member.tickets }) >식권사용</a></li>
-		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
+		<li><a class="menuLink" href="#" onclick= popup2(${member.point }) >식권구매</a></li>
 		<li><a class="menuLink" href="./buypoint">포인트충전</a></li>
 	</ul>
 	</nav>

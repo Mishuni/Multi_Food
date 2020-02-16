@@ -51,7 +51,7 @@ public class UserController {
 		vo.setPw(pw);
 		user = dao.getUser(vo);
 		ModelAndView mav = new ModelAndView();
-		System.out.println(user.getTickets());
+		System.out.println(user.getPoint());
 
 		if (user != null) {
 			mav.addObject("user", user);
@@ -74,7 +74,7 @@ public class UserController {
 	/* 티켓창 띄우기 */
 
 	@RequestMapping(value = "/useticket")
-	public String useticket(UserVO vo) {
+	public String useticket() {
 
 		return "/useticket";
 	}
@@ -94,6 +94,14 @@ public class UserController {
 		// 식권이 없으면 경고창 띄우기
 		
 		return "mypage";
+	}
+	
+	
+	/* 티켓 구매 창 띄우기 */
+	@RequestMapping(value = "/buyticket")
+	public String buyticket() {
+		
+		return "buyticket";
 	}
 
 	@RequestMapping(value = "/todaymenu")
