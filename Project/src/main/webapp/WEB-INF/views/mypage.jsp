@@ -26,7 +26,7 @@
 	</nav>
 	<br>
 	
-	<div id="myclass">고객정보 :<%=((UserVO)session.getAttribute("member")).getId() %></div>
+	<div id="myclass">고객정보 :<%=((UserVO)session.getAttribute("user")).getId() %></div>
 
 	<h1 id="welcome">${user.id }님안녕하세요!</h1>
 

@@ -28,17 +28,20 @@ public class UserController {
 	@RequestMapping(value = "/main")
 	public String getMain() {
 		ModelAndView mav = new ModelAndView();
+	
 		return "main";
 	}
 	
 	@RequestMapping(value="/mypage")
-	public String UserMain() {
+	public String UserMain(HttpSession session) {
+
 		return "mypage";
+		
 	}
 	
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView login(HttpServletRequest request, @RequestParam("id") String id, String pw) {
+	public String login(HttpServletRequest request, @RequestParam("id") String id, String pw) {
 		/*
 		 * if(vo.getId()==null || vo.getId().equals("")) { throw new
 		 * IllegalArgumentException("아이디는 반드시 입력해야 합니다."); }
@@ -49,7 +52,8 @@ public class UserController {
 		vo.setPw(pw);
 		user = dao.getUser(vo);
 		ModelAndView mav = new ModelAndView();
-
+		System.out.println(user.getTickets());
+		
 		if (user != null) {
 			mav.addObject("user", user);
 //			if (user.getRole().equals("admin")) {
@@ -59,13 +63,14 @@ public class UserController {
 			ClassVO cvo = new ClassVO();
 			cvo.setClassNo(user.getClassNo());
 			ClassVO lecture = cdao.getClass(cvo);
-			mav.addObject("lecture", lecture);
-			mav.setViewName("mypage");
 			HttpSession session = request.getSession();
-			session.setAttribute("member", user);
-		} else
-			mav.setViewName("redirect:/");
-		return mav;
+			session.setAttribute("user", user);
+			session.setAttribute("lecture", lecture);
+			return "mypage";
+		} 
+		else
+			return "main";
+	
 	}
 	
 	/* 티켓창 띄우기 */
