@@ -21,8 +21,8 @@ public class REVcontroller {
 
 	// 삽입
 	@RequestMapping(value = "/insertformREV", method = RequestMethod.GET)
-	public void insertBordForm() {
-
+	public String insertBordForm() {
+		return "insertformREV";
 	}
 
 	// 삽입2

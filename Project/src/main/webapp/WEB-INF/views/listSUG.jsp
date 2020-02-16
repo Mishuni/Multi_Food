@@ -55,7 +55,7 @@
 		</c:forEach>
 		<tr>
 		<td colspan="5"><input id="button" type="button" value="글쓰기"
-		onClick="location.href='./insertformMCREV'"></td>
+		onClick="location.href='./insertformSUG'"></td>
 		</tr>
 	</table>
 

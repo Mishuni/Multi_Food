@@ -24,8 +24,8 @@ public class SUGcontroller {
 	UserDAO_mybatis udao;
 	//삽입
 	@RequestMapping(value = "/insertformSUG", method = RequestMethod.GET)
-	public void insertBordForm() {
-		
+	public String insertBordForm() {
+		return "insertformSUG";
 	}
 	
 	// 삽입2

@@ -56,7 +56,7 @@
 
 						<tr>
 							<td>작성자</td>
-							<td><input type=text name=writer size=10 value='<%=((UserVO)session.getAttribute("member")).getId() %>' ></td>
+							<td><input type=text name=writer size=10 value='<%=((UserVO)session.getAttribute("member")).getId() %>'readonly ></td>
 						</tr>
 
 						<tr>
