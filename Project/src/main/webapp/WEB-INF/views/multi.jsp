@@ -11,9 +11,9 @@
 
 </head>
 <body>
-	<a id = "logo" href="./main">
-	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" >
-	</a>
+	
+	<a id = "logo" href="./mypage">
+	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" ></a>
 	
 	<nav id="topMenu" class="menu">
 	<ul>

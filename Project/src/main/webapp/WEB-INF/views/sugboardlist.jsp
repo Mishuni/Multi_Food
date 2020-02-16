@@ -10,7 +10,8 @@
 
 </head>
 <body>
-	<img id="logo" alt="" src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png">
+	<a id = "logo" href="./mypage">
+	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" ></a>
 	
 	<nav id="topMenu" class="menu">
 	<ul>

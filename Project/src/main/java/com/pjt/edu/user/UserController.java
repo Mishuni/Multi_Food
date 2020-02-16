@@ -31,6 +31,11 @@ public class UserController {
 		return "main";
 	}
 	
+	@RequestMapping(value="/mypage")
+	public String UserMain() {
+		return "mypage";
+	}
+	
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView login(HttpServletRequest request, @RequestParam("id") String id, String pw) {
