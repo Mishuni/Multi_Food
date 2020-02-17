@@ -9,12 +9,12 @@
 <title>타이틀입력</title>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/style.css" />
-
+<script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
 </head>
 <body>
-	<a id="logo" href="./main"> <img
-		src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png">
-	</a>
+	
+	<a id = "logo" href="./mypage">
+	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" ></a>
 
 	<nav id="topMenu" class="menu">
 	<ul>
@@ -33,43 +33,43 @@
 		<hr>
 
 	</div>
-
-	<table class=table2>
-		<tr>
-
-			<td>번호</td>
-			<td>제목</td>
-			<td>작성자</td>
-			<td>작성날짜</td>
-			<td>조회수</td>
-		</tr>
-		<c:forEach items="${list}" var="vo">
-
-
+		<table class=table2>
 			<tr>
-				<td>${vo.seq}</td>
-				<td><a class="menuLink" href="./detailREV?seq=${vo.seq}">${vo.title}</a></td>
-				<td>${vo.writer}</td>
-				<td>${vo.regdate}</td>
-				<td>${vo.viewcount}</td>
-
+				<td>번호</td>
+				<td>제목</td>
+				<td>작성자</td>
+				<td>작성날짜</td>
+				<td>조회수</td>
 			</tr>
+			<c:forEach items="${list}" var="vo">
+	
+	
+				<tr>
+					<td>${vo.seq}</td>
+					<td><a class="menuLink" href="./detailREV?seq=${vo.seq}">${vo.title}</a></td>
+					<td>${vo.writer}</td>
+					<td>${vo.regdate}</td>
+					<td>${vo.viewcount}</td>
+	
+				</tr>
+	
+			</c:forEach>
+			<tr>
+			<td colspan="5"><input id="button" type="button" value="글쓰기"
+			onClick="location.href='./insertformREV'">
+			<c:forEach items="${page}" var="num"><a href="./listREV?num=${num}">${num}</a>| </c:forEach>
+			</td>
+			</tr>
+			
+		</table>
 
-		</c:forEach>
-	</table>
-
-
-	<input id="button" type="button" value="글쓰기"
-		onClick="location.href='./insertformREV'">
-
-	<br>
 
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="./useticket">식권사용</a></li>
-		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
-		<li><a class="menuLink" href="#">포인트충전</a></li>
+		<li><a class="menuLink" href="#" onclick= popup(${member.tickets }) >식권사용</a></li>
+		<li><a class="menuLink" href="#" onclick= popup2(${member.point }) >식권구매</a></li>
+		<li><a class="menuLink" href="#" onclick= pointpopup() >포인트충전</a></li>
 	</ul>
 	</nav>
 	<br>

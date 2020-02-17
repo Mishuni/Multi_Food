@@ -8,11 +8,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>타이틀입력</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
+<script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
 </head>
 <body>
-	<a id = "logo" href="./main">
-	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" >
-	</a>
+	
+	<a id = "logo" href="./mypage">
+	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" ></a>
 	
 	<nav id="topMenu" class="menu">
 	<ul>
@@ -52,22 +53,25 @@
 			</tr>
 
 		</c:forEach>
+		<tr>
+		<td colspan="5"><input id="button" type="button" value="글쓰기"
+		onClick="location.href='./insertformSUG'">
+		<c:forEach items="${page}" var="num"><a href="./listSUG?num=${num}">${num}</a>| </c:forEach>
+		</td>
+		</tr>
 	</table>
 
 
-	<input id="button" type="button" value="글쓰기"
-		onClick="location.href='./insertformSUG'">
-
-	<br>
+	
 	
 	
 
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="./useticket">식권사용</a></li>
-		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
-		<li><a class="menuLink" href="#">포인트충전</a></li>
+		<li><a class="menuLink" href="#" onclick= popup(${member.tickets }) >식권사용</a></li>
+		<li><a class="menuLink" href="#" onclick= popup2(${member.point }) >식권구매</a></li>
+		<li><a class="menuLink" href="#" onclick= pointpopup() >포인트충전</a></li>
 	</ul>
 	</nav>
 	<br>

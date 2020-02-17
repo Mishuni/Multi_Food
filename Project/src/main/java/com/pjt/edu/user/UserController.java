@@ -1,5 +1,8 @@
 package com.pjt.edu.user;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -28,14 +31,22 @@ public class UserController {
 	@RequestMapping(value = "/main")
 	public String getMain() {
 		ModelAndView mav = new ModelAndView();
+
 		return "main";
 	}
 
+	@RequestMapping(value = "/mypage")
+	public String UserMain(HttpSession session) {
+
+		return "mypage";
+
+	}
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView login(HttpServletRequest request, @RequestParam("id") String id, String pw) {
+	public String login(HttpServletRequest request, @RequestParam("id") String id, String pw) {
 		/*
 		 * if(vo.getId()==null || vo.getId().equals("")) { throw new
-		 * IllegalArgumentException("아이디는 반드시 입력해야 합니다."); }
+		 * IllegalArgumentException("�븘�씠�뵒�뒗 諛섎뱶�떆 �엯�젰�빐�빞 �빀�땲�떎."); }
 		 */
 		UserVO user = null;
 		UserVO vo = new UserVO();
@@ -43,35 +54,49 @@ public class UserController {
 		vo.setPw(pw);
 		user = dao.getUser(vo);
 		ModelAndView mav = new ModelAndView();
+		//System.out.println(user.getPoint());
 
 		if (user != null) {
 			mav.addObject("user", user);
-			if (user.getRole().equals("admin")) {
-				mav.setViewName("adminpage");
-				return mav;
-			}
+//			if (user.getRole().equals("admin")) {
+//				mav.setViewName("mypage");
+//				return mav;
+//			}
 			ClassVO cvo = new ClassVO();
 			cvo.setClassNo(user.getClassNo());
 			ClassVO lecture = cdao.getClass(cvo);
-			mav.addObject("lecture", lecture);
-			mav.setViewName("mypage");
 			HttpSession session = request.getSession();
 			session.setAttribute("member", user);
+			session.setAttribute("lecture", lecture);
+			return "mypage";
 		} else
-			mav.setViewName("redirect:/");
-		return mav;
+			return "main";
+
 	}
-	
-	/* 티켓창 띄우기 */
+
+	/* �떚耳볦갹 �쓣�슦湲� */
 
 	@RequestMapping(value = "/useticket")
-	public String useticket(UserVO vo) {
+	public String useticket() {
 
 		return "/useticket";
 	}
+
+	
+	/* �떚耳� 援щℓ 李� �쓣�슦湲� */
+	@RequestMapping(value = "/buyticket")
+	public String buyticket() {
+		
+		return "buyticket";
+	}
+
+	@RequestMapping(value = "/todaymenu")
+	public String todaymenu() {
+		return "/todaymenu";
+	}
 	
 	
-	/* 티켓사용 */
+	/* �떚耳볦궗�슜 */
 	@RequestMapping(value = "/useticketClick")
 	public String useticketClick(UserVO vo, HttpSession session) {
 		
@@ -79,13 +104,57 @@ public class UserController {
 		
 		mdao.useticket(sessionId);
 
-		return "/useticketresult";
+		return "/result";
 	}
 	
-	   @RequestMapping(value="/todaymenu")
-	   public String todaymenu() {
-	      return "/todaymenu";
-	   }
+	   
+	   
+	   //�떚耳볤뎄留�//
+		@RequestMapping(value = "/buyticketClick", method = RequestMethod.GET)
+		public String buyticketClick(@RequestParam("ticket")String ticket,  HttpSession session, UserVO vo) {
+			
+			
+			String sessionId = ((UserVO)session.getAttribute("member")).getId();
+			
+
+			Map map = new HashMap();
+			map.put("ticket", Integer.parseInt(ticket));
+			map.put("sessionID", sessionId);
+			System.out.println(ticket);
+			System.out.println(sessionId);
+			
+			mdao.addticket(map);
+
+
+			return "/result";
+		}
+	   
+	   
+	   //�룷�씤�듃 異⑹쟾李�//
+	   @RequestMapping(value = "/addpoint")
+		public String addPoint(UserVO vo) {
+		   return "/addpoint";
+		}
+		
+	  
+	   //�룷�씤�듃 異⑹쟾//
+	   
+		@RequestMapping(value = "/addpointClick",  method = RequestMethod.GET)
+		public String addPointClick(@RequestParam("money")String money,  HttpSession session) {
+			
+			String sessionId = ((UserVO)session.getAttribute("member")).getId();
+			
+			Map map = new HashMap();
+			map.put("point", Integer.parseInt(money));
+			map.put("sessionID", sessionId);
+			System.out.println(money);
+			System.out.println(sessionId);
+			System.out.println(map);
+			mdao.addpoint(map);
+
+			return "/result";
+		}
+	   
 
 //	@RequestMapping(value="/mypage")
 //	public ModelAndView getMypage(@ModelAttribute("user")UserVO vo) {

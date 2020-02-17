@@ -7,12 +7,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>오늘의 식단</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
-
+<script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
 </head>
 <body>
-	<a id = "logo" href="./main">
-	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" >
-	</a>
+
+	<a id="logo" href="./mypage"> <img
+		src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png"></a>
 	
 	<nav id="topMenu" class="menu">
 	<ul>
@@ -32,11 +32,18 @@
 			<th>B코스</th>
 		</tr> 
 		<tr>
-			<td><img id="1" alt="A코스" src="<%=request.getContextPath()%>/resources/images/aCourse.jpg"></td>
-			<td><img id="1"  alt="B코스" src="<%=request.getContextPath()%>/resources/images/bCourse.jpg"></td>
+			<td style="">
+			<img class="menuimg" alt="A코스"  
+			src="<%=request.getContextPath()%>/resources/images/aCourse.jpg"></td>
+			<td>
+			<img class="menuimg"  alt="B코스"
+			src="<%=request.getContextPath()%>/resources/images/bCourse.jpg"></td>
 		</tr>
 		<tr>
-			<td colspan="2"><img id="2" alt="식단표"  src="<%=request.getContextPath()%>/resources/images/Feb2menu.jpg""></td>
+			<td colspan="2">
+			<img id="menulist" 
+			alt="식단표"  src="<%=request.getContextPath()%>/resources/images/Feb2menu.jpg"">
+			</td>
 		</tr>
 	</table>
 	
@@ -46,9 +53,9 @@
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="./useticket">식권사용</a></li>
-		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
-		<li><a class="menuLink" href="#">포인트충전</a></li>
+		<li><a class="menuLink" href="#" onclick= popup(${member.tickets }) >식권사용</a></li>
+		<li><a class="menuLink" href="#" onclick= popup2(${member.point }) >식권구매</a></li>
+		<li><a class="menuLink" href="#" onclick= pointpopup() >포인트충전</a></li>
 	</ul>
 	</nav>
 	<br>

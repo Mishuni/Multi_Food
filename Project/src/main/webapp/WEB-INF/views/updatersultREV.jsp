@@ -10,8 +10,8 @@
 
 </head>
 <body>
-	<a id = "logo" href="./main">
-	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" >
+	<a id="logo" href="./mypage"> <img
+		src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png">
 	</a>
 	
 	<nav id="topMenu" class="menu">
@@ -34,9 +34,9 @@
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="./useticket">식권사용</a></li>
-		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
-		<li><a class="menuLink" href="#">포인트충전</a></li>
+		<li><a class="menuLink" href="#" onclick= popup(${member.tickets }) >식권사용</a></li>
+		<li><a class="menuLink" href="#" onclick= popup2(${member.point }) >식권구매</a></li>
+		<li><a class="menuLink" href="#" onclick= pointpopup() >포인트충전</a></li>
 	</ul>
 	</nav>
 	<br>

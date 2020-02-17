@@ -9,60 +9,18 @@ import org.springframework.stereotype.Repository;
 import com.pjt.edu.common.JDBCUtil;
 
 @Repository
-public class UserDAO implements DAO {
+public class UserDAO  {
 	
 	private Connection conn = null;
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;
 	
 	// SQL 紐낅졊�뼱
-	private final String USERS_INSERT = "insert into USERS(id,pw,role,name,classno,money,tickets,total) "
-			+ "values(?,?,user,?,?,0,0,0)";
-	//private final String USERS_UPDATE = "update USERS set title=?,content=? where seq=?";
-	private final String USERS_DELETE = "delete USERS where id=? and pw=?";
+
+
 	private final String USERS_GET = "select * from USERS where id=? and pw=?";
+
 	
-	@Override
-	public int insertUser(UserVO vo) {
-		int result = 0 ;
-		try {
-			conn = JDBCUtil.getConnection();
-			stmt = conn.prepareStatement(USERS_INSERT);
-			stmt.setString(1, vo.getId());
-			stmt.setString(2, vo.getPw());
-			stmt.setString(3, vo.getName());
-			stmt.setInt(4, vo.getClassNo());
-			result = stmt.executeUpdate();
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		finally {
-			JDBCUtil.close(stmt, conn);
-		}
-		return result;
-	}
-	
-	@Override
-	public int deleteUser(UserVO vo) {
-		int result = 0 ;
-		try {
-			conn = JDBCUtil.getConnection();
-			stmt = conn.prepareStatement(USERS_DELETE);
-			stmt.setString(1, vo.getId());
-			stmt.setString(2, vo.getPw());
-			result = stmt.executeUpdate();
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		finally {
-			JDBCUtil.close(stmt, conn);
-		}
-		return result;
-	}
-	
-	@Override
 	public UserVO getUser(UserVO vo) {
 		UserVO user = null;
 		try {
@@ -81,6 +39,7 @@ public class UserDAO implements DAO {
 				user.setClassNo(rs.getInt("CLASSNO"));
 				user.setTickets(rs.getInt("TICKETS"));
 				user.setTotal(rs.getInt("TOTAL"));
+				user.setPoint(rs.getInt("POINT"));
 			}
 			
 		}catch(Exception e) {

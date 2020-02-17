@@ -9,13 +9,13 @@
 <title>타이틀입력</title>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/style.css" />
- <script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
-       
+<script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
+
 </head>
 <body>
-	
-	<a id = "logo" href="./mypage">
-	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" ></a>
+
+	<a id="logo" href="./mypage"> <img
+		src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png"></a>
 
 	<nav id="topMenu" class="menu">
 	<ul>
@@ -35,27 +35,34 @@
 
 	</div>
 
-	<form ID="insertform" action="./insertformREV" method="post">
-		<table id = "insert">
+	<form ID="insertform" action="./updateMCREV" method="post">
+		<table id="insert">
 			<tr>
-				<td><h3 id = "skyblue">여러분의 의견을 들려주세요</h3></td>
+				<td><h3 id="skyblue">여러분의 의견을 들려주세요</h3></td>
 			</tr>
 			<tr>
 				<td bgcolor=white>
 					<table class="table2">
 						<tr>
+							<td>No</td>
+							<td><input type=text name=seq size=70 value='${update.seq}'
+								readonly="readonly"></td>
+						</tr>
+						<tr>
 							<td>제목</td>
-							<td><input type=text name=title size=70></td>
+							<td><input type=text name=title size=70
+								value='${update.title}'></td>
 						</tr>
 
 						<tr>
 							<td>작성자</td>
-							<td><input type=text name=writer size=10 value='<%=((UserVO)session.getAttribute("member")).getId() %>' readonly ></td>
+							<td><input type=text name=seq size=70
+								value='${update.writer}' readonly="readonly"></td>
 						</tr>
 
 						<tr>
 							<td>내용</td>
-							<td><textarea name=contents cols=70 rows=20 ></textarea></td>
+							<td><textarea name=contents cols=70 rows=20>${update.contents}</textarea></td>
 						</tr>
 					</table>
 
@@ -63,9 +70,10 @@
 			</tr>
 		</table>
 		<input id="button" type="submit" value="작성">
-			
+
 	</form>
 	<br>
+
 
 	<nav id="topMenu" class="menu">
 	<ul>

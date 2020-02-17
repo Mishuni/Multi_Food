@@ -17,7 +17,7 @@
 		update sugboard set contents = #{contents}, regdate = sysdate where seq = #{seq}
 	</update>
 		
-	<delete id="deleteboard" parameterType="sugboard">
+	<delete id="deletesugboard" parameterType="sugboard">
 		delete from sugboard where seq = #{seq}
 	</delete>
 		
@@ -27,11 +27,29 @@
 		
 	<insert id="newsugboard" parameterType="sugboard">
 		insert into sugboard 
-		(seq,title,writer,contents,regdate)
+		(seq,title,writer,contents,regdate,viewcount)
 		
 		values
-		((SELECT MAX(SEQ)+1 FROM sugboard), #{title},#{writer},#{contents},sysdate)
+		((SELECT MAX(SEQ)+1 FROM sugboard), #{title},#{writer},#{contents},sysdate,0)
 	</insert>
+	
+	<update id="updatesugboard" parameterType="sugboard" >
+		update sugboard set title=#{title} ,contents = #{contents}, regdate = sysdate where seq = #{seq}
+	</update>
+	
+		<select id="selectfivesug" parameterType="hashmap" resultType="sugboard">
+		<![CDATA[select s,seq,title,contents,writer,regdate,viewcount 
+		from (select rownum s,seq,title,contents,writer,regdate,viewcount 
+		from (select * from sugboard order by seq desc))
+		where s>=#{start} and s<=#{end}]]>
+	</select>
+	<select id="pagecountsug" resultType="String">
+		select max(rownum) from (select rownum,seq from sugboard)
+	</select>
+	
+	<update id="countupsug" parameterType="sugboard">
+		update sugboard set viewcount=viewcount+1 where seq=#{seq}
+	</update>
 		
 </mapper>
 

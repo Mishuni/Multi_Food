@@ -6,10 +6,10 @@
 
 	<insert id="newrevboard" parameterType="revboard">
 		insert into reviewboard 
-		(seq,title,writer,contents,regdate)
+		(seq,title,writer,contents,regdate,viewcount)
 		
 		values
-		((SELECT MAX(SEQ)+1 FROM reviewboard), #{title},#{writer},#{contents},sysdate)
+		((SELECT MAX(SEQ)+1 FROM reviewboard), #{title},#{writer},#{contents},sysdate,0)
 	</insert>
 
 	<!-- <select id=""> </select> <update id=""> </update> <delete id=""> </delete> -->
@@ -30,6 +30,20 @@
 		update reviewboard set title=#{title} ,contents = #{contents}, regdate = sysdate where seq = #{seq}
 	</update>
 	
+	<select id="selectfive" parameterType="hashmap" resultType="revboard">
+		<![CDATA[select s,seq,title,contents,writer,regdate,viewcount 
+		from (select rownum s,seq,title,contents,writer,regdate,viewcount 
+		from (select * from reviewboard order by seq desc))
+		where s>=#{start} and s<=#{end}]]>
+	</select>
+	<select id="pagecount" resultType="String">
+		select max(rownum) from (select rownum,seq from reviewboard)
+	</select>
+	
+	<update id="countup" parameterType="revboard">
+		update reviewboard set viewcount=viewcount+1 where seq=#{seq}
+	</update>
+
 	
 
 

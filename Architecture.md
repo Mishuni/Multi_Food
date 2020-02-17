@@ -72,6 +72,7 @@
   * 통합 템플릿 (jsp template 에 추가)
 
     ```jsp
+    <%@page import="com.pjt.edu.user.UserVO"%>
     <%@ page language="java" contentType="text/html; charset=UTF-8"
     	pageEncoding="UTF-8"%>
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -79,45 +80,44 @@
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>페이지 이름</title>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
-    
+    <title>마이페이지</title>
+    <link rel="stylesheet" type="text/css"
+    	href="<%=request.getContextPath()%>/resources/style.css" />
+    	<script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
+    	<script src="<%=request.getContextPath()%>/resources/js/popup.js?ver=2"> </script>
     </head>
     <body>
-    	<img id="logo" alt="" src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png">
     	
+    	<a id = "logo" href="./mypage">
+    	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" ></a>
     	<nav id="topMenu" class="menu">
     	<ul>
-    		<li><a class="menuLink" href="#">오늘의 메뉴</a></li>
-    		<li><a class="menuLink" href="#">식단 후기</a></li>
-    		<li><a class="menuLink" href="#">식단 건의사항</a></li>
-    		<li><a class="menuLink" href="#">수업 후기</a></li>
+    		<li><a class="menuLink" href="./todaymenu">오늘의 메뉴</a></li>
+    		<li><a class="menuLink" href="./listREV">식단 후기</a></li>
+    		<li><a class="menuLink" href="./listSUG">식단 건의사항</a></li>
+    		<li><a class="menuLink" href="./listMCREV">수업 후기</a></li>
     	</ul>
     	</nav>
     	<br>
     	
-    	
-    	
-    	<!-- 코드작성 -->
     
     
     
     	<nav id="topMenu" class="menu">
     	<ul>
-    		<li><a class="menuLink" href="#">식권사용</a></li>
-    		<li><a class="menuLink" href="#">식권구매</a></li>
-    		<li><a class="menuLink" href="#">포인트충전</a></li>
+    		<li><a class="menuLink" href="./useticket"  onclick= popup() target="_blank">식권사용</a></li>
+    		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
+    		<li><a class="menuLink" href="./buypoint">포인트충전</a></li>
     	</ul>
     	</nav>
     	<br>
-    	
     	<footer id="bottom" class="menu">
-    		<p>Posted by: 이효진, 정혜진, 최혜근, 유미선</p>
-    		<p>
-    			Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.
-    		</p>
+    	<p>Posted by: 이효진, 정혜진, 최혜근, 유미선</p>
+    	<p>
+    		Contact information: <a href="mailto:someone@example.com">
+    			someone@example.com</a>.
+    	</p>
     	</footer>
-    	
     </body>
     </html>
     ```
@@ -164,7 +164,32 @@
     
     
 
+* web.xml
 
+  ```xml
+  	<filter>
+  		<display-name>EncodingFilter</display-name>
+  		<filter-name>EncodingFilter</filter-name>
+  		<filter-class>
+  			org.springframework.web.filter.CharacterEncodingFilter
+  		</filter-class>
+  		<init-param>
+  			<param-name>encoding</param-name>
+  			<param-value>utf-8</param-value>
+  		</init-param>
+  	</filter>
+  	<filter-mapping>
+  		<filter-name>EncodingFilter</filter-name>
+  		<url-pattern>/*</url-pattern>
+  	</filter-mapping> 
+  
+  <session-config>
+          <session-timeout>15</session-timeout> 
+   </session-config>
+  
+  ```
+
+  
 
 
 
