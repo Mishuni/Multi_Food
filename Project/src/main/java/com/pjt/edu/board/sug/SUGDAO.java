@@ -41,6 +41,8 @@ public class SUGDAO implements DAO {
 
 	@Override
 	public BoardVO getBoard(BoardVO vo) {
+		vo=session.selectOne("getoneboard", vo);
+		session.update("countupsug", vo);
 		return session.selectOne("getoneboard", vo);
 	}
 

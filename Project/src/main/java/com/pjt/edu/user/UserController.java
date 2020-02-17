@@ -54,7 +54,7 @@ public class UserController {
 		vo.setPw(pw);
 		user = dao.getUser(vo);
 		ModelAndView mav = new ModelAndView();
-		System.out.println(user.getPoint());
+		//System.out.println(user.getPoint());
 
 		if (user != null) {
 			mav.addObject("user", user);

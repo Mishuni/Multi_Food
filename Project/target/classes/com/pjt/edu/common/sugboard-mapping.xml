@@ -27,10 +27,10 @@
 		
 	<insert id="newsugboard" parameterType="sugboard">
 		insert into sugboard 
-		(seq,title,writer,contents,regdate)
+		(seq,title,writer,contents,regdate,viewcount)
 		
 		values
-		((SELECT MAX(SEQ)+1 FROM sugboard), #{title},#{writer},#{contents},sysdate)
+		((SELECT MAX(SEQ)+1 FROM sugboard), #{title},#{writer},#{contents},sysdate,0)
 	</insert>
 	
 	<update id="updatesugboard" parameterType="sugboard" >

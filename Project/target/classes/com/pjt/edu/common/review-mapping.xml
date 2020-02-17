@@ -6,10 +6,10 @@
 
 	<insert id="newrevboard" parameterType="revboard">
 		insert into reviewboard 
-		(seq,title,writer,contents,regdate)
+		(seq,title,writer,contents,regdate,viewcount)
 		
 		values
-		((SELECT MAX(SEQ)+1 FROM reviewboard), #{title},#{writer},#{contents},sysdate)
+		((SELECT MAX(SEQ)+1 FROM reviewboard), #{title},#{writer},#{contents},sysdate,0)
 	</insert>
 
 	<!-- <select id=""> </select> <update id=""> </update> <delete id=""> </delete> -->

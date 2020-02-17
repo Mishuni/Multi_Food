@@ -38,6 +38,8 @@ public class REVDAO implements DAO {
 
 	@Override
 	public BoardVO getBoard(BoardVO vo) {
+		vo=session.selectOne("getonerev", vo);
+		session.update("countup", vo);
 		return session.selectOne("getonerev", vo);
 	}
 

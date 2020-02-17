@@ -36,6 +36,9 @@ public class MCREVBoardDAO implements DAO {
 
 	@Override
 	public BoardVO getBoard(BoardVO vo) {
+		
+		vo=session.selectOne("boardDetail", vo);
+		session.update("mccountup", vo);
 		return session.selectOne("boardDetail",vo);
 	}
 	

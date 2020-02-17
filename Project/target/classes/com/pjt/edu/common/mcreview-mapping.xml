@@ -4,9 +4,9 @@
 <mapper namespace="mcboard">
 
 	<insert id="newboard" parameterType="mcboard">
-		insert into mcreviewboard(seq,title,writer,contents,regdate)
+		insert into mcreviewboard(seq,title,writer,contents,regdate,viewcount)
 		values ((SELECT MAX(SEQ)+1 FROM mcreviewboard),
-		#{title},#{writer},#{contents}, sysdate)
+		#{title},#{writer},#{contents}, sysdate,0)
 	</insert>
 
 	<select id="boardList" resultType="mcboard">
