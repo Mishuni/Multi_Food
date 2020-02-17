@@ -18,33 +18,11 @@
 	<h1>MultiCampus 식당</h1>
 	
 	<!-- Display the countdown timer in an element -->
-	<p id="demo">회원가입</p>
+	<p id="demo">회원가입 성공하였습니다.</p>
 	<br>
 	</header>
 	<hr>
-
-	<form
-	id="loginform" action="/edu/signup" method="post">
-		<br>
-		<br> ID : <input type=text id="id" name="id"> <br>
-		 PASSWORD : <input type=password id="pw" name="pw"> <br>
-		 NAME : <input type=text id="pw" name="name"> <br>
-		 CLASS : <select >
-		 		<c:forEach items="${clist}" var="vo">
-		 			<option  name= "classNo" value=${vo.classNo } >
-		 				${vo.className }
-		 			</option>
-		 		</c:forEach>
-		 		</select>
-
-<br>		
-		<br> <input type=submit name="button" value="가입등록" /> &nbsp;
-		 <input type=reset value="다시쓰기" />
-
-	</form>
-
-
-
+	<a href="./main">로그인하기</a>
 	
 	
 	

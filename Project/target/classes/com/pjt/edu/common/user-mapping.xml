@@ -41,6 +41,10 @@
 		where id =#{sessionID}
 	</update>
 	
+	<insert id="insertuser" parameterType="user">
+		INSERT INTO USERS VALUES(#{id},#{pw},'user',#{name},#{classNo}, 0, 0, 0)
+	</insert>
+	
 	
 <!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->
 </mapper>

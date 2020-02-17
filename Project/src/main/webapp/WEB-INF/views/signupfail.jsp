@@ -8,7 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
-
+<script type="text/javascript">
+	alert("id중복 입니다.");
+</script>
 </head>
 <body style="text-align: center;">
 	<a id = "logo" href="./main">

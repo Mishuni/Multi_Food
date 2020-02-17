@@ -19,7 +19,7 @@ public class UserDAO_mybatis  {
 	
 	public void insertUser(UserVO vo) {
 		
-	
+		session.insert("insertuser",vo);
 	}
 
 	public void deleteUser(UserVO vo) {
@@ -28,11 +28,12 @@ public class UserDAO_mybatis  {
 	}
 
 	public UserVO getUser(UserVO vo) {
-		System.out.println(vo.getId());
+		//System.out.println(vo.getId());
 		UserVO user = session.selectOne("oneUser",vo.getId());
 		return user;
 	}
 	
+
 
 	public int userRoll(UserVO vo) {
 		return session.selectOne("userroll");

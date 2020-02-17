@@ -81,7 +81,31 @@ public class UserController {
 			return "main";
 
 	}
+	
+	//회원가입
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	public String signup(UserVO vo) {
 
+		
+		ModelAndView mv = new ModelAndView();
+		System.out.println(vo.getId());
+		UserVO mem = null;
+		mem=mdao.getUser(vo);
+		if(mem==null) {
+			mdao.insertUser(vo);
+			
+			return "signupsuccess";
+		}
+		else {
+			return "signupfail";
+		}
+
+	
+		
+
+	}
+	
+	
 	/* �떚耳볦갹 �쓣�슦湲� */
 
 	@RequestMapping(value = "/useticket")
