@@ -1,5 +1,6 @@
 package com.pjt.edu.board.review;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -19,13 +20,13 @@ public class REVcontroller {
 	@Autowired
 	REVDAO dao;
 
-	// 삽입
+	// �궫�엯
 	@RequestMapping(value = "/insertformREV", method = RequestMethod.GET)
 	public String insertBordForm() {
 		return "insertformREV";
 	}
 
-	// 삽입2
+	// �궫�엯2
 	@RequestMapping(value = "/insertformREV", method = RequestMethod.POST)
 	public String insertBoareResult(REVBoardVO vo) {
 
@@ -34,20 +35,34 @@ public class REVcontroller {
 
 	}
 
-	// 조회
-
+	// 議고쉶
 	@RequestMapping("/listREV")
-	public ModelAndView getBoardlist() {
-
+	public ModelAndView getBoardlist(String num) {
+		if(num==null) {
+			num="1";
+		}
+		System.out.println(num);
 		ModelAndView mv = new ModelAndView();
-		REVBoardVO vo = new REVBoardVO();
-
-		List<BoardVO> list = dao.getBoardList(vo);
-
+		
+		
+		String row = dao.rowcount();
+		
+		int length;
+		if((Integer.valueOf(row)%5)==0) {length=Integer.valueOf(row)/5;}
+		else{length=(Integer.valueOf(row)/5)+1;}
+		
+		
+		List<Integer> allrow= new ArrayList<Integer>();
+		for(int i=0;i<length;i++) {
+			allrow.add(i, i+1);			
+		}
+		
+		List<BoardVO> list = dao.getBoardList5(num);
+		
 		mv.addObject("list", list);
-
+		mv.addObject("page",allrow);
 		mv.setViewName("listREV");
-
+		
 		return mv;
 
 	}
@@ -59,7 +74,7 @@ public class REVcontroller {
 	 * mv.addObject("list", list); return mv; }
 	 */
 
-	// 상세보기
+	// �긽�꽭蹂닿린
 	@RequestMapping(value = "/detailREV", method = RequestMethod.GET)
 	public ModelAndView getBoardDetail(REVBoardVO vo) {
 		ModelAndView mv = new ModelAndView();
@@ -69,7 +84,7 @@ public class REVcontroller {
 		return mv;
 	}
 
-	//수정할 글 title,contents를 updateform 으로 가져오기. 글쓴이, admin만 수정가능.
+	//�닔�젙�븷 湲� title,contents瑜� updateform �쑝濡� 媛��졇�삤湲�. 湲��벖�씠, admin留� �닔�젙媛��뒫.
 	@RequestMapping(value = "/updateREV", method = RequestMethod.GET)
 	public ModelAndView updateBoard(/* @ModelAttribute("update") */ REVBoardVO vo, HttpSession session) {
 			ModelAndView mv = new ModelAndView();
@@ -98,14 +113,14 @@ public class REVcontroller {
 		}
 	
 
-	// 수정한 글 업데이트.
+	// �닔�젙�븳 湲� �뾽�뜲�씠�듃.
 	@RequestMapping(value = "/updateREV", method = RequestMethod.POST)
 	public String updateformBoard(/* @ModelAttribute("update") */REVBoardVO vo) {
 		dao.updateBoard(vo);
 		return "redirect:./listREV";
 	}
 
-	// 게시물 삭제
+	// 寃뚯떆臾� �궘�젣
 	@RequestMapping(value = "/deleteREV", method = RequestMethod.GET)
 	public String deleteBoardResult(REVBoardVO vo,HttpSession session) {
 		System.out.println(vo);

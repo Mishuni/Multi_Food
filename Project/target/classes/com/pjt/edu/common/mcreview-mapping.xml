@@ -28,6 +28,21 @@
 		mcreviewboard set title=#{title} ,contents = #{contents}, regdate =
 		sysdate where seq = #{seq}
 	</update>
+	
+		<select id="selectfivemc" parameterType="hashmap" resultType="mcboard">
+		<![CDATA[select s,seq,title,contents,writer,regdate,viewcount 
+		from (select rownum s,seq,title,contents,writer,regdate,viewcount 
+		from (select * from mcreviewboard order by seq desc))
+		where s>=#{start} and s<=#{end}]]>
+	</select>
+	<select id="pagecountmc" resultType="String">
+		select max(rownum) from (select rownum,seq from mcreviewboard)
+	</select>
+	
+	<update id="mccountup" parameterType="mcboard">
+		update mcreviewboard set viewcount=viewcount+1 where seq=#{seq}
+	</update>
+	
 
 
 	<!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->

@@ -36,6 +36,20 @@
 	<update id="updatesugboard" parameterType="sugboard" >
 		update sugboard set title=#{title} ,contents = #{contents}, regdate = sysdate where seq = #{seq}
 	</update>
+	
+		<select id="selectfivesug" parameterType="hashmap" resultType="sugboard">
+		<![CDATA[select s,seq,title,contents,writer,regdate,viewcount 
+		from (select rownum s,seq,title,contents,writer,regdate,viewcount 
+		from (select * from sugboard order by seq desc))
+		where s>=#{start} and s<=#{end}]]>
+	</select>
+	<select id="pagecountsug" resultType="String">
+		select max(rownum) from (select rownum,seq from sugboard)
+	</select>
+	
+	<update id="countupsug" parameterType="sugboard">
+		update sugboard set viewcount=viewcount+1 where seq=#{seq}
+	</update>
 		
 </mapper>
 

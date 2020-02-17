@@ -1,5 +1,6 @@
 package com.pjt.edu.board.mcreview;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -21,13 +22,13 @@ public class MCREVcontroller {
 	@Autowired
 	MCREVBoardDAO dao;
 
-//글쓰기 폼화면
+//湲��벐湲� �뤌�솕硫�
 	@RequestMapping(value = "/insertformMCREV", method = RequestMethod.GET)
 	public String inertBoardForm() {
 		return "/insertformMCREV";
 	}
 
-//글쓰기 후 저장
+//湲��벐湲� �썑 ���옣
 	@RequestMapping(value = "/insertformMCREV", method = RequestMethod.POST)
 	public String insertBoard(MCREVBoardVO vo) {
 		dao.insertBoard(vo);
@@ -35,19 +36,45 @@ public class MCREVcontroller {
 		return "redirect:/listMCREV";
 	}
 
-//글목록
+//湲�紐⑸줉
 	@RequestMapping("/listMCREV")
-	public ModelAndView getAllBoard() {
+	public ModelAndView getAllBoard(String num) {
+//		ModelAndView mv = new ModelAndView();
+//		MCREVBoardVO vo = new MCREVBoardVO();
+//		List<BoardVO> list = dao.getBoardList(vo);
+//
+//		mv.addObject("list", list);
+//		mv.setViewName("listMCREV");
+//		return mv;
+		if(num==null) {
+			num="1";
+		}
+		System.out.println(num);
 		ModelAndView mv = new ModelAndView();
-		MCREVBoardVO vo = new MCREVBoardVO();
-		List<BoardVO> list = dao.getBoardList(vo);
-
+		
+		
+		String row = dao.rowcount();
+		
+		int length;
+		if((Integer.valueOf(row)%5)==0) {length=Integer.valueOf(row)/5;}
+		else{length=(Integer.valueOf(row)/5)+1;}
+		
+		
+		List<Integer> allrow= new ArrayList<Integer>();
+		for(int i=0;i<length;i++) {
+			allrow.add(i, i+1);			
+		}
+		
+		List<BoardVO> list = dao.getBoardList5(num);
+		
 		mv.addObject("list", list);
+		mv.addObject("page",allrow);
 		mv.setViewName("listMCREV");
+		
 		return mv;
 	}
 
-//글 하나 조회 detail
+//湲� �븯�굹 議고쉶 detail
 	@RequestMapping(value = "/detailMCREV", method = RequestMethod.GET)
 	public ModelAndView getBoardDetail(MCREVBoardVO vo) {
 		vo = (MCREVBoardVO) dao.getBoard(vo);
@@ -57,7 +84,7 @@ public class MCREVcontroller {
 		return mv;
 
 	}
-	//수정할 글 title,contents를 updateform 으로 가져오기. 글쓴이, admin만 수정가능.
+	//�닔�젙�븷 湲� title,contents瑜� updateform �쑝濡� 媛��졇�삤湲�. 湲��벖�씠, admin留� �닔�젙媛��뒫.
 	@RequestMapping(value = "/updateMCREV", method = RequestMethod.GET)
 	public ModelAndView updateBoard(/* @ModelAttribute("update") */ MCREVBoardVO vo, HttpSession session) {
 			ModelAndView mv = new ModelAndView();
@@ -85,7 +112,7 @@ public class MCREVcontroller {
 
 		}
 
-	// 수정한 글 업데이트.
+	// �닔�젙�븳 湲� �뾽�뜲�씠�듃.
 	@RequestMapping(value = "/updateMCREV", method = RequestMethod.POST)
 	public String updateformBoard(/* @ModelAttribute("update") */ MCREVBoardVO vo) {
 		dao.updateBoard(vo);
@@ -94,7 +121,7 @@ public class MCREVcontroller {
 	
 	
 	
-	// 게시물 삭제
+	// 寃뚯떆臾� �궘�젣
 	@RequestMapping(value = "/deleteMCREV", method = RequestMethod.GET)
 	public String deleteBoardResult(MCREVBoardVO vo,HttpSession session) {
 		System.out.println(vo);

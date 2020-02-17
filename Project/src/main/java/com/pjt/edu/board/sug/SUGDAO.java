@@ -1,6 +1,8 @@
 package com.pjt.edu.board.sug;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +51,20 @@ public class SUGDAO implements DAO {
 
 	public void upViewCount(BoardVO vo) {
 		session.update("upviewcount", vo);
+	}
+	public List<BoardVO> getBoardList5(String page){
+		int count = Integer.valueOf(page);
+		Map<String,Integer> row = new HashMap<String,Integer>();
+		int start = 5*(count-1)+1;
+		int end = 5*(count);
+		row.put("start", start);
+		row.put("end",end);
+		System.out.println(start +","+end);
+		System.out.println(session.selectList("selectfivesug", row));
+		return session.selectList("selectfivesug", row);
+	}
+	public String rowcount() {
+		return session.selectOne("pagecountsug");
 	}
 	
 

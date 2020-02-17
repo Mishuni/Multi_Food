@@ -56,7 +56,9 @@
 		</c:forEach>
 		<tr>
 		<td colspan="5"><input id="button" type="button" value="글쓰기"
-		onClick="location.href='./insertformMCREV'"></td>
+		onClick="location.href='./insertformMCREV'">
+		<c:forEach items="${page}" var="num"><a href="./listMCREV?num=${num}">${num}</a>| </c:forEach>
+		</td>
 		</tr>
 	
 	</table>
@@ -66,9 +68,9 @@
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="./useticket" onclick= popup()	target="_blank">식권사용</a></li>
-		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
-		<li><a class="menuLink" href="#">포인트충전</a></li>
+		<li><a class="menuLink" href="#" onclick= popup(${member.tickets }) >식권사용</a></li>
+		<li><a class="menuLink" href="#" onclick= popup2(${member.point }) >식권구매</a></li>
+		<li><a class="menuLink" href="#" onclick= pointpopup() >포인트충전</a></li>
 	</ul>
 	</nav>
 	<br>

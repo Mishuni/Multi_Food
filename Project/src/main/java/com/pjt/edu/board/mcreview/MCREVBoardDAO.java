@@ -1,6 +1,8 @@
 package com.pjt.edu.board.mcreview;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,7 @@ public class MCREVBoardDAO implements DAO {
 	SqlSession session;
 	
 	@Override
-	//자바를 모르니까ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ
+	//�옄諛붾�� 紐⑤Ⅴ�땲源뚣뀪�뀪�뀪�뀪�뀪�뀪�뀪�뀪�뀪�뀪
 	public int insertBoard(BoardVO vo) {
 		session.insert ("newboard",vo);
 		return 1;
@@ -36,10 +38,24 @@ public class MCREVBoardDAO implements DAO {
 	public BoardVO getBoard(BoardVO vo) {
 		return session.selectOne("boardDetail",vo);
 	}
-
+	
 	@Override
 	public List<BoardVO> getBoardList(BoardVO vo) {
 		return session.selectList("boardList");
+	}
+	public List<BoardVO> getBoardList5(String page){
+		int count = Integer.valueOf(page);
+		Map<String,Integer> row = new HashMap<String,Integer>();
+		int start = 5*(count-1)+1;
+		int end = 5*(count);
+		row.put("start", start);
+		row.put("end",end);
+		System.out.println(start +","+end);
+		System.out.println(session.selectList("selectfivemc", row));
+		return session.selectList("selectfivemc", row);
+	}
+	public String rowcount() {
+		return session.selectOne("pagecountmc");
 	}
 
 }

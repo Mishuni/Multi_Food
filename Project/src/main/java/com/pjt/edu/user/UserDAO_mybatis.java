@@ -2,6 +2,8 @@ package com.pjt.edu.user;
 
 
 
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -31,14 +33,27 @@ public class UserDAO_mybatis  {
 		return user;
 	}
 	
-	public void useticket(String name) {
-		session.update("useticket",name);
-	}
-	
+
 	public int userRoll(UserVO vo) {
 		return session.selectOne("userroll");
 	}
 	
+	
+	//�떇沅뚯궗�슜
+	public void useticket(String name) {
+		session.update("useticket",name);
+	}
+	
+	//�떚耳볤뎄留�
+	
+	public int addticket(Map map) {
+		return session.update("addticket",map);
+	}
+	
+	//�룷�씤�듃 異⑹쟾
+	public int addpoint(Map map) {
+		return session.update("addpoint",map);
+	}
 	
 
 }

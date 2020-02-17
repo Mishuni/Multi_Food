@@ -24,8 +24,6 @@
 	</ul>
 	</nav>
 	<br>
-	
-	<div id="myclass">고객정보 :<%=((UserVO)session.getAttribute("member")).getId() %></div>
 
 	<h1 id="welcome">${member.id }님안녕하세요!</h1>
 
@@ -57,7 +55,7 @@
 	<ul>
 		<li><a class="menuLink" href="#" onclick= popup(${member.tickets }) >식권사용</a></li>
 		<li><a class="menuLink" href="#" onclick= popup2(${member.point }) >식권구매</a></li>
-		<li><a class="menuLink" href="./buypoint">포인트충전</a></li>
+		<li><a class="menuLink" href="#" onclick= pointpopup() >포인트충전</a></li>
 	</ul>
 	</nav>
 	<br>

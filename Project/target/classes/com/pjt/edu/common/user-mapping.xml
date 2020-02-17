@@ -8,6 +8,13 @@
 		select * from users where id = #{id}
 	</select>
 	
+	
+	<select id="userroll" resultType="int" parameterType="user">
+		select role from users where id=#{id}
+	</select>
+	
+	
+	<!-- 식권사용 -->
 	<update id="useticket" parameterType="String">
 		update users 
 		set tickets = tickets-1, total = total+1
@@ -15,9 +22,24 @@
 		where id =#{id}
 	</update>
 	
-	<select id="userroll" resultType="int" parameterType="user">
-		select role from users where id=#{id}
-	</select>
+	
+	<!-- 	티켓구매 -->
+
+	<update id="addticket" parameterType="java.util.Map">
+		update users 
+		set tickets = tickets + #{ticket} , point = point-(#{ticket}*60) 
+		
+		where id =#{sessionID}
+	</update>
+	
+	<!-- 포인트충전 -->
+
+	<update id="addpoint" parameterType="java.util.Map">
+		update users 
+		set point = point + #{point}
+		
+		where id =#{sessionID}
+	</update>
 	
 	
 <!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->
