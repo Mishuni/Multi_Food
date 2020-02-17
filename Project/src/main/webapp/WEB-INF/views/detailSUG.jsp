@@ -74,7 +74,7 @@
 		            <td align="right" width= "100"style="padding=0">
 		              <input id="button" type="button" value="수정하기" onclick="location.href='./updateSUG?seq=${detail.seq}&writer=${detail.writer}'"></td>
 		            <td align="right" width= "100"style="padding=0">
-		              <input id="button" type="button" value="삭제하기" onclick="location.href='./deleteREV?seq=${detail.seq}&writer=${detail.writer}'"></td>
+		              <input id="button" type="button" value="삭제하기" onclick="location.href='./deleteSUG?seq=${detail.seq}&writer=${detail.writer}'"></td>
 		          </tr>
 		        </table>
 		      </td>
@@ -87,9 +87,9 @@
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="./useticket" onclick= popup()	target="_blank">식권사용</a></li>
-		<li><a class="menuLink" href="./buyticket">식권구매</a></li>
-		<li><a class="menuLink" href="#">포인트충전</a></li>
+		<li><a class="menuLink" href="#" onclick= popup(${member.tickets }) >식권사용</a></li>
+		<li><a class="menuLink" href="#" onclick= popup2(${member.point }) >식권구매</a></li>
+		<li><a class="menuLink" href="#" onclick= pointpopup() >포인트충전</a></li>
 	</ul>
 	</nav>
 	<br>
