@@ -2,43 +2,49 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 					"http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>타이틀입력</title>
+<title>회원가입</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
-<script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
 
 </head>
 <body>
 	<a id = "logo" href="./main">
 	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" >
 	</a>
-	
-	<nav id="topMenu" class="menu">
-	<ul>
-		<li><a class="menuLink" href="./todaymenu">오늘의 메뉴</a></li>
-		<li><a class="menuLink" href="./listREV">식단 후기</a></li>
-		<li><a class="menuLink" href="./listSUG">식단 건의사항</a></li>
-		<li><a class="menuLink" href="./listMCREV">외부식당 후기</a></li>
-	</ul>
-	</nav>
+	<header>
+	<h1>MultiCampus 식당</h1>
+	</header>
+	<!-- Display the countdown timer in an element -->
+	<p id="demo">회원가입</p>
 	<br>
 	
 	<hr>
-	<!-- 코드작성 -->
-	<hr>
-	
+
+	<form
+	id="loginform" action="/edu/signup" method="post">
+		<br>
+		<br> ID : <input type=text id="id" name="id"> <br>
+		 PASSWORD : <input type=password id="pw" name="pw"> <br>
+		 NAME : <input type=password id="pw" name="name"> <br>
+		 CLASS : <select>
+		 		<c:forEach items="${clist}" var="vo">
+		 			<option  name= "classno" value=${vo.classNo } >
+		 				${vo.className }
+		 			</option>
+		 		</c:forEach>
+		 		</select>
+
+		
+		<br> <input type=submit name="button" value="가입등록" /> &nbsp;
+		 <input type=reset value="다시쓰기" />
+
+	</form>
 
 
-	<nav id="topMenu" class="menu">
-	<ul>
-		<li><a class="menuLink" href="#" onclick= popup(${member.tickets }) >식권사용</a></li>
-		<li><a class="menuLink" href="#" onclick= popup2(${member.point }) >식권구매</a></li>
-		<li><a class="menuLink" href="#" onclick= pointpopup() >포인트충전</a></li>
-	</ul>
-	</nav>
-	<br>
+
 	
 	
 	

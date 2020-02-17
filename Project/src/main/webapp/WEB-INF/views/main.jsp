@@ -63,7 +63,8 @@
 		<br> ID : <input type=text id="id" name="id"> <br>
 		<br>
 		<br> PASSWORD : <input type=password id="pw" name="pw"> <br>
-		<br> <input type=submit value="로그인" />
+		<br> <input type=submit name="button" value="로그인" /> &nbsp;
+		 <input type=submit name="button" value="회원가입" />
 
 	</form>
 	

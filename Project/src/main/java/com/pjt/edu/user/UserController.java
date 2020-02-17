@@ -1,6 +1,8 @@
 package com.pjt.edu.user;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -43,11 +45,17 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(HttpServletRequest request, @RequestParam("id") String id, String pw) {
+	public String login(HttpServletRequest request, @RequestParam("id") String id, String pw, String button) {
 		/*
 		 * if(vo.getId()==null || vo.getId().equals("")) { throw new
 		 * IllegalArgumentException("�븘�씠�뵒�뒗 諛섎뱶�떆 �엯�젰�빐�빞 �빀�땲�떎."); }
 		 */
+		HttpSession session = request.getSession();
+		if(button.equals("회원가입")) {
+			List<ClassVO> list = cdao.getAllClass();
+			session.setAttribute("clist", list);
+			return "signup";
+		}
 		UserVO user = null;
 		UserVO vo = new UserVO();
 		vo.setId(id);
@@ -65,7 +73,7 @@ public class UserController {
 			ClassVO cvo = new ClassVO();
 			cvo.setClassNo(user.getClassNo());
 			ClassVO lecture = cdao.getClass(cvo);
-			HttpSession session = request.getSession();
+			
 			session.setAttribute("member", user);
 			session.setAttribute("lecture", lecture);
 			return "mypage";
