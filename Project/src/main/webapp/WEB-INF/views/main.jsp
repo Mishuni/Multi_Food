@@ -6,10 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메인화면</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/style.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/resources/style.css" />
 <script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
 <style>
-
 </style>
 
 </head>
@@ -47,32 +47,51 @@
 			var minutes = Math.floor((distance % (1000 * 60 * 60))
 					/ (1000 * 60));
 			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-			var ms = Math.floor((distance%(1000)));
+			var ms = Math.floor((distance % (1000)));
 			// Display the result in the element with id="demo"
 			document.getElementById("demo").innerHTML = "점심시간까지 <b>" + hours
-					+ "시간 " + minutes + "분 " + seconds + ":"+ms+ "초</b> 남았습니다^^*";
+					+ "시간 " + minutes + "분 " + seconds + ":" + ms
+					+ "초</b> 남았습니다^^*";
 
 		}, 1);
-	</script><hr>
-	
-	<div id="demo"></div>
-	<form
-	id="loginform" action="/edu/login" method="post">
-		<br>
-		<br>
-		<br> ID : <input type=text id="id" name="id"> <br>
-		<br>
-		<br> PASSWORD : <input type=password id="pw" name="pw"> <br>
-		<br> <input type=submit name="button" value="로그인" /> &nbsp;
-		 <input type=submit name="button" value="회원가입" />
+	</script>
+	<hr>
 
-	</form>
-	
+	<div id="demo"></div>
+	<!-- test -->
+
+	<div class="login">
+		<div class="login-triangle"></div>
+
+		<h2 class="login-header">Log in</h2>
+
+		<form class="login-container" action="/edu/login" method="post">
+			<p>
+				<input type=text id="id" name="id" placeholder="id">
+			</p>
+
+			<p>
+				<input type=password id="pw" name="pw" placeholder="Password">
+			</p>
+
+			<p>
+				<input type=submit name="button" value="Sign in">
+			</p>
+			<p>
+				<input type=submit name="button" value="Sign up">
+			</p>
+		</form>
+	</div>
+
+	<!-- testend -->
+
 	<footer id="bottom" class="menu">
 	<p>Posted by: 유미선, 최혜근, 정혜진, 이효진</p>
-  <p>Contact information: <a href="mailto:someone@example.com">
-  someone@example.com</a>.</p>
-</footer>
+	<p>
+		Contact information: <a href="mailto:someone@example.com">
+			someone@example.com</a>.
+	</p>
+	</footer>
 
 </body>
 </html>

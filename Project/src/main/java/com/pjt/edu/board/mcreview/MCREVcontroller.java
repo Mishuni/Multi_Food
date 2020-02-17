@@ -13,22 +13,38 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pjt.edu.board.BoardVO;
-import com.pjt.edu.board.review.REVBoardVO;
-import com.pjt.edu.board.sug.SUGBoardVO;
 import com.pjt.edu.user.UserVO;
 
 @Controller
 public class MCREVcontroller {
 	@Autowired
 	MCREVBoardDAO dao;
-
-//湲��벐湲� �뤌�솕硫�
+	
+	List<Integer> allrow=new ArrayList<Integer>(); 
+	
+	//paging 처리 매서드
+	public List<Integer> pagemap(){
+		String row = dao.rowcount();
+		List<Integer> allrow= new ArrayList<Integer>();
+		int length;
+		if((Integer.valueOf(row)%5)==0) {length=Integer.valueOf(row)/5;}
+		else{length=(Integer.valueOf(row)/5)+1;}
+		
+		
+		
+		for(int i=0;i<length;i++) {
+			allrow.add(i, i+1);			
+		}
+		return allrow;
+	}
+	
+	//글쓰기 폼 띄우기.
 	@RequestMapping(value = "/insertformMCREV", method = RequestMethod.GET)
 	public String inertBoardForm() {
 		return "/insertformMCREV";
 	}
 
-//湲��벐湲� �썑 ���옣
+	//글쓰기 완료후 DB 저장후 목록으로 이동.
 	@RequestMapping(value = "/insertformMCREV", method = RequestMethod.POST)
 	public String insertBoard(MCREVBoardVO vo) {
 		dao.insertBoard(vo);
@@ -36,7 +52,7 @@ public class MCREVcontroller {
 		return "redirect:/listMCREV";
 	}
 
-//湲�紐⑸줉
+	//MCREV Board list 출력.
 	@RequestMapping("/listMCREV")
 	public ModelAndView getAllBoard(String num) {
 //		ModelAndView mv = new ModelAndView();
@@ -49,21 +65,12 @@ public class MCREVcontroller {
 		if(num==null) {
 			num="1";
 		}
-		System.out.println(num);
 		ModelAndView mv = new ModelAndView();
 		
 		
 		String row = dao.rowcount();
+		allrow=this.pagemap();
 		
-		int length;
-		if((Integer.valueOf(row)%5)==0) {length=Integer.valueOf(row)/5;}
-		else{length=(Integer.valueOf(row)/5)+1;}
-		
-		
-		List<Integer> allrow= new ArrayList<Integer>();
-		for(int i=0;i<length;i++) {
-			allrow.add(i, i+1);			
-		}
 		
 		List<BoardVO> list = dao.getBoardList5(num);
 		
@@ -74,7 +81,7 @@ public class MCREVcontroller {
 		return mv;
 	}
 
-//湲� �븯�굹 議고쉶 detail
+	//세부글 출력.
 	@RequestMapping(value = "/detailMCREV", method = RequestMethod.GET)
 	public ModelAndView getBoardDetail(MCREVBoardVO vo) {
 		vo = (MCREVBoardVO) dao.getBoard(vo);
@@ -84,7 +91,7 @@ public class MCREVcontroller {
 		return mv;
 
 	}
-	//�닔�젙�븷 湲� title,contents瑜� updateform �쑝濡� 媛��졇�삤湲�. 湲��벖�씠, admin留� �닔�젙媛��뒫.
+	//글 수정. 작성자와 admin만 수정가능. 수정할 글을 updateformMCREV로 가져옴.
 	@RequestMapping(value = "/updateMCREV", method = RequestMethod.GET)
 	public ModelAndView updateBoard(/* @ModelAttribute("update") */ MCREVBoardVO vo, HttpSession session) {
 			ModelAndView mv = new ModelAndView();
@@ -112,7 +119,7 @@ public class MCREVcontroller {
 
 		}
 
-	// �닔�젙�븳 湲� �뾽�뜲�씠�듃.
+	// 수정 완료후 DB에 저장.
 	@RequestMapping(value = "/updateMCREV", method = RequestMethod.POST)
 	public String updateformBoard(/* @ModelAttribute("update") */ MCREVBoardVO vo) {
 		dao.updateBoard(vo);
@@ -121,7 +128,7 @@ public class MCREVcontroller {
 	
 	
 	
-	// 寃뚯떆臾� �궘�젣
+	// 글 삭제기능. 작성자와 admin만 삭제 가능.
 	@RequestMapping(value = "/deleteMCREV", method = RequestMethod.GET)
 	public String deleteBoardResult(MCREVBoardVO vo,HttpSession session) {
 		System.out.println(vo);
@@ -142,4 +149,26 @@ public class MCREVcontroller {
 			return "cannotDelete";
 		}
 	}
+	//검색기능. title or writer 로 검색.
+	@RequestMapping(value="/listMCREV",method=RequestMethod.POST)
+	public ModelAndView researchBoardList(MCREVBoardVO vo, String search,String choice) {
+		ModelAndView mv = new ModelAndView();
+		search = "%"+search+"%";
+		if(choice.equals("writer")) {
+			String writer = search;
+			List<BoardVO> list = dao.writerList(writer);
+			System.out.println(list);
+			mv.addObject("list", list) ;
+		}else if(choice.equals("title")) {
+			String title=search;
+			mv.addObject("list", dao.titleList(title)) ;
+		}
+		
+		allrow=this.pagemap();
+		mv.addObject("page",allrow);
+		
+		return mv;
+	}
+	
+	
 }

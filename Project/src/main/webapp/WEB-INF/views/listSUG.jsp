@@ -14,7 +14,6 @@
 	
 	<a id = "logo" href="./mypage">
 	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" ></a>
-	<a id = "logout" href="./logout">로그아웃</a>
 	
 	<nav id="topMenu" class="menu">
 	<ul>
@@ -55,10 +54,21 @@
 
 		</c:forEach>
 		<tr>
-		<td colspan="5"><input id="button" type="button" value="글쓰기"
-		onClick="location.href='./insertformSUG'">
-		<c:forEach items="${page}" var="num"><a href="./listSUG?num=${num}">${num}</a>| </c:forEach>
-		</td>
+			<td colspan="2"><c:forEach items="${page}" var="num">
+					<a href="./listSUG?num=${num}">${num}</a>| </c:forEach></td>
+			<td colspan="2">
+				<form action="./listSUG" method="post">
+					<select name='choice'>
+						<option value='' selected>-- 선택 --</option>
+						<option value='title' label="제목" />
+						<option value='writer' label="작성자" />
+					</select> 
+					<input type="text" name="search"/>
+					<input type="submit" value="검색">
+				</form>
+			</td>
+			<td><input id="button" type="button" value="글쓰기"
+				onClick="location.href='./insertformSUG'"></td>
 		</tr>
 	</table>
 

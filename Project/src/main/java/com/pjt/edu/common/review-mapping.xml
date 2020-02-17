@@ -36,6 +36,7 @@
 		from (select * from reviewboard order by seq desc))
 		where s>=#{start} and s<=#{end}]]>
 	</select>
+	
 	<select id="pagecount" resultType="String">
 		select max(rownum) from (select rownum,seq from reviewboard)
 	</select>
@@ -43,6 +44,14 @@
 	<update id="countup" parameterType="revboard">
 		update reviewboard set viewcount=viewcount+1 where seq=#{seq}
 	</update>
+	
+	<select id="revonebytitle" parameterType="String" resultType="revboard">
+		select * from reviewboard where title like #{title} order by seq
+	</select>
+	
+	<select id="revonebywriter" parameterType="String" resultType="revboard">
+		select * from reviewboard where writer like #{writer} order by seq
+	</select>
 
 	
 

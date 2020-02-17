@@ -51,7 +51,7 @@ public class UserController {
 		 * IllegalArgumentException("�븘�씠�뵒�뒗 諛섎뱶�떆 �엯�젰�빐�빞 �빀�땲�떎."); }
 		 */
 		HttpSession session = request.getSession();
-		if(button.equals("회원가입")) {
+		if(button.equals("Sign up")) {
 			List<ClassVO> list = cdao.getAllClass();
 			session.setAttribute("clist", list);
 			return "signup";
