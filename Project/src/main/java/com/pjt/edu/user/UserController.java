@@ -100,10 +100,15 @@ public class UserController {
 			return "signupfail";
 		}
 
-	
-		
-
 	}
+	
+	//logout
+	   @RequestMapping(value = "/logout")
+	   public String logout(HttpSession session) {
+	      session.invalidate();
+	      return "main";
+	      
+	   }
 	
 	
 	/* �떚耳볦갹 �쓣�슦湲� */

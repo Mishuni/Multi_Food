@@ -15,6 +15,8 @@
 	
 	<a id = "logo" href="./mypage">
 	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" ></a>
+	
+	<a id = "logout" href="./logout">로그아웃</a>
 	<nav id="topMenu" class="menu">
 	<ul>
 		<li><a class="menuLink" href="./todaymenu">오늘의 메뉴</a></li>
