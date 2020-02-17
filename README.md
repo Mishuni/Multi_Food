@@ -2,8 +2,6 @@
 
 식권 구입, 포인트 충전, 식단 공유 사이트
 
-http://70.12.60.109:8080/edu/
-
 [:book:SW architecture (***필수 확인***)](Architecture.md)
 
 [:book:Prototype (Front-end)](Front_end.md)
@@ -20,3 +18,6 @@ http://70.12.60.109:8080/edu/
 
 최혜근
 
+---
+
+http://70.12.60.109:8080/edu/
