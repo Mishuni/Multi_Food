@@ -1,7 +1,8 @@
 # Multi_Food : 세미프로젝트
 
-
 식권 구입, 포인트 충전, 식단 공유 사이트
+
+http://70.12.60.109:8080/edu/
 
 [:book:SW architecture (***필수 확인***)](Architecture.md)
 
