@@ -13,6 +13,14 @@
 				$("[name=ticket]").change(function(){
 					var num =  $('input[name=ticket]:checked').val();
 					var result = num * 60;
+					var p = <%=((UserVO)session.getAttribute("member")).getPoint() %>;
+					if(p<result){
+						alert("금액 부족");
+						$('input[name=buy]').prop("disabled", true);
+					}
+					else{
+						$('input[name=buy]').prop("disabled", false);
+					}
 					$("[name=money]").text(result + "p 입니다.") ;
 				});
 			});
@@ -49,7 +57,7 @@
 
 		총 결제 포인트는 
 		<b><p id="money" name="money"></p></b>
-		<input type="submit" value="구매"/>
+		<input type="submit" name="buy" value="구매"/>
 	</form>
 	
 	

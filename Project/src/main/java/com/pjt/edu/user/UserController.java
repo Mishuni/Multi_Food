@@ -156,10 +156,16 @@ public class UserController {
 	   
 	   //占쎈뼒�노낀�럡筌랃옙//
 		@RequestMapping(value = "/buyticketClick", method = RequestMethod.GET)
-		public String buyticketClick(@RequestParam("ticket")String ticket,  HttpSession session, UserVO vo) {
+		public String buyticketClick(@RequestParam("ticket")String ticket,  HttpSession session) {
 			
+			UserVO user = (UserVO)session.getAttribute("member");
+			int point = user.getPoint();
 			
-			String sessionId = ((UserVO)session.getAttribute("member")).getId();
+			if(point < Integer.parseInt(ticket) * 60) {
+				
+			}
+			
+			String sessionId = user.getId();
 			
 
 			Map map = new HashMap();
