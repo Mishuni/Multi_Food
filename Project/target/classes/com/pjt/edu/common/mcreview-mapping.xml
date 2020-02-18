@@ -29,7 +29,7 @@
 		sysdate where seq = #{seq}
 	</update>
 	
-		<select id="selectfivemc" parameterType="hashmap" resultType="mcboard">
+	<select id="selectfivemc" parameterType="hashmap" resultType="mcboard">
 		<![CDATA[select s,seq,title,contents,writer,regdate,viewcount 
 		from (select rownum s,seq,title,contents,writer,regdate,viewcount 
 		from (select * from mcreviewboard order by seq desc))
@@ -43,6 +43,13 @@
 		update mcreviewboard set viewcount=viewcount+1 where seq=#{seq}
 	</update>
 	
+	<select id="mconebytitle" parameterType="String" resultType="mcboard">
+		select * from mcreviewboard where title like #{title} order by seq
+	</select>
+	
+	<select id="mconebywriter" parameterType="String" resultType="mcboard">
+		select * from mcreviewboard where writer like #{writer} order by seq
+	</select>
 
 
 	<!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->

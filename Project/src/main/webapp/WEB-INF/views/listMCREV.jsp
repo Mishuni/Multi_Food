@@ -2,19 +2,20 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 					"http://www.w3.org/TR/html4/loose.dtd">
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>타이틀입력</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/resources/style.css" />
 <script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
 </head>
 <body>
-	
-	<a id = "logo" href="./mypage">
-	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" ></a>
-	
+
+	<a id="logo" href="./mypage"> <img
+		src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png"></a>
+
 	<nav id="topMenu" class="menu">
 	<ul>
 		<li><a class="menuLink" href="./todaymenu">오늘의 메뉴</a></li>
@@ -24,10 +25,10 @@
 	</ul>
 	</nav>
 	<br>
-	
+
 	<!-- 코드작성 -->
-    <div id=menuname>
-		<h3>멀티캠퍼스 역삼/ 외부의 맛집을 소개합니다 </h3>
+	<div id=menuname>
+		<h3>멀티캠퍼스 역삼/ 외부의 맛집을 소개합니다</h3>
 		<hr>
 
 	</div>
@@ -55,34 +56,46 @@
 
 		</c:forEach>
 		<tr>
-		<td colspan="5"><input id="button" type="button" value="글쓰기"
-		onClick="location.href='./insertformMCREV'">
-		<c:forEach items="${page}" var="num"><a href="./listMCREV?num=${num}">${num}</a>| </c:forEach>
-		</td>
+			<td colspan="2"><c:forEach items="${page}" var="num">
+					<a href="./listMCREV?num=${num}">${num}</a>| </c:forEach></td>
+			<td colspan="2">
+				<form action="./listMCREV" method="post">
+					<select name='choice'>
+						<option value='' selected>-- 선택 --</option>
+						<option value='title' label="제목" />
+						<option value='writer' label="작성자" />
+					</select> 
+					<input type="text" name="search"/>
+					<input type="submit" value="검색">
+				</form>
+			</td>
+			<td><input id="button" type="button" value="글쓰기"
+				onClick="location.href='./insertformMCREV'"></td>
 		</tr>
-	
+
 	</table>
 
 
-	
+
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="#" onclick= popup(${member.tickets }) >식권사용</a></li>
-		<li><a class="menuLink" href="#" onclick= popup2(${member.point }) >식권구매</a></li>
-		<li><a class="menuLink" href="#" onclick= pointpopup() >포인트충전</a></li>
+		<li><a class="menuLink" href="#" onclick=popup(${member.tickets
+			})>식권사용</a></li>
+		<li><a class="menuLink" href="#" onclick=popup2(${member.point })>식권구매</a></li>
+		<li><a class="menuLink" href="#" onclick=pointpopup()>포인트충전</a></li>
 	</ul>
 	</nav>
 	<br>
-	
+
 	<footer id="bottom" class="menu">
-		<p>Posted by: 유미선, 최혜근, 정헤진, 이효진</p>
-		<p>
-			Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.
-		</p>
+	<p>Posted by: 유미선, 최혜근, 정헤진, 이효진</p>
+	<p>
+		Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.
+	</p>
 	</footer>
-	
-	
-	
+
+
+
 </body>
 </html>

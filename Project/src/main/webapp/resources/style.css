@@ -104,6 +104,11 @@ body {
 	left: 15%;
 }
 
+#logout {
+	position: relative;
+	left: 60%;
+}
+
 #menuname {
 	padding-left: 15%;
 	/* padding-bottom: 10px; */

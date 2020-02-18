@@ -12,9 +12,9 @@
 <script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
 </head>
 <body>
-	
-	<a id = "logo" href="./mypage">
-	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" ></a>
+
+	<a id="logo" href="./mypage"> <img
+		src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png"></a>
 
 	<nav id="topMenu" class="menu">
 	<ul>
@@ -33,43 +33,54 @@
 		<hr>
 
 	</div>
-		<table class=table2>
+	<table class=table2>
+		<tr>
+			<td>번호</td>
+			<td>제목</td>
+			<td>작성자</td>
+			<td>작성날짜</td>
+			<td>조회수</td>
+		</tr>
+		<c:forEach items="${list}" var="vo">
+
+
 			<tr>
-				<td>번호</td>
-				<td>제목</td>
-				<td>작성자</td>
-				<td>작성날짜</td>
-				<td>조회수</td>
+				<td>${vo.seq}</td>
+				<td><a class="menuLink" href="./detailREV?seq=${vo.seq}">${vo.title}</a></td>
+				<td>${vo.writer}</td>
+				<td>${vo.regdate}</td>
+				<td>${vo.viewcount}</td>
+
 			</tr>
-			<c:forEach items="${list}" var="vo">
-	
-	
-				<tr>
-					<td>${vo.seq}</td>
-					<td><a class="menuLink" href="./detailREV?seq=${vo.seq}">${vo.title}</a></td>
-					<td>${vo.writer}</td>
-					<td>${vo.regdate}</td>
-					<td>${vo.viewcount}</td>
-	
-				</tr>
-	
-			</c:forEach>
-			<tr>
-			<td colspan="5"><input id="button" type="button" value="글쓰기"
-			onClick="location.href='./insertformREV'">
-			<c:forEach items="${page}" var="num"><a href="./listREV?num=${num}">${num}</a>| </c:forEach>
+
+		</c:forEach>
+		<tr>
+			<td colspan="2"><c:forEach items="${page}" var="num">
+					<a href="./listREV?num=${num}">${num}</a>| </c:forEach></td>
+			<td colspan="2">
+				<form action="./listREV" method="post">
+					<select name='choice'>
+						<option value='' selected>-- 선택 --</option>
+						<option value='title' label="제목" />
+						<option value='writer' label="작성자" />
+					</select> <input type="text" name="search" /> <input type="submit"
+						value="검색">
+				</form>
 			</td>
-			</tr>
-			
-		</table>
+			<td><input id="button" type="button" value="글쓰기"
+				onClick="location.href='./insertformREV'"></td>
+		</tr>
+
+	</table>
 
 
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="#" onclick= popup(${member.tickets }) >식권사용</a></li>
-		<li><a class="menuLink" href="#" onclick= popup2(${member.point }) >식권구매</a></li>
-		<li><a class="menuLink" href="#" onclick= pointpopup() >포인트충전</a></li>
+		<li><a class="menuLink" href="#" onclick=popup(${member.tickets
+			})>식권사용</a></li>
+		<li><a class="menuLink" href="#" onclick=popup2(${member.point })>식권구매</a></li>
+		<li><a class="menuLink" href="#" onclick=pointpopup()>포인트충전</a></li>
 	</ul>
 	</nav>
 	<br>

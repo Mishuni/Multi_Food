@@ -50,6 +50,14 @@
 	<update id="countupsug" parameterType="sugboard">
 		update sugboard set viewcount=viewcount+1 where seq=#{seq}
 	</update>
+	
+	<select id="sugonebytitle" parameterType="String" resultType="sugboard">
+		select * from sugboard where title like #{title} order by seq
+	</select>
+	
+	<select id="sugonebywriter" parameterType="String" resultType="sugboard">
+		select * from sugboard where writer like #{writer} order by seq
+	</select>
 		
 </mapper>
 
