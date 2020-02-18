@@ -1,9 +1,138 @@
 @charset "UTF-8";
-
-body {
-	font-family: "고딕체", "Trebuchet MS", Dotum, Arial;
+@font-face { 
+	font-family: 'HangeulNuri-Bold'; 
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/HangeulNuri-Bold.woff') format('woff'); 
+	src: url('<%=request.getContextPath()%>/resources/font/HangeulNuri-Bold.woff') format('woff'); 
+	font-weight: normal; 
+	font-style: normal; 
 }
 
+
+
+body {
+	font-family: 'HangeulNuri-Bold';
+	align-content: center;
+	vertical-align: middle;
+	margin: 0 auto;
+}
+
+
+		/* main.jsp */
+
+/* #loginform {
+	border: 6px solid DodgerBlue;
+	width: 50%;
+	height: 300px;
+	position: relative;
+	margin-left: 25%;
+	padding-top: 5%;	
+} */
+
+/* input {
+    width: 70%;
+    border-radius: 20px;
+    line-height: 50px;
+   		display: block;
+    	margin: auto;
+    	border: 0;
+   		opacity: 0.15;
+}
+
+input p {
+    color: #fff;
+    opacity: 1;
+}
+
+input.submit {
+    width: 100%;
+    padding: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    opacity: 1;
+    background-color: #1161EE;
+    cursor: pointer;
+} */
+
+
+		/* list */
+table.table2 {
+	border-collapse: separate;
+	border-spacing: 1px;
+	text-align: left;
+	line-height: 1.5;
+	padding-left: 15%;
+	margin-left: 5%;
+	margin-top: 1%;
+	width: 1000px;
+
+}
+
+table.table2 th {
+	padding: 10px;
+	font-weight: bold;
+	border-bottom: 1px solid #ccc;
+}
+
+table.table2 td {
+	/* width: 100px; */
+	padding: 10px;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+	white-space: nowrap;
+}
+
+#tablebottom{
+	margin-top: 10px;
+}
+
+.button {
+	width: 70px;
+	height: 30px;
+	border-radius: 20px;
+	color: white;
+    opacity: 1;
+    background-color:black;
+    cursor: pointer;
+	border: none;
+}
+
+.button:hover {
+	color: #fff;
+	background-color: #ffa500;
+}
+
+.formsize{
+	position:relative;
+    border-radius: 20px;
+	line-height: 50px;
+	width: 70%;
+	text-align:left;
+	font-size: 20px;
+	padding-left: 25px;
+   	opacity: 0.15;
+    border: 1;
+}
+
+.submitbutton {
+    border-radius: 20px;
+    width: 70%;
+    padding: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    opacity: 1;
+    background-color: #1161EE;
+    cursor: pointer;
+}
+
+/* img .login-img{
+	display: block;
+	position: absolute;
+	margin: auto;
+	z-index: -1;
+}
+ */
 .menu {
 	background-color: DodgerBlue;
 	text-align: center;
@@ -58,7 +187,7 @@ body {
 	width: 150px;
 	font-size: 15px;
 	font-weight: bold;
-	font-family: "고딕체", "Trebuchet MS", Dotum, Arial;
+	/* font-family: "고딕체", "Trebuchet MS", Dotum, Arial; */
 }
 
 #topMenu .menuLink:hover {
@@ -70,14 +199,6 @@ body {
 	text-align: center;
 }
 
-#loginform {
-	border: 6px solid DodgerBlue;
-	width: 50%;
-	height: 400px;
-	font-size: xx-large;
-	position: relative;
-	margin-left: 25%
-}
 
 #profile {
 	width: 20%;
@@ -85,7 +206,7 @@ body {
 	left: 40%;
 	font-size: 15px;
 	font-weight: bold;
-	font-family: "고딕체", "Trebuchet MS", Dotum, Arial;
+	/* font-family: "고딕체", "Trebuchet MS", Dotum, Arial; */
 	border: 1px solid black;
 	text-align: center;
 }
@@ -104,26 +225,20 @@ body {
 	left: 15%;
 }
 
-#logout {
-	position: relative;
-	left: 60%;
+#logoimg{
+	height: 60px;
+	width: 400px;
 }
 
 #menuname {
 	padding-left: 15%;
+	padding-right: 15%;
 	/* padding-bottom: 10px; */
 }
 
-#button {
-	float: right;
-	width: 70px;
-	height: 30px;
-}
 
-#button2 {
-	width: 70px;
-	height: 30px;
-}
+
+
 
 #insert {
 	/* padding-top: 10px;  */
@@ -162,28 +277,4 @@ position: relative;
 	
 }
 
-table.table2 {
-	border-collapse: separate;
-	border-spacing: 1px;
-	text-align: left;
-	line-height: 1.5;
-	border-top: 1px solid #ccc;
-	margin: 20px 30px;
-	padding-left: 15%
-}
 
-table.table2 tr {
-	width: 50px;
-	padding: 10px;
-	font-weight: bold;
-	vertical-align: top;
-	border-bottom: 1px solid #ccc;
-}
-
-table.table2 td {
-	width: 100px;
-	padding: 10px;
-	vertical-align: top;
-	border-bottom: 1px solid #ccc;
-	white-space: nowrap;
-}
