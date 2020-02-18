@@ -8,15 +8,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>마이페이지</title>
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/style.css" />
+	href="<%=request.getContextPath()%>/resources/style.css?ver=3" />
 <script src="<%=request.getContextPath()%>/resources/js/popup.js?ver=2"> </script>
 </head>
 <body>
-	
+
 	<a id = "logo" href="./mypage">
-	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" ></a>
+	<img id="logoimg" src="<%=request.getContextPath()%>/resources/images/logo.png" ></a>
 	
-	<a id = "logout" href="./logout">로그아웃</a>
+	<button id = "logout" class="button" onclick="location.href='./logout'" >로그아웃</button>
 	<nav id="topMenu" class="menu">
 	<ul>
 		<li><a class="menuLink" href="./todaymenu">오늘의 메뉴</a></li>

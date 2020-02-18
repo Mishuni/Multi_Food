@@ -8,18 +8,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입</title>
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/style.css" />
+	href="<%=request.getContextPath()%>/resources/main_style.css" />
 
 </head>
 <body style="text-align: center;">
-	<a id="logo" href="./main"> <img
-		src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png">
-	</a>
+	
 	<header>
-	<h1>MultiCampus 식당</h1>
-
+	<a id="logo" href="./main"> 
+	<img id="logoimg" width="350px" src="<%=request.getContextPath()%>/resources/images/logo.png" >
+	</a>
 	<!-- Display the countdown timer in an element -->
-	<p id="demo">회원가입</p>
 	<br>
 	</header>
 	<hr>

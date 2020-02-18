@@ -13,6 +13,10 @@
 		select role from users where id=#{id}
 	</select>
 	
+	<select id="oneLogin" resultType="user" parameterType="user">
+		select * from users where id=#{id} and pw = #{pw}
+	</select>
+	
 	
 	<!-- 식권사용 -->
 	<update id="useticket" parameterType="String">

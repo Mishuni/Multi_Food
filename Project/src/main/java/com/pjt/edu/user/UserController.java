@@ -1,6 +1,5 @@
 package com.pjt.edu.user;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,10 +19,7 @@ import com.pjt.edu.classes.ClassVO;
 
 @Controller
 public class UserController {
-	@Autowired
-	// 1.<beans:bean id="dao" class="xxx.BoardDAO"
-	// 2. @Repository("dao") class BoardDAO
-	UserDAO dao;
+
 	@Autowired
 	UserDAO_mybatis mdao;
 
@@ -32,15 +28,27 @@ public class UserController {
 
 	@RequestMapping(value = "/main")
 	public String getMain() {
-		ModelAndView mav = new ModelAndView();
 
 		return "main";
 	}
 
 	@RequestMapping(value = "/mypage")
 	public String UserMain(HttpSession session) {
+		UserVO vo = (UserVO)session.getAttribute("member");
+		
+		UserVO user = mdao.getUser(vo);
 
-		return "mypage";
+		if (user != null) {
+			
+			ClassVO cvo = new ClassVO();
+			cvo.setClassNo(user.getClassNo());
+			ClassVO lecture = cdao.getClass(cvo);
+			
+			session.setAttribute("member", user);
+			session.setAttribute("lecture", lecture);
+			return "mypage";
+		} else
+			return "main";
 
 	}
 
@@ -48,7 +56,7 @@ public class UserController {
 	public String login(HttpServletRequest request, @RequestParam("id") String id, String pw, String button) {
 		/*
 		 * if(vo.getId()==null || vo.getId().equals("")) { throw new
-		 * IllegalArgumentException("�븘�씠�뵒�뒗 諛섎뱶�떆 �엯�젰�빐�빞 �빀�땲�떎."); }
+		 * IllegalArgumentException("占쎈툡占쎌뵠占쎈탵占쎈뮉 獄쏆꼶諭띰옙�뻻 占쎌뿯占쎌젾占쎈퉸占쎈튊 占쎈�占쎈빍占쎈뼄."); }
 		 */
 		HttpSession session = request.getSession();
 		if(button.equals("Sign up")) {
@@ -60,7 +68,7 @@ public class UserController {
 		UserVO vo = new UserVO();
 		vo.setId(id);
 		vo.setPw(pw);
-		user = dao.getUser(vo);
+		user = mdao.login(vo);
 		ModelAndView mav = new ModelAndView();
 		//System.out.println(user.getPoint());
 
@@ -82,7 +90,7 @@ public class UserController {
 
 	}
 	
-	//회원가입
+	//�쉶�썝媛��엯
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signup(UserVO vo) {
 
@@ -111,7 +119,7 @@ public class UserController {
 	   }
 	
 	
-	/* �떚耳볦갹 �쓣�슦湲� */
+	/* 占쎈뼒�노낌媛� 占쎌뱽占쎌뒭疫뀐옙 */
 
 	@RequestMapping(value = "/useticket")
 	public String useticket() {
@@ -120,7 +128,7 @@ public class UserController {
 	}
 
 	
-	/* �떚耳� 援щℓ 李� �쓣�슦湲� */
+	/* 占쎈뼒�놂옙 �뤃�됤꼻 筌∽옙 占쎌뱽占쎌뒭疫뀐옙 */
 	@RequestMapping(value = "/buyticket")
 	public String buyticket() {
 		
@@ -133,7 +141,7 @@ public class UserController {
 	}
 	
 	
-	/* �떚耳볦궗�슜 */
+	/* 占쎈뼒�노낌沅쀯옙�뒠 */
 	@RequestMapping(value = "/useticketClick")
 	public String useticketClick(UserVO vo, HttpSession session) {
 		
@@ -146,7 +154,7 @@ public class UserController {
 	
 	   
 	   
-	   //�떚耳볤뎄留�//
+	   //占쎈뼒�노낀�럡筌랃옙//
 		@RequestMapping(value = "/buyticketClick", method = RequestMethod.GET)
 		public String buyticketClick(@RequestParam("ticket")String ticket,  HttpSession session, UserVO vo) {
 			
@@ -167,14 +175,14 @@ public class UserController {
 		}
 	   
 	   
-	   //�룷�씤�듃 異⑹쟾李�//
+	   //占쎈７占쎌뵥占쎈뱜 �빊�뫗�읈筌∽옙//
 	   @RequestMapping(value = "/addpoint")
 		public String addPoint(UserVO vo) {
 		   return "/addpoint";
 		}
 		
 	  
-	   //�룷�씤�듃 異⑹쟾//
+	   //占쎈７占쎌뵥占쎈뱜 �빊�뫗�읈//
 	   
 		@RequestMapping(value = "/addpointClick",  method = RequestMethod.GET)
 		public String addPointClick(@RequestParam("money")String money,  HttpSession session) {

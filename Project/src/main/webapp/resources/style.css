@@ -1,34 +1,46 @@
 @charset "UTF-8";
-@font-face { 
+/* @font-face { 
 	font-family: 'HangeulNuri-Bold'; 
 	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/HangeulNuri-Bold.woff') format('woff'); 
 	src: url('<%=request.getContextPath()%>/resources/font/HangeulNuri-Bold.woff') format('woff'); 
 	font-weight: normal; 
 	font-style: normal; 
-}
+} */
 
+@import url('https://fonts.googleapis.com/css?family=Hi+Melody&display=swap&subset=korean');
 
-
+ 
+ @import url('https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean');
 body {
-	font-family: 'HangeulNuri-Bold';
+	
+	 /* background: #456; */
+  	/* font-family: 'Open Sans', sans-serif; */
+	font-family: 'Do Hyeon','Hi Melody','Open Sans', sans-serif;
 	align-content: center;
 	vertical-align: middle;
 	margin: 0 auto;
+	font-size: x-large;
+}
+
+#sub{
+	position:relative; 
+	left:77%; 
+	
 }
 
 
 		/* main.jsp */
 
-/* #loginform {
+ #loginform {
 	border: 6px solid DodgerBlue;
 	width: 50%;
 	height: 300px;
 	position: relative;
 	margin-left: 25%;
 	padding-top: 5%;	
-} */
+} 
 
-/* input {
+/*  input {
     width: 70%;
     border-radius: 20px;
     line-height: 50px;
@@ -36,11 +48,12 @@ body {
     	margin: auto;
     	border: 0;
    		opacity: 0.15;
-}
+} */
 
 input p {
     color: #fff;
     opacity: 1;
+    font-size: x-large;
 }
 
 input.submit {
@@ -52,8 +65,12 @@ input.submit {
     opacity: 1;
     background-color: #1161EE;
     cursor: pointer;
-} */
+    
+} 
 
+a{
+	text-decoration: none;
+}
 
 		/* list */
 table.table2 {
@@ -87,6 +104,7 @@ table.table2 td {
 }
 
 .button {
+	font-family: 'Hi Melody','Open Sans', sans-serif;
 	width: 70px;
 	height: 30px;
 	border-radius: 20px;
@@ -126,13 +144,13 @@ table.table2 td {
     cursor: pointer;
 }
 
-/* img .login-img{
+img .login-img{
 	display: block;
 	position: absolute;
 	margin: auto;
 	z-index: -1;
 }
- */
+ 
 .menu {
 	background-color: DodgerBlue;
 	text-align: center;
@@ -187,7 +205,7 @@ table.table2 td {
 	width: 150px;
 	font-size: 15px;
 	font-weight: bold;
-	/* font-family: "고딕체", "Trebuchet MS", Dotum, Arial; */
+
 }
 
 #topMenu .menuLink:hover {
@@ -237,15 +255,25 @@ table.table2 td {
 }
 
 
+#logout {
+	position : relative;
+	left : 45%;
 
+}
 
+#skyblue{
+	position:relative;
+	left : 20%;
+	font-size:0.99em;
+	color: grey;
+}
 
 #insert {
 	/* padding-top: 10px;  */
 	width: 700;
 	border: 0;
 	cellpadding: 2;
-	padding-left: 15%
+	/* padding-left: 15% */
 }
 
 #barcode {
@@ -276,5 +304,8 @@ position: relative;
 	width : 70%;
 	
 }
+
+
+
 
 

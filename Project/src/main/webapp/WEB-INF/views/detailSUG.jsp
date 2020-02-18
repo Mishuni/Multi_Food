@@ -13,8 +13,10 @@
 <body>
 	
 	<a id = "logo" href="./mypage">
-	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" ></a>
-	<a id = "logout" href="./logout">로그아웃</a>
+	<img id="logoimg" src="<%=request.getContextPath()%>/resources/images/logo.png" ></a>
+	
+	<button id = "logout" class="button" onclick="location.href='./logout'" >로그아웃</button>
+	
 	<nav id="topMenu" class="menu">
 	<ul>
 		<li><a class="menuLink" href="./todaymenu">오늘의 메뉴</a></li>
@@ -72,9 +74,9 @@
 		           </td>
 		             
 		            <td align="right" width= "100"style="padding=0">
-		              <input id="button" type="button" value="수정하기" onclick="location.href='./updateSUG?seq=${detail.seq}&writer=${detail.writer}'"></td>
+		              <input class="button" type="button" value="수정하기" onclick="location.href='./updateSUG?seq=${detail.seq}&writer=${detail.writer}'"></td>
 		            <td align="right" width= "100"style="padding=0">
-		              <input id="button" type="button" value="삭제하기" onclick="location.href='./deleteSUG?seq=${detail.seq}&writer=${detail.writer}'"></td>
+		              <input class="button" type="button" value="삭제하기" onclick="location.href='./deleteSUG?seq=${detail.seq}&writer=${detail.writer}'"></td>
 		          </tr>
 		        </table>
 		      </td>
@@ -87,9 +89,9 @@
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="#" onclick= popup(${member.tickets }) >식권사용</a></li>
-		<li><a class="menuLink" href="#" onclick= popup2(${member.point }) >식권구매</a></li>
-		<li><a class="menuLink" href="#" onclick= pointpopup() >포인트충전</a></li>
+		<li><a class="menuLink" onclick= popup(${member.tickets }) >식권사용</a></li>
+		<li><a class="menuLink" onclick= popup2(${member.point }) >식권구매</a></li>
+		<li><a class="menuLink" onclick= pointpopup() >포인트충전</a></li>
 	</ul>
 	</nav>
 	<br>

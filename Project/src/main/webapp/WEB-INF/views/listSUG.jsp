@@ -13,7 +13,10 @@
 <body>
 	
 	<a id = "logo" href="./mypage">
-	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" ></a>
+	<img id="logoimg" src="<%=request.getContextPath()%>/resources/images/logo.png" ></a>
+	
+	<button id = "logout" class="button" onclick="location.href='./logout'" >로그아웃</button>
+	
 	
 	<nav id="topMenu" class="menu">
 	<ul>
@@ -67,7 +70,7 @@
 					<input type="submit" value="검색">
 				</form>
 			</td>
-			<td><input id="button" type="button" value="글쓰기"
+			<td><input class="button" type="button" value="글쓰기"
 				onClick="location.href='./insertformSUG'"></td>
 		</tr>
 	</table>
@@ -80,9 +83,9 @@
 
 	<nav id="topMenu" class="menu">
 	<ul>
-		<li><a class="menuLink" href="#" onclick= popup(${member.tickets }) >식권사용</a></li>
-		<li><a class="menuLink" href="#" onclick= popup2(${member.point }) >식권구매</a></li>
-		<li><a class="menuLink" href="#" onclick= pointpopup() >포인트충전</a></li>
+		<li><a class="menuLink" onclick= popup(${member.tickets }) >식권사용</a></li>
+		<li><a class="menuLink" onclick= popup2(${member.point }) >식권구매</a></li>
+		<li><a class="menuLink" onclick= pointpopup() >포인트충전</a></li>
 	</ul>
 	</nav>
 	<br>

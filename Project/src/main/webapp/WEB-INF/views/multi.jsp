@@ -10,9 +10,11 @@
 
 </head>
 <body>
-	<a id = "logo" href="./main">
-	<img src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png" >
-	</a>
+	<a id = "logo" href="./mypage">
+	<img id="logoimg" src="<%=request.getContextPath()%>/resources/images/logo.png" ></a>
+	
+	<button id = "logout" class="button" onclick="location.href='./logout'" >로그아웃</button>
+	
 	
 	<nav id="topMenu" class="menu">
 	<ul>

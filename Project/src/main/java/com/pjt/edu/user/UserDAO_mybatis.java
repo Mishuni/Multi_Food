@@ -33,25 +33,27 @@ public class UserDAO_mybatis  {
       return user;
    }
    
-
+   public UserVO login(UserVO vo) {
+	   return session.selectOne("oneLogin",vo);
+   }
 
    public int userRoll(UserVO vo) {
       return session.selectOne("userroll");
    }
    
    
-   //�떇沅뚯궗�슜
+   //占쎈뻼亦낅슣沅쀯옙�뒠
    public void useticket(String name) {
       session.update("useticket",name);
    }
    
-   //�떚耳볤뎄留�
+   //占쎈뼒�노낀�럡筌랃옙
    
    public int addticket(Map map) {
       return session.update("addticket",map);
    }
    
-   //�룷�씤�듃 異⑹쟾
+   //占쎈７占쎌뵥占쎈뱜 �빊�뫗�읈
    public int addpoint(Map map) {
       return session.update("addpoint",map);
    }

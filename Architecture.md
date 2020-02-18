@@ -167,7 +167,19 @@
 * web.xml
 
   ```xml
-  	<filter>
+  <context-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>
+  		/WEB-INF/spring/root-context.xml
+  			/WEB-INF/spring/mybatis-spring.xml
+  		
+  		</param-value>
+  	</context-param>
+  		
+  
+  
+  
+  <filter>
   		<display-name>EncodingFilter</display-name>
   		<filter-name>EncodingFilter</filter-name>
   		<filter-class>
@@ -176,7 +188,7 @@
   		<init-param>
   			<param-name>encoding</param-name>
   			<param-value>utf-8</param-value>
-  		</init-param>
+		</init-param>
   	</filter>
   	<filter-mapping>
   		<filter-name>EncodingFilter</filter-name>
@@ -188,7 +200,7 @@
    </session-config>
   
   ```
-
+  
   
 
 
