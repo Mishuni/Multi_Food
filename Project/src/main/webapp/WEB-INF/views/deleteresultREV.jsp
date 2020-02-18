@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>타이틀입력</title>
+<title>삭제성공</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/style.css" />
 <script src="<%=request.getContextPath()%>/resources/js/popup.js"></script>
 </head>

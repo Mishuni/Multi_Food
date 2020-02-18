@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>타이틀입력</title>
+<title>식권구매</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script>
 			$(document).ready(function(){
@@ -38,7 +38,7 @@
 	<!-- 코드작성 -->
 	<div>
 	
-	<%=((UserVO)session.getAttribute("member")).getId() %> 님의 식권구매창 입니다.<hr>
+	<%=((UserVO)session.getAttribute("member")).getName() %> 님의 식권구매창 입니다.<hr>
 	현재식권 : <%=((UserVO)session.getAttribute("member")).getTickets() %> 개 <br>
 	현재포인트 : <%=((UserVO)session.getAttribute("member")).getPoint() %>p 
 	<hr>

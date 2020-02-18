@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>메인화면</title>
+<title>로그인</title>
 <%-- <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/style.css?var=2" /> --%>
 	

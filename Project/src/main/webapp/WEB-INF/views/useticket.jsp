@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>타이틀입력</title>
+<title>식권사용</title>
 <%-- <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/style.css" /> --%>
 
@@ -23,7 +23,7 @@
 	<!-- 코드작성 -->
 	<div>
 	
-	<%=((UserVO)session.getAttribute("member")).getId() %> 님의 식권사용창 입니다
+	<%=((UserVO)session.getAttribute("member")).getName() %> 님의 식권사용창 입니다
 	<img id="barcode" alt=""
 		src="https://www.cognex.com/library/media/resources/symbologies/codabar.jpg?h=250&w=447&la=ko-KR&hash=D4EA5DD48004E24FB299EF12260DFEE22D9CD328">
 </div>

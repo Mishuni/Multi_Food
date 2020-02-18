@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>타이틀입력</title>
+<title>포인트구매</title>
 
 </head>
 <body>
