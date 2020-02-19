@@ -40,9 +40,10 @@
 				<input type="text" placeholder="name" name="name" />
 			</p>
 			<p>
-				<select>
+				<select name="classNo">
+					<option class="option" selected>클래스를 선택하세요.</option>
 					<c:forEach items="${clist}" var="vo">
-						<option name="classNo" value=${vo.classNo }>
+						<option class="option" value=${vo.classNo }>
 							${vo.className }</option>
 					</c:forEach>
 				</select>

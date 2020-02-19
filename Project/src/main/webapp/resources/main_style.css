@@ -95,4 +95,22 @@
 
 }
   
+.login select {
+  width: 100%;
+  border-color: #bbb;
+  color: #555;
+   padding: .65em .4em; 
+  font-family: inherit;
+  background: url(images/select.jpg) no-repeat 100% ;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #999;
+  border-radius: 0px;
+  box-shadow: #fff;
+  background-color: #fff;
+}
   
+/*  .option{
+ }
+ */

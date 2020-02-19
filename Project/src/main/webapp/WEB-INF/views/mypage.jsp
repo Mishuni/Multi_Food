@@ -27,7 +27,7 @@
 	</nav>
 	<br>
 
-	<h1 id="welcome">${member.name }님안녕하세요!</h1>
+	<h1 id="welcome">${member.name }님 안녕하세요!</h1>
 
 	<div id="myclass">
 		<h2>수강 클래스 정보</h2>

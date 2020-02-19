@@ -25,20 +25,17 @@
 				});
 			});
 	</script>
+	
+	<link rel="stylesheet" type="text/css"	href="<%=request.getContextPath()%>/resources/style.css" />
 </head>
 <body>
-	<img
-		src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png">
-	
-
-
+	<img id="logoimg" width="350px" src="<%=request.getContextPath()%>/resources/images/logo.png" >
 	<br>
-
 	<hr>
 	<!-- 코드작성 -->
 	<div>
 	
-	<%=((UserVO)session.getAttribute("member")).getName() %> 님의 식권구매창 입니다.<hr>
+	<h1><%=((UserVO)session.getAttribute("member")).getName() %> 님의 식권구매창 입니다.<hr></h1>
 	현재식권 : <%=((UserVO)session.getAttribute("member")).getTickets() %> 개 <br>
 	현재포인트 : <%=((UserVO)session.getAttribute("member")).getPoint() %>p 
 	<hr>
@@ -55,33 +52,14 @@
 			<h3><input type="radio" name="ticket" value="10"><label for="10">10개 </label></h3>
 		</p>
 
-		총 결제 포인트는 
-		<b><p id="money" name="money"></p></b>
-		<input type="submit" name="buy" value="구매"/>
+		총 결제 포인트는 <b><p id="money" name="money" ></p></b><br>
+		<input class="button" type="submit" name="buy" value="구매"/>
 	</form>
-	
-	
-	
-		<!-- <form action ="./buyticketClick" methond ="post"> -->
-
 	
 	
 </div>
 
-
-
-
 	<hr>
-
-
-
-
-	<br>
-
-
-
-
-
 
 
 </body>

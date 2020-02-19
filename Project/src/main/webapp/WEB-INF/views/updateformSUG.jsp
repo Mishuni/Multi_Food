@@ -18,7 +18,7 @@
 	
 	<button id = "logout" class="button" onclick="location.href='./logout'" >로그아웃</button>
 	
-	<a id = "logout" href="./logout">로그아웃</a>
+	
 
 	<nav id="topMenu" class="menu">
 	<ul>

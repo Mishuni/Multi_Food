@@ -7,12 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>포인트구매</title>
-
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/resources/style.css" />
 </head>
 <body>
-	<a id="logo" href="./main"> <img
-		src="https://www.multicampus.com/img/saas/main/logo/CUS0001/pc_main.png">
-	</a>
+	<img id="logoimg" width="350px" src="<%=request.getContextPath()%>/resources/images/logo.png" >
 
 
 	<br>
@@ -23,7 +22,7 @@
 	
 <h1>	<%=((UserVO)session.getAttribute("member")).getName() %> 님의 포인트충전창 입니다 </h1>
 
-
+<hr>
 
 	<form action ="./addpointClick" methond ="post">
 		<h2>충전하실 포인트를 선택하세요</h2>
@@ -37,9 +36,9 @@
 			<h3><input type="radio" name="money" value="300"><label for="300">300p </label></h3>
 			<h3><input type="radio" name="money" value="600"><label for="600">600p </label></h3>
 		</p>
-		
+		<hr>
 		<p>
-			<input type="submit" value="제출" >
+			<input class="button" type="submit" value="제출" >
 		</p>
 	</form>
 
