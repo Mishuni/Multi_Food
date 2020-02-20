@@ -31,13 +31,13 @@
 
 		<form class="login-container" action="/edu/signup" method="post">
 			<p>
-				<input type="text" placeholder="id" name="id" />
+				<input type="text" placeholder="id" name="id" required/>
 			</p>
 			<p>
-				<input type="password" placeholder="password" name="pw" />
+				<input type="password" placeholder="password" name="pw" required/>
 			</p>
 			<p>
-				<input type="text" placeholder="name" name="name" />
+				<input type="text" placeholder="name" name="name" required/>
 			</p>
 			<p>
 				<select name="classNo">

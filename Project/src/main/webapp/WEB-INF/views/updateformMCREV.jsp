@@ -47,8 +47,8 @@
 					<table class="table2">
 						<tr>
 							<td>No</td>
-							<td><input type=text name=seq size=70 value='${update.seq}'
-								readonly="readonly"></td>
+							<td>${update.seq}</td>
+
 						</tr>
 						<tr>
 							<td>제목</td>
@@ -58,8 +58,7 @@
 
 						<tr>
 							<td>작성자</td>
-							<td><input type=text name=seq size=70
-								value='${update.writer}' readonly="readonly"></td>
+							<td>${update.writer}</td>
 						</tr>
 
 						<tr>
@@ -73,9 +72,9 @@
 		</table>
 		<input class="button"  id="sub" type="submit" value="작성">
 
+<input type="text" name="seq" value="${update.seq}" style="display: none;">
 	</form>
 	<br>
-
 
 	<nav id="topMenu" class="menu">
 	<ul>

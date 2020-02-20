@@ -50,7 +50,7 @@
 
 						<tr>
 							<td>작성자</td>
-							<td><input type=text name=writer size=10 value='<%=((UserVO)session.getAttribute("member")).getId() %>'readonly ></td>
+							<td><%=((UserVO)session.getAttribute("member")).getId() %></td>
 						</tr>
 
 						<tr>

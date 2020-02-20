@@ -59,8 +59,8 @@
 		            <td BGCOLOR="#EFEFEF" align="center" valign="middle" height="25">제목</td>
 		            <td bgcolor="white">${detail.title }</td>
 		          </tr>
-		          <tr VALIGN="top">
-		            <td BGCOLOR="#EFEFEF" align="center" valign="middle">내용</td>
+		          <tr VALIGN="middle">
+		            <td height="200" BGCOLOR="#EFEFEF" align="center" valign="middle">내용</td>
 		            <td bgcolor= "white"class="content">${detail.contents }</td>
 		          </tr>
 		        </table>
