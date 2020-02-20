@@ -6,11 +6,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원가입</title>
+<title>회원가입실패</title>
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/main_style.css?var=20" />
-
-
+	href="<%=request.getContextPath()%>/resources/main_style.css" />
+<script type="text/javascript">
+	alert("클래스를 선택해주세요.");
+</script>
 </head>
 <body style="text-align: center;">
 	
@@ -42,7 +43,7 @@
 			</p>
 			<p>
 				<select name="classNo">
-					<option class="option" selected value=0 disabled>클래스를 선택하세요.</option>
+					<option class="option" selected disabled>클래스를 선택하세요.</option>
 					<c:forEach items="${clist}" var="vo">
 						<option class="option" value=${vo.classNo }>
 							${vo.className }</option>

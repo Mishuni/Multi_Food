@@ -66,6 +66,7 @@
 			</tr>
 		</table>
 		<input class="button"  id="sub" type="submit" value="작성">
+		<input type="text" name="writer" value="${member.id}" style="display: none;">
 			
 	</form>
 	<br>

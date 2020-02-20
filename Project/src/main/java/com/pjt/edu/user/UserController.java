@@ -96,12 +96,17 @@ public class UserController {
 
 		
 		ModelAndView mv = new ModelAndView();
-		System.out.println(vo.getId());
+		//System.out.println(vo.getId());
 		UserVO mem = null;
 		mem=mdao.getUser(vo);
 		if(mem==null) {
-			mdao.insertUser(vo);
-			
+			if(vo.getClassNo()==0) {
+				
+				return "signupfail2";
+			}
+			else {
+				mdao.insertUser(vo);
+			}
 			return "signupsuccess";
 		}
 		else {
