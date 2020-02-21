@@ -43,7 +43,7 @@
 			</p>
 			<p>
 				<select name="classNo">
-					<option class="option" selected>클래스를 선택하세요.</option>
+					<option class="option" selected disabled>클래스를 선택하세요.</option>
 					<c:forEach items="${clist}" var="vo">
 						<option class="option" value=${vo.classNo }>
 							${vo.className }</option>

@@ -9,7 +9,6 @@
 		<param-value>
 		/WEB-INF/spring/root-context.xml
 		/WEB-INF/spring/mybatis-spring.xml
-		
 		</param-value>
 	</context-param>
 	

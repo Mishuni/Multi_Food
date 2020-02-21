@@ -24,7 +24,7 @@ public class SUGcontroller {
 	SUGDAO dao;
 	List<Integer> allrow = new ArrayList<Integer>();
 
-	// paging 처리 매서드
+	// paging 泥섎━ 留ㅼ꽌�뱶
 	public List<Integer> pagemap() {
 		String row = dao.rowcount();
 		List<Integer> allrow = new ArrayList<Integer>();
@@ -41,13 +41,13 @@ public class SUGcontroller {
 		return allrow;
 	}
 
-	//글쓰기 폼 띄우기.
+	//湲��벐湲� �뤌 �쓣�슦湲�.
 	@RequestMapping(value = "/insertformSUG", method = RequestMethod.GET)
 	public String insertBordForm() {
 		return "insertformSUG";
 	}
 
-	//글쓰기 완료후 DB 저장후 목록으로 이동.
+	//湲��벐湲� �셿猷뚰썑 DB ���옣�썑 紐⑸줉�쑝濡� �씠�룞.
 	@RequestMapping(value = "/insertformSUG", method = RequestMethod.POST)
 	public String insertBoareResult(SUGBoardVO vo) {
 
@@ -55,7 +55,7 @@ public class SUGcontroller {
 		return "redirect:/listSUG";
 	}
 
-	//SUG Board list 출력.
+	//SUG Board list 異쒕젰.
 	@RequestMapping("/listSUG")
 	public ModelAndView sugboardlist(String num) {
 
@@ -83,7 +83,7 @@ public class SUGcontroller {
 		return mv;
 	}
 
-	//세부글 출력.
+	//�꽭遺�湲� 異쒕젰.
 	@RequestMapping(value = "/detailSUG", method = RequestMethod.GET)
 	public ModelAndView sugboardone(SUGBoardVO vo) {
 
@@ -112,19 +112,23 @@ public class SUGcontroller {
 //		return "redirect:detailSUG";
 //		
 //	}
-	//글 수정. 작성자와 admin만 수정가능. 수정할 글을 updateformMCREV로 가져옴.
+	//湲� �닔�젙. �옉�꽦�옄�� admin留� �닔�젙媛��뒫. �닔�젙�븷 湲��쓣 updateformMCREV濡� 媛��졇�샂.
 	@RequestMapping(value = "/updateSUG", method = RequestMethod.GET)
 	public ModelAndView updateBoard(/* @ModelAttribute("update") */ SUGBoardVO vo, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(vo);
+		
 		SUGBoardVO loginVO = (SUGBoardVO) dao.getBoard(vo);
+		
 		String roll = ((UserVO) session.getAttribute("member")).getRole();
-
-		if (loginVO.getWriter().equals(vo.getWriter())) {
+		String name = ((UserVO) session.getAttribute("member")).getId();
+			
+		if (vo.getWriter().equals(name)) {
 			vo = (SUGBoardVO) dao.getBoard(vo);
 			System.out.println(vo);
 			mv.addObject("update", vo);
 			mv.setViewName("updateformSUG");
+			
 			return mv;
 		} else if (roll.equals("admin")) {
 			vo = (SUGBoardVO) dao.getBoard(vo);
@@ -139,24 +143,24 @@ public class SUGcontroller {
 
 	}
 
-	// 글 삭제기능. 작성자와 admin만 삭제 가능.
+	// 湲� �궘�젣湲곕뒫. �옉�꽦�옄�� admin留� �궘�젣 媛��뒫.
 	@RequestMapping(value = "/updateSUG", method = RequestMethod.POST)
 	public String updateformBoard(/* @ModelAttribute("update") */ SUGBoardVO vo) {
 		dao.updateBoard(vo);
 		return "redirect:./listSUG";
 	}
-	// 글 삭제기능. 작성자와 admin만 삭제 가능.
+	// 湲� �궘�젣湲곕뒫. �옉�꽦�옄�� admin留� �궘�젣 媛��뒫.
 	@RequestMapping(value = "/deleteSUG", method = RequestMethod.GET)
 	public String deleteBoardResult(SUGBoardVO vo, HttpSession session) {
 		System.out.println(vo);
 		SUGBoardVO loginVO = (SUGBoardVO) dao.getBoard(vo);
 		String roll = ((UserVO) session.getAttribute("member")).getRole();
-
+		String name = ((UserVO) session.getAttribute("member")).getId();
 //		UserVO uvo= new UserVO();
 //		uvo.setId(vo.getWriter());
 //		
 //		uvo=udao.getUser(uvo);
-		if (loginVO.getWriter().equals(vo.getWriter())) {
+		if (vo.getWriter().equals(name)) {
 			dao.deleteBoard(vo);
 			return "redirect:/listSUG";
 		} else if (roll.equals("admin")) {
@@ -166,7 +170,7 @@ public class SUGcontroller {
 			return "cannotDelete";
 		}
 	}
-	//검색기능. title or writer 로 검색.
+	//寃��깋湲곕뒫. title or writer 濡� 寃��깋.
 		@RequestMapping(value="/listSUG",method=RequestMethod.POST)
 		public ModelAndView researchBoardList(SUGBoardVO vo, String search,String choice) {
 			ModelAndView mv = new ModelAndView();
