@@ -10,7 +10,7 @@
 	</insert> -->
 
 	<select id="classList" resultType="class">
-		select * from class order by seq desc
+		select * from class order by classno
 	</select>
 	
 	<select id="classNO" resultType="class" parameterType="class">
