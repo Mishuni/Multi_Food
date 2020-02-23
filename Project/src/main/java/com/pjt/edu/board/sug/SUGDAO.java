@@ -62,8 +62,8 @@ public class SUGDAO implements DAO {
 		int end = 5*(count);
 		row.put("start", start);
 		row.put("end",end);
-		System.out.println(start +","+end);
-		System.out.println(session.selectList("selectfivesug", row));
+		//System.out.println(start +","+end);
+		//System.out.println(session.selectList("selectfivesug", row));
 		return session.selectList("selectfivesug", row);
 	}
 	//총 글갯수 return

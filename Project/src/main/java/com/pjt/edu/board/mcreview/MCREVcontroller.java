@@ -47,8 +47,8 @@ public class MCREVcontroller {
 	//글쓰기 완료후 DB 저장후 목록으로 이동.
 	@RequestMapping(value = "/insertformMCREV", method = RequestMethod.POST)
 	public String insertBoard(MCREVBoardVO vo) {
+		vo.setContents(vo.getContents().replace("\n", "<br>"));
 		dao.insertBoard(vo);
-
 		return "redirect:/listMCREV";
 	}
 

@@ -48,7 +48,7 @@ public class REVcontroller {
 	//글쓰기 완료후 DB 저장후 목록으로 이동.
 	@RequestMapping(value = "/insertformREV", method = RequestMethod.POST)
 	public String insertBoareResult(REVBoardVO vo) {
-
+		vo.setContents(vo.getContents().replace("\n", "<br>"));
 		dao.insertBoard(vo);
 		return "redirect:/listREV";
 

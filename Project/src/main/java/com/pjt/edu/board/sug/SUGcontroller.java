@@ -7,14 +7,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pjt.edu.board.BoardVO;
-import com.pjt.edu.board.mcreview.MCREVBoardVO;
-import com.pjt.edu.user.UserDAO;
 import com.pjt.edu.user.UserVO;
 
 @Controller
@@ -50,7 +47,7 @@ public class SUGcontroller {
 	//湲��벐湲� �셿猷뚰썑 DB ���옣�썑 紐⑸줉�쑝濡� �씠�룞.
 	@RequestMapping(value = "/insertformSUG", method = RequestMethod.POST)
 	public String insertBoareResult(SUGBoardVO vo) {
-		vo.getContents().replace("\n", "<br>");
+		vo.setContents(vo.getContents().replace("\n", "<br>"));
 		dao.insertBoard(vo);
 		return "redirect:/listSUG";
 	}
@@ -59,12 +56,6 @@ public class SUGcontroller {
 	@RequestMapping("/listSUG")
 	public ModelAndView sugboardlist(String num) {
 
-//		ModelAndView mv = new ModelAndView();
-//		SUGBoardVO vo = new SUGBoardVO();
-//		List<BoardVO> list = dao.getBoardList(vo);
-//		
-//		mv.addObject("list", list);
-//		return mv;
 		if (num == null) {
 			num = "1";
 		}
@@ -87,7 +78,7 @@ public class SUGcontroller {
 	@RequestMapping(value = "/detailSUG", method = RequestMethod.GET)
 	public ModelAndView sugboardone(SUGBoardVO vo) {
 
-		System.out.println(vo);
+		//System.out.println(vo);
 
 		ModelAndView mv = new ModelAndView();
 		vo = (SUGBoardVO) dao.getBoard(vo);
@@ -100,7 +91,7 @@ public class SUGcontroller {
 	@RequestMapping(value = "/updateSUG", method = RequestMethod.GET)
 	public ModelAndView updateBoard(/* @ModelAttribute("update") */ SUGBoardVO vo, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println(vo);
+		//System.out.println(vo);
 		
 		SUGBoardVO loginVO = (SUGBoardVO) dao.getBoard(vo);
 		
@@ -109,7 +100,7 @@ public class SUGcontroller {
 			
 		if (vo.getWriter().equals(name)) {
 			vo = (SUGBoardVO) dao.getBoard(vo);
-			System.out.println(vo);
+			//System.out.println(vo);
 			mv.addObject("update", vo);
 			mv.setViewName("updateformSUG");
 			
@@ -162,7 +153,7 @@ public class SUGcontroller {
 			if(choice.equals("writer")) {
 				String writer = search;
 				List<BoardVO> list = dao.writerList(writer);
-				System.out.println(list);
+				//System.out.println(list);
 				mv.addObject("list", list) ;
 			}else if(choice.equals("title")) {
 				String title=search;
