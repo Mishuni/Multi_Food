@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mcboard">
+
+<!-- 	<insert id="newboard" parameterType="mcboard">
+		insert into mcreviewboard(seq,title,writer,contents,regdate,viewcount)
+		values ((SELECT MAX(SEQ)+1 FROM mcreviewboard),
+		#{title},#{writer},#{contents}, sysdate,0)
+	</insert> -->
+
+	<select id="classList" resultType="class">
+		select * from class order by seq desc
+	</select>
+	
+	<select id="classNO" resultType="class" parameterType="class">
+		select * from class where classno= #{classNo}
+	</select>
+
+
+
+	<!-- <![CDATA[XML태그 아니고 이거 문자열이야]]> -->
+</mapper>
+
+
+
+
+
+
+
+

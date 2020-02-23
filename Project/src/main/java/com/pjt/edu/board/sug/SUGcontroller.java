@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.pjt.edu.board.BoardVO;
 import com.pjt.edu.board.mcreview.MCREVBoardVO;
-import com.pjt.edu.user.UserDAO_mybatis;
+import com.pjt.edu.user.UserDAO;
 import com.pjt.edu.user.UserVO;
 
 @Controller
@@ -50,7 +50,7 @@ public class SUGcontroller {
 	//湲��벐湲� �셿猷뚰썑 DB ���옣�썑 紐⑸줉�쑝濡� �씠�룞.
 	@RequestMapping(value = "/insertformSUG", method = RequestMethod.POST)
 	public String insertBoareResult(SUGBoardVO vo) {
-
+		vo.getContents().replace("\n", "<br>");
 		dao.insertBoard(vo);
 		return "redirect:/listSUG";
 	}
@@ -90,28 +90,12 @@ public class SUGcontroller {
 		System.out.println(vo);
 
 		ModelAndView mv = new ModelAndView();
-//		dao.upViewCount(vo);	
 		vo = (SUGBoardVO) dao.getBoard(vo);
 		mv.addObject("detail", vo);
 		return mv;
 	}
 
-//	@RequestMapping(value="/insertFormSUG", method=RequestMethod.GET)
-//	public ModelAndView updateform(SUGBoardVO vo) {
-//		ModelAndView mv = new ModelAndView();
-//		
-//		vo=(SUGBoardVO)dao.getBoard(vo);
-//		mv.addObject("update",vo);
-//		return mv;
-//	}
-//	@RequestMapping(value="/insertFormSUG", method=RequestMethod.POST)
-//	public String updateboard(SUGBoardVO vo) {
-//		
-//		
-//		
-//		return "redirect:detailSUG";
-//		
-//	}
+
 	//湲� �닔�젙. �옉�꽦�옄�� admin留� �닔�젙媛��뒫. �닔�젙�븷 湲��쓣 updateformMCREV濡� 媛��졇�샂.
 	@RequestMapping(value = "/updateSUG", method = RequestMethod.GET)
 	public ModelAndView updateBoard(/* @ModelAttribute("update") */ SUGBoardVO vo, HttpSession session) {

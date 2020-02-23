@@ -10,6 +10,7 @@
 		<typeAlias type="com.pjt.edu.board.mcreview.MCREVBoardVO" alias="mcboard"/>
 		<typeAlias type="com.pjt.edu.board.sug.SUGBoardVO" alias="sugboard"/>
 		<typeAlias type="com.pjt.edu.board.review.REVBoardVO" alias="revboard"/>
+		<typeAlias type="com.pjt.edu.classes.ClassVO" alias="class"/>
 	</typeAliases>
 	
 	<!-- <environments default="mydb">

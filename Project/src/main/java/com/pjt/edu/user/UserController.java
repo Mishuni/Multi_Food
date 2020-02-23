@@ -21,7 +21,7 @@ import com.pjt.edu.classes.ClassVO;
 public class UserController {
 
 	@Autowired
-	UserDAO_mybatis mdao;
+	UserDAO mdao;
 
 	@Autowired
 	ClassDAO cdao;
