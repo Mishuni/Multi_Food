@@ -2,7 +2,7 @@
 
 ### 1. DB 구조
 
-<img src="images/db.png" width="400" height="400">
+<img src="images/db구조도.png" width="400" height="400">
 
 
 
